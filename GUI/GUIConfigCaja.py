@@ -1,4 +1,9 @@
 import os
+path_script = os.path.dirname(os.path.abspath(__file__))
+path_assets = os.path.join(path_script, '..', 'assets')
+import sys
+sys.path.append(path_assets)
+from image_path import *
 import tkinter as tk
 from tkinter import ttk, messagebox
 
@@ -31,7 +36,7 @@ class ConfigurarCajaApp:
     def icon(self):
         directorio_script = os.path.dirname(os.path.abspath(__file__))
         ruta_relativa = os.path.join(directorio_script, "..")
-        rutaicono = os.path.join(ruta_relativa, "Icono-MercadoPago-Blue.ico")
+        rutaicono = os.path.join(ruta_relativa, Icono_MercadoPago_Blue())
         self.ventana_config_caja.iconbitmap(rutaicono)       
     def tabla_caja_vacia(self):
         try:
