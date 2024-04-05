@@ -1167,7 +1167,10 @@ class ConexionSybase:
                 # Consulta para obtener el valor de la columna 'id' por 'condicion'
                 query = f"SELECT {nombre_columna} FROM {nombre_tabla} WHERE {condicion} = '{valor_condicion}'"
                 cursor.execute(query)
-                resultado = cursor.fetchone()
+                if valor_unico:
+                    resultado = cursor.fetchall()
+                else:
+                    resultado = cursor.fetchone()
 
                 if resultado is not None and valor_unico == False:
                     id_valor = resultado
@@ -1177,6 +1180,32 @@ class ConexionSybase:
                     return id_valor
                 else:
                     return None
+        except pypyodbc.Error as err:
+            print(f"Error al obtener el valor de 'id': {err}")
+            return None
+        
+    def specify_search_columna(self, nombre_tabla, nombre_columna):
+        try:
+            self.conectar()
+            with self.conexion.cursor() as cursor:
+                # Consulta para obtener el valor de la columna 'id' por 'condicion'
+                query = f"SELECT {nombre_columna} FROM {nombre_tabla}"
+                cursor.execute(query)
+                resultado = cursor.fetchall()
+                return resultado
+        except pypyodbc.Error as err:
+            print(f"Error al obtener el valor de 'id': {err}")
+            return None
+        
+    def specify_search_columna(self, nombre_tabla, nombre_columna):
+        try:
+            self.conectar()
+            with self.conexion.cursor() as cursor:
+                # Consulta para obtener el valor de la columna 'id' por 'condicion'
+                consulta = f"SELECT {nombre_columna} FROM {nombre_tabla}"
+                cursor.execute(consulta)
+                resultado = cursor.fetchall()
+                return resultado
         except pypyodbc.Error as err:
             print(f"Error al obtener el valor de 'id': {err}")
             return None

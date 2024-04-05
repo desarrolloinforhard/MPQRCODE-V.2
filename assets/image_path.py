@@ -11,5 +11,7 @@ def LOGO_INFORHARD():
 
 def LOGO_MP():
     logo = os.path.join(path_script, 'LOGO_MP.png')
-    print(logo)
     return logo
+
+def TACHO_BASURA():
+    return os.path.join(path_script, 'tacho_basura.png')

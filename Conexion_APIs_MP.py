@@ -106,7 +106,7 @@ class Conexion_Api:
         
         response = requests.delete(url, headers=headers)
         
-        return response.status_code
+        return response
             
     #ORDEN ATENDIDA
     def crear_orden(self, external_id, factura, sucNAME, monto_pagar, picture_url):

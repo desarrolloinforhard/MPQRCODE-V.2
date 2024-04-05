@@ -69,7 +69,7 @@ class Conexion_APP():
             return True
         else:
             print("NO SE PUDO ELIMINAR LA SUCURSAL")
-            return False, respuesta
+            return False
         
 
     
@@ -137,16 +137,16 @@ class Conexion_APP():
             print(f"ERROR EN LA CREACION DE LA CAJA: {e}")
             return MPQRCODE_RESPUESTA_CAJA_JSON
             
-    def eliminarCaja(self, valor_external_id):
-        valor_idPOS = self.conexionDBAServer.obtener_valor_id_por_external_id(valor_external_id, "MPQRCODE_CAJAS")
+    def eliminarCaja(self, valor_idPOS):
         respuesta = self.conexionAPI.eliminar_caja(valor_idPOS)
-        if respuesta >= 200 and respuesta < 300:
+        if respuesta.status_code >= 200 and respuesta.status_code < 300:
             self.conexionDBAServer.eliminar_filas("MPQRCODE_CAJAS_qr", "id_POS", valor_idPOS)
             self.conexionDBAServer.eliminar_filas("MPQRCODE_CAJAS", "id", valor_idPOS)
             self.conexionDBAServer.desconectar()
-            print(f"CAJA {valor_external_id}: ELIMINADA")
+            print(f"CAJA {valor_idPOS}: ELIMINADA")
         else:
-            print("NO SE PUDO ELIMINAR LA CAJA")            
+            print("NO SE PUDO ELIMINAR LA CAJA")
+        return respuesta            
     
     def limpieza_tabla_TOTALcaja(self):
         self.conexionDBAServer.eliminar_tabla("MPQRCODE_CAJAS")

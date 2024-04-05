@@ -17,7 +17,6 @@ from geoact import obtener_ubicacion_actual
 class CrearSucursalApp:
     def __init__(self, master, conexionAPI):
         self.conexionAPI = conexionAPI
-        print(self.conexionAPI.prueba())
         self.colorwindows()
         self.rootCrearSucursal =  customtkinter.CTkToplevel(master)
         self.rootCrearSucursal.focus()
@@ -742,14 +741,14 @@ class CrearSucursalApp:
         if self.toplevel_window is None:
             print(self.sucursal_info)
             self.deshabilitar_ventana_principal()
-            self.toplevel_window = TopLevelCargaMenu(self.rootCrearSucursal, self.conexionAPI, 'crear_sucursal', **self.sucursal_info)
+            self.toplevel_window = TopLevelCargaMenu(self.rootCrearSucursal, self.conexionAPI, **self.sucursal_info)
             self.toplevel_window.iniciar_interfaz()
             self.toplevel_window.top_level.transient(self.rootCrearSucursal)  # Establecer como transient
             self.toplevel_window.top_level.grab_set()  # Bloquear interacción con otras ventanas
         elif not self.toplevel_window.top_level.winfo_exists():
             print(self.sucursal_info)
             self.deshabilitar_ventana_principal()
-            self.toplevel_window = TopLevelCargaMenu(self.rootCrearSucursal, self.conexionAPI, 'crear_sucursal', **self.sucursal_info)
+            self.toplevel_window = TopLevelCargaMenu(self.rootCrearSucursal, self.conexionAPI, **self.sucursal_info)
             self.toplevel_window.iniciar_interfaz()
             self.toplevel_window.top_level.transient(self.rootCrearSucursal)  # Establecer como transient
             self.toplevel_window.top_level.grab_set()  # Bloquear interacción con otras ventanas

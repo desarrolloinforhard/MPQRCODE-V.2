@@ -11,6 +11,7 @@ from GUI.GUICrearOrden import CrearOrdenApp
 from GUI.GUIConfigCaja import ConfigurarCajaApp
 from GUI.GUIDSN import InterfazGrafica
 from GUI.GUIMainPOS import ConfigInicialMPQRCODEPOS
+from GUI.GUIEliminarSucursal import GUIEliminarSucursal
 from database import ConexionSybase
 from conexiones import Conexion_APP
 from datetime import datetime
@@ -407,7 +408,7 @@ class GUIconexiones:
         customtkinter.CTkButton(self.frame_ventana_principal, text="Crear Caja", command=self.crear_caja_app,).grid(row=1, column=0, pady=5, sticky='nsew')
         customtkinter.CTkButton(self.frame_ventana_principal, text="Ordenes", command=self.crear_orden_app,).grid(row=2, column=0, pady=5, sticky='nsew')
 
-        customtkinter.CTkButton(self.frame_ventana_principal, text="Eliminar Sucursal", command=self.mostrar_ventana_creacion_orden,).grid(row=0, column=1, pady=5, padx=5, sticky='nsew')
+        customtkinter.CTkButton(self.frame_ventana_principal, text="Eliminar Sucursal", command=self.eliminar_sucursal_app).grid(row=0, column=1, pady=5, padx=5, sticky='nsew')
         customtkinter.CTkButton(self.frame_ventana_principal, text="Configurar Caja", command=self.config_caja_app,).grid(row=1, column=1, pady=5, padx=5, sticky='nsew')
         customtkinter.CTkButton(self.frame_ventana_principal, text="Eliminar Orden", command=self.mostrar_ventana_creacion_orden,).grid(row=2, column=1, pady=5, padx=5, sticky='nsew')
 
@@ -438,6 +439,12 @@ class GUIconexiones:
     def config_caja_app(self):
         try:
             config_orden_app_instance = ConfigurarCajaApp(self.conexionAPI, self.conexionDBA, self.conexionDBASERVER)
+        except Exception as e:
+                print(f"Error: {e}")
+                
+    def eliminar_sucursal_app(self):
+        try:
+            GUIEliminarSucursal(self.ventana_principal, self.conexionDBASERVER, self.conexionAPI)
         except Exception as e:
                 print(f"Error: {e}")
     

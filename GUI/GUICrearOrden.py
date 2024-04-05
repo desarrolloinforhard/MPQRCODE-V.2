@@ -1,15 +1,17 @@
 _version_ = "1.2.4"
-
-
 import os
+path_script = os.path.dirname(os.path.abspath(__file__))
+path_assets = os.path.join(path_script, '..', 'assets')
+import sys
+sys.path.append(path_assets)
+from image_path import *
+
 import tkinter as tk
 from tkinter import ttk, messagebox
 import customtkinter
 import threading
 import time
 import keyboard
-import socket
-from assets.image_path import *
 from decimal import Decimal
 from PIL import Image
 from GUITopLevelCarga import TopLevelCargaMenu
