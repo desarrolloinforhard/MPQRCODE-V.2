@@ -11,6 +11,7 @@ from database import ConexionSybase
 from conexiones import Conexion_APP
 from tkinter import ttk, messagebox
 from GUI.GUICrearOrden import CrearOrdenApp
+from GUI.GUITopLevelCargaCREARORDEN import TopLevelCargaCREARORDEN
 
 
 class ConfigInicialMPQRCODEPOS:
@@ -59,6 +60,7 @@ class GUIconexiones:
         self.ventana_principal = None 
         self.conexionAPI = Conexion_APP(self.datos_connect, self.conexionDBA, self.conexionDBASERVER)
         self.conexionAPIPOINT = Conexion_APP(self.datos_connectPOINT, self.conexionDBA, self.conexionDBASERVER)
+        TopLevelCargaCREARORDEN()
         CrearOrdenApp(self.conexionAPI, self.conexionAPIPOINT, self.conexionDBA, self.conexionDBASERVER)
                 
 if __name__ == "__main__":

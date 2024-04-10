@@ -57,7 +57,13 @@ class Conexion_APP():
             print(f"ERROR EN LA CREACION DE LA SUCURSAL: {str(e)}")
             return response_MPQRCODE_RESPUESTA_SUCURSAL
     
-    def eliminarSUC(self, external_IDSUC):
+    def eliminarSUC(self, external_IDSUC, dict_cajas):
+        for clave, valor in dict_cajas.items():
+            if clave == 'PDV':
+                for nombre, valor in clave.items():
+                    self.eliminarCaja(valor['external_id'])
+            else:
+                pass
         valor_idSUC = self.conexionDBAServer.obtener_valor_id_por_external_id(external_IDSUC, "MPQRCODE_SUCURSAL")
         respuesta = self.conexionAPI.eliminar_sucursal(valor_idSUC)
         if respuesta >= 200 and respuesta < 300:

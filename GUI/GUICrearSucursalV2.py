@@ -19,11 +19,13 @@ class CrearSucursalApp:
         self.conexionAPI = conexionAPI
         self.colorwindows()
         self.rootCrearSucursal =  customtkinter.CTkToplevel(master)
+        # Establecer el icono del CTkToplevel
+        self.icon()
+        # Establecer otros atributos
         self.rootCrearSucursal.focus()
         self.rootCrearSucursal.grab_set()
         self.rootCrearSucursal.resizable(False, False)
         self.rootCrearSucursal.title("Crear Sucursal")
-        self.rootCrearSucursal.iconbitmap(RutaDeImagenes.Icono_MercadoPago_Blue())
         #self.rootCrearSucursal.overrideredirect(True)
         self.toplevel_window = None
         self.listDireccion = None
@@ -33,13 +35,16 @@ class CrearSucursalApp:
         self.Siguiente = True
         self.Buscar = False
         self.Cerrar = False
-        #self.encabezado_ventana()
         self.page_1_INIT()       
         self.page_2_INIT()
         self.page_3_INIT() 
         self.page_4_INIT()
         self.page_5_INIT()
         self.page_1()
+        
+    def icon(self):
+        rutaicono = RutaDeImagenes.Icono_MercadoPago_Blue()
+        self.rootCrearSucursal.iconbitmap(rutaicono)
         
     def encabezado_ventana(self):
         self.frameEncabezaVentana = customtkinter.CTkFrame(self.rootCrearSucursal, fg_color="gray")
@@ -72,13 +77,19 @@ class CrearSucursalApp:
         if respuesta:
             self.rootCrearSucursal.destroy()
         
-    def centrar_ventana_principal(self):
+    def center_window(self):
         self.rootCrearSucursal.update_idletasks()
-        ancho = self.rootCrearSucursal.winfo_width()
-        alto = self.rootCrearSucursal.winfo_height()
-        x = (self.rootCrearSucursal.winfo_screenwidth() // 2) - (ancho // 2)
-        y = (self.rootCrearSucursal.winfo_screenheight() // 2) - (alto // 2)
-        self.rootCrearSucursal.geometry('+{}+{}'.format(x, y))
+        width = self.rootCrearSucursal.winfo_width()
+        height = self.rootCrearSucursal.winfo_height()
+        screen_width = self.rootCrearSucursal.winfo_screenwidth()
+        screen_height = self.rootCrearSucursal.winfo_screenheight()
+        x = (screen_width - width) // 2
+        y = (screen_height - height) // 2
+        self.rootCrearSucursal.geometry(f"{width}x{height}+{x}+{y}")
+        
+    def on_map(self, event):
+        # Centrar la ventana cuando se mapea por completo
+        self.center_window()
 
         
     def colorwindows(self):
@@ -108,6 +119,7 @@ class CrearSucursalApp:
     
     def page_1(self):
         self.rootCrearSucursal.geometry("700x485")
+        self.rootCrearSucursal.bind("<Map>", self.on_map)
         if self.Volver == True:
             self.logo_mp_img_label.grid(row=1, column=0, padx=20, sticky="e")
             self.labelSignoMas.grid(row=1, column=1, padx=20, sticky="e")
@@ -174,7 +186,6 @@ class CrearSucursalApp:
     
     def page_2(self):
         self.rootCrearSucursal.geometry("500x340")
-        self.centrar_ventana_principal()
         self.frameLOGOSCompany.pack_configure(pady=30)
         self.logo_inforhard_img_horizontal_label.grid(row=1, column=1, padx=10, sticky="e")
         if self.Siguiente:
@@ -251,7 +262,6 @@ class CrearSucursalApp:
         self.page_4()
         
     def page_3(self):
-        self.centrar_ventana_principal()
         self.label_paso1.configure(fg_color='transparent')
         self.label_paso2.configure(fg_color='#2FA572')
         self.framePage_3.pack(padx=20, pady=10)
@@ -313,7 +323,6 @@ class CrearSucursalApp:
         
     def page_4(self):
         self.rootCrearSucursal.geometry("500x415")
-        self.centrar_ventana_principal()
         self.label_paso1.configure(fg_color='transparent')
         self.label_paso2.configure(fg_color='transparent')
         self.label_paso3.configure(fg_color='#2FA572')
@@ -425,7 +434,6 @@ class CrearSucursalApp:
     def page_5(self):
         self.rootCrearSucursal.geometry('730x525')
         self.rootCrearSucursal.grab_release()
-        self.centrar_ventana_principal()
         self.label_paso1.configure(fg_color='transparent')
         self.label_paso2.configure(fg_color='transparent')
         self.label_paso3.configure(fg_color='transparent')
@@ -570,8 +578,7 @@ class CrearSucursalApp:
         
     def page_6(self):
         #self.rootCrearSucursal.attributes('-fullscreen', True)
-        self.rootCrearSucursal.geometry('1200x515') 
-        self.centrar_ventana_principal()
+        self.rootCrearSucursal.geometry('1200x515')
         self.framePage_6.pack(side='left', padx=10)
         
         self.frame_left.pack(side='left', padx=10)

@@ -31,10 +31,10 @@ class CrearOrdenApp:
 
         self.colorwindows()
         self.ventana_creacion_caja = customtkinter.CTk()
-        #sself.centrar_ventana_orden()
         self.ventana_creacion_caja.overrideredirect(True)
         self.ventana_creacion_caja.title("Creación de Orden")
         self.ventana_creacion_caja.geometry("400x550")
+        # Configurar el evento de cambio de tamaño
         self.ventana_creacion_caja.resizable(False, False)
         self.icon()       
             
@@ -89,7 +89,9 @@ class CrearOrdenApp:
         self.my_label_time.pack(pady=10)
         self.timer_id = None          
         self.functionMAIN()
-        
+        # Configurar el evento de mapeo de la ventana
+        self.ventana_creacion_caja.bind("<Map>", self.on_map)
+        #self.center_window(self.ventana_creacion_caja)
         self.ventana_creacion_caja.mainloop()
         
     def colorwindows(self):
@@ -152,6 +154,7 @@ class CrearOrdenApp:
                         # Asociar la combinación de teclas con la función cancelar_orden
                         self.obteneridOrder(self.datos_para_orden[0], None)
                         self.ventana_creacion_caja.geometry("400x550")
+            
                         self.clicker()
                         self.my_buttonDLT.configure(state=customtkinter.DISABLED)
             elif clickerProgress < 80:
@@ -651,12 +654,18 @@ class CrearOrdenApp:
         elif self.datos_para_orden[6] == 0 and self.datos_para_orden[1] == 1:
             self.cancelar_ordenPOINT()
             
-    def centrar_ventana_orden(self):
+    def center_window(self):
         self.ventana_creacion_caja.update_idletasks()
-        ancho_ventana = self.ventana_creacion_caja.winfo_width()
-        alto_ventana = self.ventana_creacion_caja.winfo_height()
-        x = (self.ventana_creacion_caja.winfo_screenwidth() // 2) - (ancho_ventana // 2) 
-        y = (self.ventana_creacion_caja.winfo_screenheight() // 2) - (alto_ventana // 2)
-        self.ventana_creacion_caja.geometry('{}x{}+{}+{}'.format(ancho_ventana, alto_ventana, x, y))
+        width = self.ventana_creacion_caja.winfo_width()
+        height = self.ventana_creacion_caja.winfo_height()
+        screen_width = self.ventana_creacion_caja.winfo_screenwidth()
+        screen_height = self.ventana_creacion_caja.winfo_screenheight()
+        x = (screen_width - width) // 2
+        y = (screen_height - height) // 2
+        self.ventana_creacion_caja.geometry(f"{width}x{height}+{x}+{y}")
+        
+    def on_map(self, event):
+        # Centrar la ventana cuando se mapea por completo
+        self.center_window()
 
 

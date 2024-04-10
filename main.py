@@ -1,17 +1,23 @@
 import os
+path_script = os.path.dirname(os.path.abspath(__file__))
+path_GUI = os.path.join(path_script, 'GUI')
+path_assets = os.path.join(path_script, 'assets')
+import sys
+sys.path.append(path_GUI)
+sys.path.append(path_assets)
 import json
 import customtkinter
 import socket
 from tkinter import ttk, simpledialog, messagebox
-from assets.image_path import *
-from GUI.GUICrearSucursalV2 import CrearSucursalApp # --CREAR SUCURSAL V.2.0
-#from GUI.GUICrearSucursal import CrearSucursalApp --CREAR SUCURSAL V.1.0
-from GUI.GUICrearCaja import CrearCajaApp
-from GUI.GUICrearOrden import CrearOrdenApp
-from GUI.GUIConfigCaja import ConfigurarCajaApp
-from GUI.GUIDSN import InterfazGrafica
-from GUI.GUIMainPOS import ConfigInicialMPQRCODEPOS
-from GUI.GUIEliminarSucursal import GUIEliminarSucursal
+from image_path import *
+from GUICrearSucursalV2 import CrearSucursalApp # --CREAR SUCURSAL V.2.0
+#from GUICrearSucursal import CrearSucursalApp --CREAR SUCURSAL V.1.0
+from GUICrearCaja import CrearCajaApp
+from GUITopLevelCargaCREARORDEN import TopLevelCargaCREARORDEN
+from GUIConfigCaja import ConfigurarCajaApp
+from GUIDSN import InterfazGrafica
+from GUIMainPOS import ConfigInicialMPQRCODEPOS
+from GUIEliminarSucursal import GUIEliminarSucursal
 from database import ConexionSybase
 from conexiones import Conexion_APP
 from datetime import datetime
@@ -159,7 +165,7 @@ class ConfigInicialMPQRCODE:
                 if password_ingresado is None:
                     # Usuario canceló la operación, salir del bucle
                     break
-                password_correcto = "***"
+                password_correcto = "*123*"
                 if password_ingresado == password_correcto:
                     if self.tabla_clientes_vacia():
                         self.conexionDBASERVER.crear_tabla_MPQRCODE_CLIENTE()
@@ -356,9 +362,8 @@ class GUIconexiones:
         customtkinter.set_appearance_mode("dark")
         customtkinter.set_default_color_theme("green")
         self.ventana_principal = customtkinter.CTk()
-        self.centrar_ventana_principal()
         self.ventana_principal.title("Menú Principal")
-        rutaicono = Icono_MercadoPago_Blue()
+        rutaicono = I1cono_MercadoPago_Blue()
         self.ventana_principal.iconbitmap(rutaicono)        
         
         self.label_name_top = customtkinter.CTkLabel(self.ventana_principal, text="Manejo del DBA", font=('Arial Black', 15))
@@ -370,6 +375,7 @@ class GUIconexiones:
 
         self.ventana_principal.geometry("540x350")
         self.ventana_principal.resizable(False, False)
+        self.centrar_ventana_principal()
         self.ventana_principal.mainloop()
         
     def frame_top(self):
@@ -432,19 +438,19 @@ class GUIconexiones:
             
     def crear_orden_app(self):
         try:
-            crear_orden_app_instance = CrearOrdenApp(self.conexionAPI, self.conexionDBA, self.conexionDBASERVER)
+            TopLevelCargaCREARORDEN(self.ventana_principal, self.conexionAPI, self.conexionDBA, self.conexionDBASERVER)
         except Exception as e:
                 print(f"Error: {e}")
                 
     def config_caja_app(self):
         try:
-            config_orden_app_instance = ConfigurarCajaApp(self.conexionAPI, self.conexionDBA, self.conexionDBASERVER)
+            config_orden_app_instance = ConfigurarCajaApp(self.ventana_principal, self.conexionAPI, self.conexionDBA, self.conexionDBASERVER)
         except Exception as e:
                 print(f"Error: {e}")
                 
     def eliminar_sucursal_app(self):
         try:
-            GUIEliminarSucursal(self.ventana_principal, self.conexionDBASERVER, self.conexionAPI)
+            GUIEliminarSucursal(self.ventana_principal, self.conexionDBA, self.conexionDBASERVER, self.conexionAPI)
         except Exception as e:
                 print(f"Error: {e}")
     
@@ -491,12 +497,19 @@ class GUIconexiones:
         self.ventana_principal.update()
         
     def centrar_ventana_principal(self):
-        self.ventana_principal.update_idletasks()
-        ancho = self.ventana_principal.winfo_width()
-        alto = self.ventana_principal.winfo_height()
-        x = (self.ventana_principal.winfo_screenwidth() // 2) - (ancho // 2)
-        y = (self.ventana_principal.winfo_screenheight() // 2) - (alto // 2)
-        self.ventana_principal.geometry('+{}+{}'.format(x, y))
+        self.width = self.ventana_principal.winfo_reqwidth()
+        self.height = self.ventana_principal.winfo_reqheight()
+
+        if self.ventana_principal is not None:
+            screen_width = self.ventana_principal.winfo_screenwidth()
+            screen_height = self.ventana_principal.winfo_screenheight()
+
+            spawn_x = int((screen_width - self.width) / 2)
+            spawn_y = int((screen_height - self.height) / 2)
+
+            self.ventana_principal.geometry("+{}+{}".format(spawn_x, spawn_y))
+        else:
+            print("La ventana es None, no se puede centrar.")
 
 
     
