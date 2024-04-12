@@ -771,6 +771,42 @@ class ConexionSybase:
         finally:
             self.desconectar()
             
+    def borrar_datos_tabla(self, tabla):
+        try:
+            self.conectar()
+            with self.conexion.cursor() as cursor:
+                # Construir la consulta SQL para borrar todos los datos de la tabla
+                consulta_delete = f'DELETE FROM {tabla}'
+                cursor.execute(consulta_delete)
+                self.conexion.commit()
+
+                print(f"Todos los datos de la tabla '{tabla}' han sido eliminados exitosamente.")
+
+        except pypyodbc.Error as err:
+            print(f"Error al borrar los datos de la tabla '{tabla}': {err}")
+        finally:
+            self.desconectar()
+
+            
+    def tabla_vacia(self, tabla):
+        try:
+            self.conectar()
+            with self.conexion.cursor() as cursor:
+                # Construir la consulta SQL para verificar si la tabla está vacía
+                consulta_select = f'SELECT COUNT(*) FROM {tabla}'
+                cursor.execute(consulta_select)
+                resultado = cursor.fetchone()
+
+                # Si la tabla está vacía (no hay filas), retorna True, de lo contrario, retorna False
+                return resultado[0] == 0
+
+        except pypyodbc.Error as err:
+            print(f"Error al verificar si la tabla '{tabla}' está vacía: {err}")
+            return False  # Retorna False en caso de error
+        finally:
+            self.desconectar()
+
+            
     def actualizar_datos(self, tabla, datos, condicion):
         try:
             self.conectar()
