@@ -34,7 +34,7 @@ class ConfigurarCajaApp:
         directorio_script = os.path.dirname(os.path.abspath(__file__))
         ruta_relativa = os.path.join(directorio_script, "..")
         rutaicono = os.path.join(ruta_relativa, Icono_MercadoPago_Blue())
-        self.ventana_config_caja.iconbitmap(rutaicono)       
+        self.ventana_config_caja.icon(rutaicono)       
     def tabla_caja_vacia(self):
         try:
             return self.conexionDBA.contar_registros("MPQRCODE_CAJA") == 0

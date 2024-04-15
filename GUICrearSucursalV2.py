@@ -1,5 +1,6 @@
 import customtkinter
-import image_path as RutaDeImagenes
+import os
+from image_path import *
 from PIL import Image
 from tkinter import messagebox
 from GUITopLevelCarga import TopLevelCargaMenu
@@ -36,8 +37,10 @@ class CrearSucursalApp:
         self.page_1()
         
     def icon(self):
-        rutaicono = RutaDeImagenes.Icono_MercadoPago_Blue()
-        self.rootCrearSucursal.iconbitmap(rutaicono)
+        directorio_script = os.path.dirname(os.path.abspath(__file__))
+        ruta_relativa = os.path.join(directorio_script, "..")
+        rutaicono = os.path.join(ruta_relativa, Icono_MercadoPago_Blue())
+        self.rootCrearSucursal.after(250, lambda: self.rootCrearSucursal.iconbitmap(rutaicono))
         
     def encabezado_ventana(self):
         self.frameEncabezaVentana = customtkinter.CTkFrame(self.rootCrearSucursal, fg_color="gray")
@@ -650,15 +653,15 @@ class CrearSucursalApp:
         
         
     def logoMPyInfor(self):
-        path_img_inforhard = RutaDeImagenes.LOGO_INFORHARD()
+        path_img_inforhard = LOGO_INFORHARD()
         
         self.frameLOGOSCompany = customtkinter.CTkFrame(self.rootCrearSucursal, fg_color='transparent')
         self.frameLOGOSCompany.pack(pady=20)
         
-        self.logo_inforhard_img_horizontal = customtkinter.CTkImage(Image.open(RutaDeImagenes.LOGO_INFORHARD_horizontal()),
+        self.logo_inforhard_img_horizontal = customtkinter.CTkImage(Image.open(LOGO_INFORHARD_horizontal()),
                                             size=(200, 50))
         self.logo_inforhard_img_horizontal_label = customtkinter.CTkLabel(self.frameLOGOSCompany, image=self.logo_inforhard_img_horizontal, text="")      
-        self.logo_mp_img = customtkinter.CTkImage(Image.open(RutaDeImagenes.LOGO_MP()),
+        self.logo_mp_img = customtkinter.CTkImage(Image.open(LOGO_MP()),
                                             size=(200, 170))
         self.logo_mp_img_label = customtkinter.CTkLabel(self.frameLOGOSCompany, image=self.logo_mp_img, text="")        
         self.labelSignoMas = customtkinter.CTkLabel(self.frameLOGOSCompany, text="+", text_color="#8E8484", font=('Arial', 100))        

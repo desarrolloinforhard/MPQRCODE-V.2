@@ -1,5 +1,6 @@
 import customtkinter as CTk
-import image_path as RutaDeImagenes
+import os
+from image_path import *
 from GUICrearCaja import CrearCajaApp
 from CTkListbox import *
 from PIL import Image
@@ -12,20 +13,28 @@ class GUIEliminarSucursal():
         self.conexionDBA = conexionDBA
         self.conexion_DBAServer = conexion_DBAServer
         self.datosObtenidosCajasDICT = None
-        self.tacho_basura_png = CTk.CTkImage(Image.open(RutaDeImagenes.TACHO_BASURA()), size=(25, 25))
-        self.reemplazar_png = CTk.CTkImage(Image.open(RutaDeImagenes.REEMPLAZAR()), size=(25, 25))
-        self.agregar_png = CTk.CTkImage(Image.open(RutaDeImagenes.AGREGAR()), size=(25, 25))
+        self.tacho_basura_png = CTk.CTkImage(Image.open(TACHO_BASURA()), size=(25, 25))
+        self.reemplazar_png = CTk.CTkImage(Image.open(REEMPLAZAR()), size=(25, 25))
+        self.agregar_png = CTk.CTkImage(Image.open(AGREGAR()), size=(25, 25))
         self.colorwindows()
         self.root_ventena_eliminar_sucursal = CTk.CTkToplevel(master)
+        self.icon()
         self.root_ventena_eliminar_sucursal.focus
         self.root_ventena_eliminar_sucursal.grab_set()
-        self.root_ventena_eliminar_sucursal.iconbitmap(RutaDeImagenes.Icono_MercadoPago_Blue())
+        self.root_ventena_eliminar_sucursal.resizable(False, False)
         self.root_ventena_eliminar_sucursal.title("Configurar Sucursal")
         self.posicion_activo = None
         self.dict_datos_suc_cajas = {}
         self.traer_sucursales()
         
         self.root_ventena_eliminar_sucursal.mainloop()
+        
+        
+    def icon(self):
+        directorio_script = os.path.dirname(os.path.abspath(__file__))
+        ruta_relativa = os.path.join(directorio_script, "..")
+        rutaicono = os.path.join(ruta_relativa, Icono_MercadoPago_Blue())
+        self.root_ventena_eliminar_sucursal.after(250, lambda: self.root_ventena_eliminar_sucursal.iconbitmap(rutaicono))
         
         
         
@@ -112,6 +121,7 @@ class GUIEliminarSucursal():
         
         
     def frame_3_page_1(self):
+        
         self.frame_3_page1 = CTk.CTkFrame(self.root_ventena_eliminar_sucursal)
         self.frame_3_page1.pack(padx=10, pady=20)
 
@@ -123,12 +133,15 @@ class GUIEliminarSucursal():
         
         self.frame_buttons_frame_3 = CTk.CTkFrame(self.frame_3_page1, fg_color='transparent')
         self.frame_buttons_frame_3.pack(side='right', padx=20, pady=10)
-        self.button_cambiar_caja = CTk.CTkButton(self.frame_buttons_frame_3, command=self.cambiar_caja, image=self.reemplazar_png, text='', state='disable', width=20)#image=CTk.CTkImage(Image.open(RutaDeImagenes.TACHO_BASURA()), size=(20, 20))
-        self.button_cambiar_caja.grid(row=0, column=0, pady=10, padx=5)
-        self.button_eliminar = CTk.CTkButton(self.frame_buttons_frame_3, command=self.eliminar_caja, image=self.tacho_basura_png, text='', state='disable', width=20)
-        self.button_eliminar.grid(row=1, column=0, pady=10, padx=5)
-        self.button_agregar_caja = CTk.CTkButton(self.frame_buttons_frame_3, command=self.agregar_caja, image=self.agregar_png, text='', state='disable', width=20)
-        self.button_agregar_caja.grid(row=0, column=1, pady=10, padx=5)
+        self.button_cambiar_caja = CTk.CTkButton(self.frame_buttons_frame_3, command=self.cambiar_caja, image=self.reemplazar_png, text='', width=20)#image=CTk.CTkImage(Image.open(RutaDeImagenes.TACHO_BASURA()), size=(20, 20))
+        self.button_cambiar_caja.grid(row=1, column=0, pady=10, padx=5)
+        self.button_eliminar = CTk.CTkButton(self.frame_buttons_frame_3, command=self.eliminar_caja, image=self.tacho_basura_png, text='', width=20)
+        self.button_eliminar.grid(row=0, column=1, pady=10, padx=5)
+        self.button_agregar_caja = CTk.CTkButton(self.frame_buttons_frame_3, command=self.agregar_caja, image=self.agregar_png, text='', width=20)
+        self.button_agregar_caja.grid(row=0, column=0, pady=10, padx=5)
+        self.toggle_disable(self.button_cambiar_caja, self.cambiar_caja)
+        self.toggle_disable(self.button_eliminar, self.eliminar_caja)
+        self.toggle_disable(self.button_agregar_caja, self.agregar_caja)
         # Suponiendo que 'datos' es una lista de los datos que traes del DBA
         self.datos_listbox = []  # Reemplaza esto con los datos reales
 
@@ -266,6 +279,14 @@ class GUIEliminarSucursal():
             self.root_ventena_eliminar_sucursal.geometry("+{}+{}".format(spawn_x, spawn_y))
         else:
             print("La ventana es None, no se puede centrar.")
+            
+    def toggle_disable(self, boton, evento):
+        if boton.cget('state') == "disabled":
+            boton.configure(state= "normal")
+            boton.bind("<Button-1>", evento)
+        else:
+            boton.configure(state= "disabled")
+            boton.unbind("<Button-1>")
 
         """
         self.root_ventena_eliminar_sucursal.update_idletasks()

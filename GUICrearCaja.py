@@ -28,11 +28,10 @@ class CrearCajaApp:
         self.centrar_ventana()
 
     def icon(self):
-        #ICONO
         directorio_script = os.path.dirname(os.path.abspath(__file__))
         ruta_relativa = os.path.join(directorio_script, "..")
         rutaicono = os.path.join(ruta_relativa, Icono_MercadoPago_Blue())
-        self.ventana_creacion_caja.iconbitmap(rutaicono)
+        self.ventana_creacion_caja.iconbitmap(rutaicono) 
         
     def obtener_todos_los_external_id(self, tabla):
         try:

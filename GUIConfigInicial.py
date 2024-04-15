@@ -367,7 +367,7 @@ class GUIconexiones:
         customtkinter.set_default_color_theme("green")
         self.ventana_principal = customtkinter.CTk()
         self.ventana_principal.title("Menú Principal")
-        rutaicono = I1cono_MercadoPago_Blue()
+        rutaicono = Icono_MercadoPago_Blue()
         self.ventana_principal.iconbitmap(rutaicono)        
         
         self.label_name_top = customtkinter.CTkLabel(self.ventana_principal, text="Manejo del DBA", font=('Arial Black', 15))
