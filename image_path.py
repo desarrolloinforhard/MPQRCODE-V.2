@@ -20,5 +20,22 @@ def TACHO_BASURA():
 def REEMPLAZAR():
     return os.path.join(path_script, 'assets', 'reemplazar.png')
 
+def HOME():
+    return os.path.join(path_script, 'assets', 'home_dark.png')
+
 def AGREGAR():
     return os.path.join(path_script, 'assets', 'agregar.png')
+
+def SUCURSAL():
+    return os.path.join(path_script, 'assets', 'sucursal.png')
+
+#PRUEBAS CAJEROS 
+def CAJERO():
+    return os.path.join(path_script, 'assets', 'cajero.png')
+def CAJERO1():
+    return os.path.join(path_script, 'assets', 'cajero1.png')
+def CAJERO2():
+    return os.path.join(path_script, 'assets', 'cajero2.png')
+
+def POINTPOS():
+    return os.path.join(path_script, 'assets', 'point-pos.png')

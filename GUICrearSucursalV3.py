@@ -9,17 +9,11 @@ from geoact import obtener_ubicacion_actual
 
 
 class CrearSucursalApp:
-    def __init__(self, master, conexionAPI):
+    def __init__(self, master, master_frame, conexionAPI):
+        self.master = master
         self.conexionAPI = conexionAPI
-        self.colorwindows()
-        self.rootCrearSucursal =  customtkinter.CTkToplevel(master)
-        # Establecer el icono del CTkToplevel
-        self.icon()
-        # Establecer otros atributos
-        self.rootCrearSucursal.focus()
-        self.rootCrearSucursal.grab_set()
-        self.rootCrearSucursal.resizable(False, False)
-        self.rootCrearSucursal.title("Crear Sucursal")
+        self.rootCrearSucursal =  customtkinter.CTkFrame(master_frame)
+        self.rootCrearSucursal.pack(pady=120)
         #self.rootCrearSucursal.overrideredirect(True)
         self.toplevel_window = None
         self.listDireccion = None
@@ -28,19 +22,13 @@ class CrearSucursalApp:
         self.Volver = False
         self.Siguiente = True
         self.Buscar = False
-        self.Cerrar = False
-        self.page_1_INIT()       
+        self.Cerrar = False 
         self.page_2_INIT()
         self.page_3_INIT() 
         self.page_4_INIT()
         self.page_5_INIT()
-        self.page_1()
+        self.page_2()
         
-    def icon(self):
-        directorio_script = os.path.dirname(os.path.abspath(__file__))
-        ruta_relativa = os.path.join(directorio_script, "..")
-        rutaicono = os.path.join(ruta_relativa, Icono_MercadoPago_Blue())
-        self.rootCrearSucursal.after(250, lambda: self.rootCrearSucursal.iconbitmap(rutaicono))
         
     def encabezado_ventana(self):
         self.frameEncabezaVentana = customtkinter.CTkFrame(self.rootCrearSucursal, fg_color="gray")
@@ -60,84 +48,11 @@ class CrearSucursalApp:
         
         self.boton_cerrar = customtkinter.CTkButton(self.frame_botones, text="X", command=self.cerrar_ventana, width=40, corner_radius=0)
         self.boton_cerrar.pack(side="right", padx=1)
-
-
-
-    def minimizar_ventana(self):
-        self.rootCrearSucursal.overrideredirect(False)
-        self.rootCrearSucursal.iconify()
-
-    def cerrar_ventana(self):
-        respuesta = messagebox.askyesno("¿Deseas cerrar?", 'Vas a salir del menu de Creación de Sucursal, si lo haces se eliminaran todos los datos.')
-        print(respuesta)
-        if respuesta:
-            self.rootCrearSucursal.destroy()
-        
-    def center_window(self):
-        self.rootCrearSucursal.update_idletasks()
-        width = self.rootCrearSucursal.winfo_width()
-        height = self.rootCrearSucursal.winfo_height()
-        screen_width = self.rootCrearSucursal.winfo_screenwidth()
-        screen_height = self.rootCrearSucursal.winfo_screenheight()
-        x = (screen_width - width) // 2
-        y = (screen_height - height) // 2
-        self.rootCrearSucursal.geometry(f"{width}x{height}+{x}+{y}")
-        
-    def on_map(self, event):
-        # Centrar la ventana cuando se mapea por completo
-        self.center_window()
-
-        
-    def colorwindows(self):
-        customtkinter.set_appearance_mode("dark")
-        customtkinter.set_default_color_theme("green")
-        
-#////////////////////////////////////////////////   PAGINA 1 ////////////////////////////////////////////////
-    def page_1_INIT(self):
-        self.logoMPyInfor()
-        # Elementos de la página 1
-        self.framaPresentacionWord = customtkinter.CTkFrame(self.rootCrearSucursal, fg_color='transparent')
-        self.framaPresentacionWord.pack()
-        self.labelInfo = customtkinter.CTkLabel(self.framaPresentacionWord, text="Bienvenido al menú de configuración de Sucursal de MercadoPago\n a travez del Sistema de:", font=("Arial", 16), text_color="#8E8484")
-        self.labelInfo.pack()
-        self.labelWord_inforhard = customtkinter.CTkLabel(self.framaPresentacionWord, text='Inforhard Servicos SRL', font=("Arial", 16), text_color='#008a46')
-        self.labelWord_inforhard.pack()
-        self.frameButtom = customtkinter.CTkFrame(self.rootCrearSucursal, fg_color="transparent")
-        self.frameButtom.pack(side='bottom', pady=10)
-        self.butonNEXT =  customtkinter.CTkButton(self.frameButtom, text="Siguiente", command=self.page_2)
-        self.butonNEXT.pack()
-        
-    def page_1_FORGET(self):
-        self.logo_mp_img_label.grid_forget()
-        self.labelSignoMas.grid_forget()
-        self.logo_inforhard_img_label.grid_forget()
-        self.framaPresentacionWord.pack_forget()     
-    
-    def page_1(self):
-        self.rootCrearSucursal.geometry("700x485")
-        self.rootCrearSucursal.bind("<Map>", self.on_map)
-        if self.Volver == True:
-            self.logo_mp_img_label.grid(row=1, column=0, padx=20, sticky="e")
-            self.labelSignoMas.grid(row=1, column=1, padx=20, sticky="e")
-            self.logo_inforhard_img_label.grid(row=1, column=2, padx=20, sticky="e")
-        # Mostrar elementos de la página 1
-        self.framaPresentacionWord.pack(padx=80, pady=40)
-        self.butonNEXT.pack()       
-        # Cambiar el comando del botón para ir a la página 2
-        self.butonNEXT.configure(text="Siguiente", command=self.SIGUIENTE_page_1)
-        self.butonPREVIOUS.pack_forget()
-        self.frameLOGOSCompany.pack(pady=50)
-        
-    def SIGUIENTE_page_1(self):
-        self.Siguiente = True
-        self.Volver = False
-        print(self.Siguiente, self.Volver)
-        self.page_1_FORGET()
-        self.page_2()
         
 #////////////////////////////////////////////////   PAGINA 2 ////////////////////////////////////////////////
     def page_2_INIT(self):
         # Elementos de la página 2
+        self.logoMPyInfor()
         self.frame_pasos = customtkinter.CTkFrame(self.rootCrearSucursal, fg_color="transparent")
         self.label_paso1 = customtkinter.CTkLabel(self.frame_pasos, fg_color='#2FA572', text='Paso 1', corner_radius=10, width=100)
         self.label_paso2 = customtkinter.CTkLabel(self.frame_pasos, fg_color='transparent', text='Paso 2', corner_radius=10, width=100)
@@ -151,22 +66,15 @@ class CrearSucursalApp:
         self.entryExternalID = customtkinter.CTkEntry(self.framePage_2_contenido, placeholder_text="Ej: SUC001")
         self.labelSucName = customtkinter.CTkLabel(self.framePage_2_contenido, text="Ingrese el nombre de la sucursal")
         self.entrySucName = customtkinter.CTkEntry(self.framePage_2_contenido, placeholder_text="Ej: Inforhard Servicios")
+        self.frameButtom = customtkinter.CTkFrame(self.rootCrearSucursal, fg_color="transparent")
+        self.butonNEXT =  customtkinter.CTkButton(self.frameButtom, text="Siguiente", command=self.page_3)
         self.butonPREVIOUS = customtkinter.CTkButton(self.frameButtom, text="Volver")
+        
         
     def page_2_FORGET(self):
         self.framePage_2.pack_forget()
         self.butonPREVIOUS.pack_forget()
         self.butonNEXT.pack_forget()
-        
-        
-    def VOLVER_page_2(self):
-        self.Volver = True
-        self.Siguiente = False
-        print(self.Siguiente, self.Volver)
-        self.logo_inforhard_img_horizontal_label.grid_forget()
-        self.frame_pasos.pack_forget()
-        self.page_2_FORGET()
-        self.page_1()
     
     def SIGUIENTE_page_2(self):
         if self.entryExternalID.get() == "" or self.entrySucName.get() == "":
@@ -180,14 +88,14 @@ class CrearSucursalApp:
             self.page_2_FORGET()
             self.page_3()
     
-    def page_2(self):
-        self.rootCrearSucursal.geometry("500x340")
+    def page_2(self):    
         self.frameLOGOSCompany.pack_configure(pady=30)
         self.logo_inforhard_img_horizontal_label.grid(row=1, column=1, padx=10, sticky="e")
-        if self.Siguiente:
-            self.page_1_FORGET()
-        elif self.Volver:
+        if self.Volver:
             self.page_3_FORGET()
+            
+        self.frameButtom.pack(side='bottom', pady=10)
+        self.butonNEXT.pack()
         
         self.frame_pasos.pack()
         self.label_paso1.grid(row=0, column=0, pady=5, sticky="nsew")
@@ -206,8 +114,8 @@ class CrearSucursalApp:
 
         
         # Cambiar el comando del botón para volver a la página 1
-        self.butonPREVIOUS.configure(command=self.VOLVER_page_2)
-        self.butonPREVIOUS.pack(side="left", padx=20, pady=10)
+        """ self.butonPREVIOUS.configure(command=self.VOLVER_page_2)
+        self.butonPREVIOUS.pack(side="left", padx=20, pady=10)"""
         # Cambiar el comando del botón para ir a la página 2
         self.butonNEXT.configure(text="Siguiente", command=self.SIGUIENTE_page_2)
         self.butonNEXT.pack(side="right", padx=20, pady=10)
@@ -318,7 +226,6 @@ class CrearSucursalApp:
         self.page_5()
         
     def page_4(self):
-        self.rootCrearSucursal.geometry("500x415")
         self.label_paso1.configure(fg_color='transparent')
         self.label_paso2.configure(fg_color='transparent')
         self.label_paso3.configure(fg_color='#2FA572')
@@ -408,7 +315,6 @@ class CrearSucursalApp:
     def VOLVER_page_5(self):
         self.Volver = True
         self.Siguiente = False
-        self.rootCrearSucursal.grab_set()
         self.label_paso3.configure(fg_color='#2FA572')
         self.label_paso4.configure(fg_color='transparent')
         self.page_5_FORGET()
@@ -417,7 +323,6 @@ class CrearSucursalApp:
     def SIGUIENTE_page_5(self):
         print(self.listDiasSemana)
         print(self.listHsAperturaCierre)
-        self.rootCrearSucursal.grab_set()
         if self.entry_referencia_suc.get() == "":
             messagebox.showerror('Casillas vacias', 'No puedes dejar ni una casilla vacia')
         else:
@@ -428,8 +333,6 @@ class CrearSucursalApp:
             self.rootCrearSucursal.after(0, self.evento_carga_P6)
         
     def page_5(self):
-        self.rootCrearSucursal.geometry('730x525')
-        self.rootCrearSucursal.grab_release()
         self.label_paso1.configure(fg_color='transparent')
         self.label_paso2.configure(fg_color='transparent')
         self.label_paso3.configure(fg_color='transparent')
@@ -573,8 +476,6 @@ class CrearSucursalApp:
         self.rootCrearSucursal.after(1000, self.llamada_class_toplevel)
         
     def page_6(self):
-        #self.rootCrearSucursal.attributes('-fullscreen', True)
-        self.rootCrearSucursal.geometry('1200x515')
         self.framePage_6.pack(side='left', padx=10)
         
         self.frame_left.pack(side='left', padx=10)
@@ -625,26 +526,6 @@ class CrearSucursalApp:
         self.butonNEXT.configure(text="Enviar", command=self.boton_SIGUIENTE_page_6)
         self.butonNEXT.pack(side="right", padx=20, pady=10)
         
-        
-        
-        """
-        #FRAME PASO 2
-        self.framePage_2.pack(side='left')
-        self.framePage_3.pack(side='right')
-        
-        
-        self.checkboxP2_EXTID.grid(row=0, column=2, padx=5, pady=5, sticky="w")
-        self.checkboxP2_SUC.grid(row=1, column=2, padx=5, pady=5, sticky="w")        
-        self.checkboxP3_LATITUD.grid(row=0, column=2, padx=5, pady=5, sticky="w")
-        self.checkboxP3_LONGITUD.grid(row=1, column=2, padx=5, pady=5, sticky="w")
-                
-        self.butonPREVIOUS.configure(text="Volver", command=self.VOLVER_page_6)
-        self.butonPREVIOUS.pack(side="left", padx=20, pady=10)
-        # Cambiar el comando del botón para ir a la página 2
-        self.butonNEXT.configure(text="Enviar", command=self.SIGUIENTE_page_6)
-        self.butonNEXT.pack(side="right", padx=20, pady=10)
-        """
-        
     def boton_VOLVER_page_6(self):
         self.rootCrearSucursal.after(0, self.VOLVER_page_6)
         
@@ -652,25 +533,13 @@ class CrearSucursalApp:
         self.rootCrearSucursal.after(0, self.SIGUIENTE_page_6)
         
         
-    def logoMPyInfor(self):
-        path_img_inforhard = LOGO_INFORHARD()
-        
+    def logoMPyInfor(self):        
         self.frameLOGOSCompany = customtkinter.CTkFrame(self.rootCrearSucursal, fg_color='transparent')
         self.frameLOGOSCompany.pack(pady=20)
         
         self.logo_inforhard_img_horizontal = customtkinter.CTkImage(Image.open(LOGO_INFORHARD_horizontal()),
                                             size=(200, 50))
-        self.logo_inforhard_img_horizontal_label = customtkinter.CTkLabel(self.frameLOGOSCompany, image=self.logo_inforhard_img_horizontal, text="")      
-        self.logo_mp_img = customtkinter.CTkImage(Image.open(LOGO_MP()),
-                                            size=(200, 170))
-        self.logo_mp_img_label = customtkinter.CTkLabel(self.frameLOGOSCompany, image=self.logo_mp_img, text="")        
-        self.labelSignoMas = customtkinter.CTkLabel(self.frameLOGOSCompany, text="+", text_color="#8E8484", font=('Arial', 100))        
-        self.logo_inforhard_img = customtkinter.CTkImage(Image.open(path_img_inforhard),
-                                            size=(200, 150))
-        self.logo_inforhard_img_label = customtkinter.CTkLabel(self.frameLOGOSCompany, image=self.logo_inforhard_img, text="")
-        self.logo_mp_img_label.grid(row=1, column=0, padx=20, sticky="e")
-        self.labelSignoMas.grid(row=1, column=1, padx=20, sticky="e")
-        self.logo_inforhard_img_label.grid(row=1, column=2, padx=20, sticky="e")
+        self.logo_inforhard_img_horizontal_label = customtkinter.CTkLabel(self.frameLOGOSCompany, image=self.logo_inforhard_img_horizontal, text="")               
         
     def obtenerdireccion(self, Latitud, Longitud):
         if type(Latitud) == str and type(Latitud) == str:
@@ -731,14 +600,6 @@ class CrearSucursalApp:
         for day in self.listDiasSemana:
             dict_fechas[day] = [{'open': self.listHsAperturaCierre[0], 'close': self.listHsAperturaCierre[1]}]
         return dict_fechas
-    
-    def deshabilitar_ventana_principal(self):
-        # Deshabilitar la ventana principal
-        self.rootCrearSucursal.grab_set()
-
-    def habilitar_ventana_principal(self):
-        # Habilitar la ventana principal
-        self.rootCrearSucursal.grab_release()
 
     def llamada_class_toplevel(self):
         if self.toplevel_window is None:
@@ -757,7 +618,3 @@ class CrearSucursalApp:
             self.toplevel_window.top_level.grab_set()  # Bloquear interacción con otras ventanas
         else:
             self.toplevel_window.focus_set()  # Enfocar la ventana existente
-
-
--27.448178941448834, -58.986467016224985
--27.63962303974816, -62.413976112669346

@@ -16,39 +16,21 @@ class GUIEliminarSucursal():
         self.tacho_basura_png = CTk.CTkImage(Image.open(TACHO_BASURA()), size=(25, 25))
         self.reemplazar_png = CTk.CTkImage(Image.open(REEMPLAZAR()), size=(25, 25))
         self.agregar_png = CTk.CTkImage(Image.open(AGREGAR()), size=(25, 25))
-        self.colorwindows()
-        self.root_ventena_eliminar_sucursal = CTk.CTkToplevel(master)
-        self.icon()
-        self.root_ventena_eliminar_sucursal.focus
-        self.root_ventena_eliminar_sucursal.grab_set()
-        self.root_ventena_eliminar_sucursal.resizable(False, False)
-        self.root_ventena_eliminar_sucursal.title("Configurar Sucursal")
+        self.logo_inforhard_horizontal = CTk.CTkImage(Image.open(LOGO_INFORHARD_horizontal()), size=(300, 80))
+        self.home_frame_large_image_label = CTk.CTkLabel(master, text="", image=self.logo_inforhard_horizontal)
+        self.home_frame_large_image_label.pack(pady=40)
+        self.root_ventena_eliminar_sucursal = CTk.CTkFrame(master)
+        self.root_ventena_eliminar_sucursal.pack(pady=20)
         self.posicion_activo = None
         self.dict_datos_suc_cajas = {}
         self.traer_sucursales()
         
-        self.root_ventena_eliminar_sucursal.mainloop()
-        
-        
-    def icon(self):
-        directorio_script = os.path.dirname(os.path.abspath(__file__))
-        ruta_relativa = os.path.join(directorio_script, "..")
-        rutaicono = os.path.join(ruta_relativa, Icono_MercadoPago_Blue())
-        self.root_ventena_eliminar_sucursal.after(250, lambda: self.root_ventena_eliminar_sucursal.iconbitmap(rutaicono))
-        
-        
-        
-        
-    def colorwindows(self):
-        CTk.set_appearance_mode("dark")
-        CTk.set_default_color_theme("green")
         
     def traer_sucursales(self):
         lista_sucursales = self.conexion_DBAServer.specify_search_columna('MPQRCODE_SUCURSAL', 'external_id')
         if lista_sucursales:
             self.traer_cajas(lista_sucursales)
             self.frame_1_page_1()
-            self.centrar_ventana()
         else:
             CTkMessagebox(title="Error", message="No se encontra ni una SUCURSAL activa.\n Cree una nueva y reeintente de nuevo.", icon="cancel")
             self.root_ventena_eliminar_sucursal.destroy()
@@ -265,20 +247,6 @@ class GUIEliminarSucursal():
     def agregar_caja(self):
         CrearCajaApp(self.conexion_api, self.conexion_DBAServer)
         
-    def centrar_ventana(self):
-        self.width = self.root_ventena_eliminar_sucursal.winfo_reqwidth()
-        self.height = self.root_ventena_eliminar_sucursal.winfo_reqheight()
-
-        if self.root_ventena_eliminar_sucursal is not None:
-            screen_width = self.root_ventena_eliminar_sucursal.winfo_screenwidth()
-            screen_height = self.root_ventena_eliminar_sucursal.winfo_screenheight()
-
-            spawn_x = int((screen_width - self.width) / 2)
-            spawn_y = int((screen_height - self.height) / 2)
-
-            self.root_ventena_eliminar_sucursal.geometry("+{}+{}".format(spawn_x, spawn_y))
-        else:
-            print("La ventana es None, no se puede centrar.")
             
     def toggle_disable(self, boton, evento):
         if boton.cget('state') == "disabled":
