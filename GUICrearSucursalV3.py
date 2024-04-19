@@ -13,7 +13,8 @@ class CrearSucursalApp:
         self.master = master
         self.conexionAPI = conexionAPI
         self.rootCrearSucursal =  customtkinter.CTkFrame(master_frame)
-        self.rootCrearSucursal.pack(pady=120)
+        self.rootCrearSucursal.pack()
+        self.rootCrearSucursal.place(relx=0.5, rely=0.5, anchor=customtkinter.CENTER)
         #self.rootCrearSucursal.overrideredirect(True)
         self.toplevel_window = None
         self.listDireccion = None
@@ -604,14 +605,12 @@ class CrearSucursalApp:
     def llamada_class_toplevel(self):
         if self.toplevel_window is None:
             print(self.sucursal_info)
-            self.deshabilitar_ventana_principal()
             self.toplevel_window = TopLevelCargaMenu(self.rootCrearSucursal, self.conexionAPI, **self.sucursal_info)
             self.toplevel_window.iniciar_interfaz()
             self.toplevel_window.top_level.transient(self.rootCrearSucursal)  # Establecer como transient
             self.toplevel_window.top_level.grab_set()  # Bloquear interacción con otras ventanas
         elif not self.toplevel_window.top_level.winfo_exists():
             print(self.sucursal_info)
-            self.deshabilitar_ventana_principal()
             self.toplevel_window = TopLevelCargaMenu(self.rootCrearSucursal, self.conexionAPI, **self.sucursal_info)
             self.toplevel_window.iniciar_interfaz()
             self.toplevel_window.top_level.transient(self.rootCrearSucursal)  # Establecer como transient

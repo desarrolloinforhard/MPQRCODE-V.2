@@ -759,5 +759,6 @@ class CrearSucursalApp:
             self.toplevel_window.focus_set()  # Enfocar la ventana existente
 
 
+
 -27.448178941448834, -58.986467016224985
 -27.63962303974816, -62.413976112669346

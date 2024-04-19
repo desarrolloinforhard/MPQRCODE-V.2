@@ -3,6 +3,7 @@ import os
 import json
 import socket
 import keyboard
+import requests
 import image_path as RutaImagenes
 from CTkMessagebox import CTkMessagebox
 from GUICrearSucursalV3 import CrearSucursalApp
@@ -180,9 +181,6 @@ class ConfigInicialMPQRCODE:
                     else:
                         messagebox.showinfo("Información", "Ya hay un cliente cargado.")
                         GUIConfigInicialV2(self.conexionDBA, self.conexionDBASERVER)       
-                elif password_ingresado == "6a" or password_ingresado == "":
-                    condicion = False
-                    self.llamar_crear_orden()
                 elif password_ingresado == "CONNECTDSN":
                     directorio_script = os.path.dirname(os.path.abspath(__file__))
                     root = CTk.CTk()
@@ -303,6 +301,29 @@ class ConfigInicialMPQRCODE:
 
     def cerrar_ventana(self):
         self.root.destroy()
+        
+    def pedido_API_online(self):
+        
+        lista_id_increment = self.conexionDBASERVER.specify_search_columna('MPQRCODE_CAJAS', 'idINCREMENT')
+        print(lista_id_increment)
+        if lista_id_increment:
+            url_de_DBA = self.conexionDBASERVER.specify_search_condicion('MPQRCODE_CAJAS', 'IPN_url', 'idINCREMENT', lista_id_increment[0], False)
+            if not url_de_DBA == None:
+                headers = {
+                    "Content-Type": 'application/json'
+                }            
+                response = requests.get(url=url_de_DBA, headers=headers)
+                
+                if response.status_code == 200:
+                    return True
+                else:
+                    messagebox.showerror("Error", "El servidor no se encuentra en linea")
+                    return False
+        else:
+            messagebox.showerror("Error", "No se encontro caja activa")
+            return False
+        
+            
         
         
     def cargar_configuracion(self):
@@ -487,17 +508,21 @@ class GUIConfigInicialV2:
         self.home_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
         self.home_frame.grid_columnconfigure(0, weight=1)
         
+        self.inner_frame = CTk.CTkFrame(self.home_frame, fg_color='transparent')        
+        self.inner_frame.place(relx=0.5, rely=0.5, anchor=CTk.CENTER)
+
+        
         self.logoMPyInfor()
         # Elementos de la página 1
-        self.framaPresentacionWord = CTk.CTkFrame(self.home_frame, fg_color='transparent')
+        self.framaPresentacionWord = CTk.CTkFrame(self.inner_frame, fg_color='transparent')
         self.labelInfo = CTk.CTkLabel(self.framaPresentacionWord, text="Bienvenido al menú de configuración de MercadoPago\n a travez del Sistema de:", font=("Arial", 16), text_color="#8E8484")
         self.labelWord_inforhard = CTk.CTkLabel(self.framaPresentacionWord, text='Inforhard Servicos SRL', font=("Arial", 16), text_color='#008a46')
         # Mostrar elementos de la página 1
-        self.frameLOGOSCompany.pack(pady=100)
+        self.frameLOGOSCompany.pack()
         self.logo_mp_img_label.grid(row=1, column=0, padx=20, sticky="e")
         self.labelSignoMas.grid(row=1, column=1, padx=20, sticky="e")
         self.logo_inforhard_img_label.grid(row=1, column=2, padx=20, sticky="e")
-        self.framaPresentacionWord.pack(padx=80)
+        self.framaPresentacionWord.pack(pady=50)
         self.labelInfo.pack()
         self.labelWord_inforhard.pack()
         
@@ -509,13 +534,13 @@ class GUIConfigInicialV2:
         
     def posframe(self):
         self.pos_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
-        GUIEliminarSucursal(self.pos_frame, self.conexionDBA, self.conexionDBASERVER, None)
+        GUIEliminarSucursal(self.pos_frame, self.conexionDBA, self.conexionDBASERVER, self.conexionAPI)
         
         
     def logoMPyInfor(self):
         path_img_inforhard = RutaImagenes.LOGO_INFORHARD()
         
-        self.frameLOGOSCompany = CTk.CTkFrame(self.home_frame, fg_color='transparent')
+        self.frameLOGOSCompany = CTk.CTkFrame(self.inner_frame, fg_color='transparent')
         
         self.logo_inforhard_img_horizontal = CTk.CTkImage(Image.open(RutaImagenes.LOGO_INFORHARD_horizontal()),
                                             size=(200, 50))
@@ -527,5 +552,3 @@ class GUIConfigInicialV2:
         self.logo_inforhard_img = CTk.CTkImage(Image.open(path_img_inforhard),
                                             size=(200, 150))
         self.logo_inforhard_img_label = CTk.CTkLabel(self.frameLOGOSCompany, image=self.logo_inforhard_img, text="")
-        
-ConfigInicialMPQRCODE()

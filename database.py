@@ -1241,7 +1241,13 @@ class ConexionSybase:
                 consulta = f"SELECT {nombre_columna} FROM {nombre_tabla}"
                 cursor.execute(consulta)
                 resultado = cursor.fetchall()
-                return resultado
+                if resultado:
+                    lista_nueva = []
+                    for i in resultado:
+                        lista_nueva.append(i[0])
+                    return lista_nueva
+                else:
+                    return resultado
         except pypyodbc.Error as err:
             print(f"Error al obtener el valor de 'id': {err}")
             return None

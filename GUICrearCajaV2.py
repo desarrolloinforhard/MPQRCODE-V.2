@@ -1,5 +1,7 @@
 import customtkinter as CTk
 import os
+from win32com.client import Dispatch
+import winshell
 from image_path import *
 from GUICrearCaja import CrearCajaApp
 from CTkListbox import *
@@ -16,11 +18,13 @@ class GUIEliminarSucursal():
         self.tacho_basura_png = CTk.CTkImage(Image.open(TACHO_BASURA()), size=(25, 25))
         self.reemplazar_png = CTk.CTkImage(Image.open(REEMPLAZAR()), size=(25, 25))
         self.agregar_png = CTk.CTkImage(Image.open(AGREGAR()), size=(25, 25))
+        self.check_png = CTk.CTkImage(Image.open(CHECK()), size=(25, 25))
         self.logo_inforhard_horizontal = CTk.CTkImage(Image.open(LOGO_INFORHARD_horizontal()), size=(300, 80))
         self.home_frame_large_image_label = CTk.CTkLabel(master, text="", image=self.logo_inforhard_horizontal)
         self.home_frame_large_image_label.pack(pady=40)
         self.root_ventena_eliminar_sucursal = CTk.CTkFrame(master)
-        self.root_ventena_eliminar_sucursal.pack(pady=20)
+        self.root_ventena_eliminar_sucursal.pack()
+        self.root_ventena_eliminar_sucursal.place(relx=0.5, rely=0.5, anchor=CTk.CENTER)
         self.posicion_activo = None
         self.dict_datos_suc_cajas = {}
         self.traer_sucursales()
@@ -29,6 +33,7 @@ class GUIEliminarSucursal():
     def traer_sucursales(self):
         lista_sucursales = self.conexion_DBAServer.specify_search_columna('MPQRCODE_SUCURSAL', 'external_id')
         if lista_sucursales:
+            print(lista_sucursales)
             self.traer_cajas(lista_sucursales)
             self.frame_1_page_1()
         else:
@@ -37,10 +42,10 @@ class GUIEliminarSucursal():
         
     def traer_cajas(self, lista_sucursales):
         for cajas in lista_sucursales:
-            id_sucursal = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_SUCURSAL', 'id', 'external_id', cajas[0], False)
-            suc_name = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_SUCURSAL', 'name', 'external_id', cajas[0], False)
+            id_sucursal = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_SUCURSAL', 'id', 'external_id', cajas, False)
+            suc_name = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_SUCURSAL', 'name', 'external_id', cajas, False)
             self.dict_datos_suc_cajas[suc_name] = {
-                    'external_store_id': cajas[0],
+                    'external_store_id': cajas,
                     'external_id': id_sucursal,
                     'PDV': []  # Inicializar como una lista vacía en lugar de un diccionario vacío
                 }
@@ -115,15 +120,18 @@ class GUIEliminarSucursal():
         
         self.frame_buttons_frame_3 = CTk.CTkFrame(self.frame_3_page1, fg_color='transparent')
         self.frame_buttons_frame_3.pack(side='right', padx=20, pady=10)
-        self.button_cambiar_caja = CTk.CTkButton(self.frame_buttons_frame_3, command=self.cambiar_caja, image=self.reemplazar_png, text='', width=20)#image=CTk.CTkImage(Image.open(RutaDeImagenes.TACHO_BASURA()), size=(20, 20))
+        self.button_cambiar_caja = CTk.CTkButton(self.frame_buttons_frame_3, command=lambda:self.cambiar_caja('cambiar'), image=self.reemplazar_png, text='', width=20, fg_color='#666A6C')#image=CTk.CTkImage(Image.open(RutaDeImagenes.TACHO_BASURA()), size=(20, 20))
         self.button_cambiar_caja.grid(row=1, column=0, pady=10, padx=5)
-        self.button_eliminar = CTk.CTkButton(self.frame_buttons_frame_3, command=self.eliminar_caja, image=self.tacho_basura_png, text='', width=20)
+        self.button_eliminar = CTk.CTkButton(self.frame_buttons_frame_3, command=self.eliminar_caja, image=self.tacho_basura_png, text='', width=20, fg_color='#666A6C')
         self.button_eliminar.grid(row=0, column=1, pady=10, padx=5)
-        self.button_agregar_caja = CTk.CTkButton(self.frame_buttons_frame_3, command=self.agregar_caja, image=self.agregar_png, text='', width=20)
+        self.button_agregar_caja = CTk.CTkButton(self.frame_buttons_frame_3, command=self.agregar_caja, image=self.agregar_png, text='', width=20, fg_color='#666A6C')
         self.button_agregar_caja.grid(row=0, column=0, pady=10, padx=5)
+        self.activar_caja = CTk.CTkButton(self.frame_buttons_frame_3, command=self.crear_acceso_directo, image=self.check_png, text='', width=20, fg_color='#666A6C')
+        self.activar_caja.grid(row=1, column=1, pady=10, padx=5)
         self.toggle_disable(self.button_cambiar_caja, self.cambiar_caja)
         self.toggle_disable(self.button_eliminar, self.eliminar_caja)
         self.toggle_disable(self.button_agregar_caja, self.agregar_caja)
+        self.toggle_disable(self.activar_caja, self.crear_acceso_directo)
         # Suponiendo que 'datos' es una lista de los datos que traes del DBA
         self.datos_listbox = []  # Reemplaza esto con los datos reales
 
@@ -131,9 +139,20 @@ class GUIEliminarSucursal():
             self.listbox_datos.insert("end", dato)
         
     def show_value(self, selected_option):
-        self.button_cambiar_caja.configure(state='normal')
-        self.button_eliminar.configure(state='normal')
-        self.button_agregar_caja.configure(state='normal')
+        print(selected_option)
+        self.button_agregar_caja.configure(state='normal', fg_color='#02B960', hover_color='#008A47')
+        if self.label_pdv_active_variable.cget('text') == "":
+            self.activar_caja.configure(state='normal',  fg_color='#009ee3', hover_color='#137AA9')
+        else:
+            if not self.label_pdv_active_variable.cget('text') == selected_option:
+                print("entro")
+                self.button_eliminar.configure(state='normal', fg_color='#02B960', hover_color='#008A47')
+                self.button_cambiar_caja.configure(state='normal', fg_color='#02B960', hover_color='#008A47')
+            else:
+                self.button_eliminar.configure(fg_color='#666A6C')
+                self.toggle_disable(self.button_eliminar, self.eliminar_caja)
+                self.button_cambiar_caja.configure(fg_color='#666A6C')
+                self.toggle_disable(self.button_cambiar_caja, self.cambiar_caja)
         self.valor_seleccionado = selected_option
                     
     def eliminar_caja(self):
@@ -178,10 +197,13 @@ class GUIEliminarSucursal():
         if not self.posicion_activo == None and external_id_pos_05 == self.label_store_id_variable.cget('text'):
             self.listbox_datos.activate(self.posicion_activo)
         else:
-            if self.posicion_activo == None:
-                pass
-            else:
-                self.listbox_datos.deactivate(self.posicion_activo)
+            try:
+                if self.posicion_activo == None:
+                    pass
+                else:
+                    self.listbox_datos.deactivate(self.posicion_activo)
+            except IndexError:
+                print('No se encontraron PDV')
 
                 
     def combobox_llamada_eliminar_sucursal(self, choice):
@@ -202,16 +224,21 @@ class GUIEliminarSucursal():
         print(caja_activa)
         if caja_activa in self.datos_listbox:
             self.label_pdv_active_variable.configure(text=caja_activa)
+            self.valor_seleccionado = caja_activa
             self.posicion_activo = self.datos_listbox.index(caja_activa)
             
         
         # Después de actualizar self.datos_listbox, llama a la función actualizar_listbox para reflejar los cambios en la interfaz
         self.actualizar_listbox()
 
-    def cambiar_caja(self):
+    def cambiar_caja(self, elecc):
         try:
-            msg = CTkMessagebox(title='Cambiar caja', message=f'¿Deseas cambiar el PDV al {self.listbox_datos.get()}?',
-                icon="warning", option_1="Si", option_2="No")
+            if elecc == 'cambiar':
+                msg = CTkMessagebox(title='Cambiar caja', message=f'¿Deseas cambiar el PDV al {self.listbox_datos.get()}?',
+                    icon="warning", option_1="Si", option_2="No")
+            elif elecc == 'activar':
+                msg = CTkMessagebox(title='Activar caja', message=f'¿Deseas activar el PDV al {self.listbox_datos.get()}?',
+                    icon="info", option_1="Si", option_2="No")
             print(msg.get())
             if msg.get() == 'Si':
                 datosObtnerCajas = ['external_store_id', "external_id", "IPN_url"]
@@ -236,8 +263,14 @@ class GUIEliminarSucursal():
                     
                 
                 self.label_pdv_active_variable.configure(text=self.listbox_datos.get())
-                CTkMessagebox(title='Exito', message=f"PDV actualizado al {self.listbox_datos.get()}.",
+                if elecc == 'cambiar':
+                    CTkMessagebox(title='Exito', message=f"PDV actualizado al {self.listbox_datos.get()}.",
                 icon="check", option_1="Aceptar")
+                elif elecc == 'activar':
+                    CTkMessagebox(title='Exito', message=f"PDV {self.listbox_datos.get()} activado.",
+                icon="check", option_1="Aceptar")
+                    self.activar_caja.configure(fg_color='#666A6C')
+                self.toggle_disable(self.activar_caja, self.crear_acceso_directo)
             else:
                 pass
         except Exception as e:
@@ -247,11 +280,34 @@ class GUIEliminarSucursal():
     def agregar_caja(self):
         CrearCajaApp(self.conexion_api, self.conexion_DBAServer)
         
+        
+
+    def crear_acceso_directo(self):
+        self.cambiar_caja('activar')
+        path_archivos = os.path.dirname(os.path.abspath(__file__))
+        ruta_directorio_trabajo = os.path.join(path_archivos, "MPQRCODE")  # Sin comillas dobles aquí
+        ruta_archivo_exe = os.path.join(ruta_directorio_trabajo, "MPQRCODE.exe")
+
+        # Obtener la ruta al directorio de destino
+        ruta_destino = os.path.join(path_archivos, "..")
+
+        # Crear la ruta completa del acceso directo
+        ruta_completa_acceso_directo = os.path.join(ruta_destino, "MPQRCODE.lnk")
+
+        # Crear el acceso directo
+        shell = Dispatch('WScript.Shell')
+        shortcut = shell.CreateShortcut(ruta_completa_acceso_directo)
+        shortcut.TargetPath = ruta_archivo_exe
+        shortcut.WorkingDirectory = ruta_directorio_trabajo  # Establecer el directorio de trabajo
+        shortcut.Save()
+
+        
             
     def toggle_disable(self, boton, evento):
         if boton.cget('state') == "disabled":
-            boton.configure(state= "normal")
-            boton.bind("<Button-1>", evento)
+            if not self.valor_seleccionado == self.label_pdv_active_variable.cget('text'):
+                boton.configure(state= "normal")
+                boton.bind("<Button-1>", evento)
         else:
             boton.configure(state= "disabled")
             boton.unbind("<Button-1>")

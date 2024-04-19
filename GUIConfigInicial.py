@@ -8,7 +8,6 @@ from GUICrearSucursalV2 import CrearSucursalApp # --CREAR SUCURSAL V.2.0
 from GUICrearCaja import CrearCajaApp
 from GUITopLevelCargaCREARORDEN import TopLevelCargaCREARORDEN
 from GUIConfigCaja import ConfigurarCajaApp
-from GUICrearOrden import CrearOrdenApp
 from GUIDSN import InterfazGrafica
 from GUIEliminarSucursal import GUIEliminarSucursal
 from database import ConexionSybase
@@ -81,20 +80,7 @@ class ConfigInicialMPQRCODE:
                 app = InterfazGrafica(root)
                 root.mainloop()  
         else:
-            messagebox.showerror('No hay conexión', 'Sin conexión a internet')
-            
-    def llamar_crear_orden(self):
-        self.id_user = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'idUSER', 1)
-        self.token  = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'AUTH_TOKEN', 1)
-        self.tokenPOINT = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'AUTH_TOKENPOINT', 1)
-        self.datos_connect = (self.id_user, self.token)
-        self.datos_connectPOINT = (self.id_user, self.tokenPOINT)
-        self.ventana_principal = None 
-        self.conexionAPI = Conexion_APP(self.datos_connect, self.conexionDBA, self.conexionDBASERVER)
-        self.conexionAPIPOINT = Conexion_APP(self.datos_connectPOINT, self.conexionDBA, self.conexionDBASERVER)
-        TopLevelCargaCREARORDEN()
-        CrearOrdenApp(self.conexionAPI, self.conexionAPIPOINT, self.conexionDBA, self.conexionDBASERVER)
-            
+            messagebox.showerror('No hay conexión', 'Sin conexión a internet')            
     def verificar_conexion_internet(self):
         try:
             # Intenta conectarte a un servidor externo (en este caso, google.com) en el puerto 80
@@ -182,9 +168,6 @@ class ConfigInicialMPQRCODE:
                         messagebox.showinfo("Información", "Ya hay un cliente cargado.")
                         gui_conexiones = GUIconexiones(self.conexionDBA, self.conexionDBASERVER)
                         gui_conexiones.crear_ventana_principal()                
-                elif password_ingresado == "6a" or password_ingresado == "":
-                    condicion = False
-                    self.llamar_crear_orden()
                 elif password_ingresado == "CONNECTDSN":
                     directorio_script = os.path.dirname(os.path.abspath(__file__))
                     root = customtkinter.CTk()

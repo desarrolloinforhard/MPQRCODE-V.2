@@ -26,6 +26,9 @@ def HOME():
 def AGREGAR():
     return os.path.join(path_script, 'assets', 'agregar.png')
 
+def CHECK():
+    return os.path.join(path_script, 'assets', 'check.png')
+
 def SUCURSAL():
     return os.path.join(path_script, 'assets', 'sucursal.png')
 

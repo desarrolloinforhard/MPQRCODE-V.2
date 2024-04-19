@@ -7,7 +7,7 @@
   },
   {
    "optionDest": "filenames",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/main.py"
+   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUIENLACECREARORDEN.py"
   },
   {
    "optionDest": "onefile",
@@ -15,11 +15,11 @@
   },
   {
    "optionDest": "console",
-   "value": false
+   "value": true
   },
   {
    "optionDest": "icon_file",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/Icono-MercadoPago-Blue.ico"
+   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/assets/Icono-MercadoPago-Blue.ico"
   },
   {
    "optionDest": "name",
@@ -63,75 +63,7 @@
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/1Icono-MercadoPago-Blue.ico;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/agregar.png;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/Conexion_APIs_MP.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/conexiones.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/configuracion.json;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/database.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/geoact.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUIConfigCaja.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUIConfigInicial.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUICrearCaja.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUICrearOrden.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUICrearSucursal.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUICrearSucursalV2.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUIDSN.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUIEliminarSucursal.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUITopLevelCarga.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/GUITopLevelCargaCREARORDEN.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/Icono-MercadoPago-Blue.ico;."
+   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/assets;assets/"
   },
   {
    "optionDest": "datas",
@@ -139,43 +71,7 @@
   },
   {
    "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/LOGO_INFORHARD.png;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/LOGO_INFORHARD-horizontal.png;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/LOGO_MP.png;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/qrcode_mp.py;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/README.md;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/reemplazar.png;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/tacho_basura.png;."
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/CTkScrollableDropdown;CTkScrollableDropdown/"
-  },
-  {
-   "optionDest": "datas",
    "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/QRIMGDATA;QRIMGDATA/"
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE/paquete-webserver;paquete-webserver/"
   }
  ],
  "nonPyinstallerOptions": {
