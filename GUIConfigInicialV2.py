@@ -5,7 +5,9 @@ import socket
 import keyboard
 import requests
 import image_path as RutaImagenes
+from ctk_components.ctk_components import *
 from CTkMessagebox import CTkMessagebox
+from GUIConfigDBA import GUIconexiones
 from GUICrearSucursalV3 import CrearSucursalApp
 from GUICrearCajaV2 import GUIEliminarSucursal
 from GUITopLevelCargaCREARORDEN import TopLevelCargaCREARORDEN
@@ -34,6 +36,7 @@ class ConfigInicialMPQRCODE:
             self.dsn_caja = None
             self.dsn_servidor = None
             self.dsn_servidor_respaldo = None
+            self.resultado = None
             self.cargar_configuracion()
             self.rutaicono = os.path.dirname(os.path.abspath(__file__))
             if not self.dsn_caja == None and not self.dsn_servidor == None:
@@ -53,7 +56,6 @@ class ConfigInicialMPQRCODE:
                     self.conexionDBASERVER.crear_tabla_MPQRCODE_CONEXIONSERVIDORAPI()
                     self.conexionDBASERVER.insertar_datos_sin_obtener_id('MPQRCODE_CONEXIONSERVIDORAPI', {'id': 1})
                 fecha_api = self.conexionDBASERVER.specify_search_condicion('MPQRCODE_CONEXIONSERVIDORAPI', 'ultima_actualizacion', 'id', 1, False)
-                print(self.comparacion_fechas(fecha_formateada, fecha_api))
                 if self.comparacion_fechas(fecha_formateada, fecha_api):
                     if self.conexionDBA.conectar() and self.conexionDBASERVER.conectar():
                         self.validar_password()
@@ -114,7 +116,19 @@ class ConfigInicialMPQRCODE:
             
                 
         except Exception as e:
-            messagebox.showerror('Error fechas', e)
+            if self.conexionDBASERVER.tabla_vacia('MPQRCODE_CLIENTE'):
+                messagebox.showerror('Error fechas', 'No se ha levantado el servidor APIRest de INFORHARD S.R.L\n Ingrese a continuacón los datos de MercadoPago.\n USER-ID, ACCESS-TOKEN (QR y POINT)')
+                self.crear_interfaz()
+                if  self.resultado:
+                    messagebox.showinfo('OK', 'EL cliente se ha agregado, puede levantar el server, local y host.')
+                else:
+                    messagebox.showerror('No agregado', 'No se pudo agregar ni un cliente, no puedes acceder a la Interfaz de Pago')
+            else:
+                if self.conexionDBASERVER.check_table_existence('MPQRCODE_CLIENTE'):
+                    messagebox.showinfo('Aviso', 'Los datos del clientes se encuentran cargados pero no se levanto el servidor APIRest de INFORHARD S.R.L')
+                else:
+                    self.conexionDBASERVER.crear_tabla_MPQRCODE_CLIENTE()
+                    self.crear_interfaz()
             
             
     def separar_fechas(self, fecha):
@@ -180,7 +194,9 @@ class ConfigInicialMPQRCODE:
                         GUIConfigInicialV2(self.conexionDBA, self.conexionDBASERVER)
                     else:
                         messagebox.showinfo("Información", "Ya hay un cliente cargado.")
-                        GUIConfigInicialV2(self.conexionDBA, self.conexionDBASERVER)       
+                        GUIConfigInicialV2(self.conexionDBA, self.conexionDBASERVER)  
+                elif password_ingresado == "DATABASE":
+                    GUIconexiones()
                 elif password_ingresado == "CONNECTDSN":
                     directorio_script = os.path.dirname(os.path.abspath(__file__))
                     root = CTk.CTk()
@@ -250,6 +266,7 @@ class ConfigInicialMPQRCODE:
             messagebox.showerror("Error", f"Error al contar registros: {str(e)}")
 
     def crear_interfaz(self):
+        self.conexionDBASERVER.insertar_datos_sin_obtener_id('MPQRCODE_CONEXIONSERVIDORAPI', {'id': 1})
         self.root = CTk.CTk()
         self.root.title("Configuración inicial MPQRCODE")
         rutaicono = RutaImagenes.Icono_MercadoPago_Blue()
@@ -273,6 +290,7 @@ class ConfigInicialMPQRCODE:
         self.root.columnconfigure(1, weight=1)
         self.root.protocol("WM_DELETE_WINDOW", self.cerrar_ventana)  # Vincular el cierre de la ventana
 
+        center_window(self.root, 500, 165)
         self.root.mainloop()
 
     def validar_y_agregar(self):
@@ -296,8 +314,10 @@ class ConfigInicialMPQRCODE:
                 self.conexionDBASERVER.insertar_datos_sin_obtener_id("MPQRCODE_CLIENTE", datos_user)
                 self.root.destroy()
                 print("DATOS AGREGADOS")
+                self.resultado = True
             except Exception as e:
                 messagebox.showerror("Error", f"Error al insertar datos en la base de datos: {str(e)}")
+                self.resultado = False
 
     def cerrar_ventana(self):
         self.root.destroy()
@@ -382,6 +402,8 @@ class GUIConfigInicialV2:
         self.tokenPOINT = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'AUTH_TOKENPOINT', 1)
         self.datos_connect = (self.id_user, self.token, self.tokenPOINT)
         self.ventana_principal = None
+        self.carga_frame = False
+        self.paginador = 0
         self.conexionAPI = Conexion_APP(self.datos_connect, self.conexionDBA, self.conexionDBASERVER)
         self.rutadocumento = os.path.dirname(os.path.abspath(__file__))
         self.ventana_config_inicial = CTk.CTk()
@@ -447,15 +469,23 @@ class GUIConfigInicialV2:
 
         # show selected frame
         if name == "home":
+            self.paginador = 0
             self.home_frame.grid(row=0, column=1, sticky="nsew")
         else:
             self.home_frame.grid_forget()
         if name == "sucursal_frame":
-            self.sucursal_frame.grid(row=0, column=1, sticky="nsew")
+            self.sucursal_frame.destroy()
+            self.sucursalframe()
+            self.name_frame = name
+            self.precarga_carga()
+            # create second frame
         else:
             self.sucursal_frame.grid_forget()
         if name == "pos_frame":
-            self.pos_frame.grid(row=0, column=1, sticky="nsew")
+            self.pos_frame.destroy()
+            self.posframe()
+            self.name_frame = name
+            self.precarga_carga()           
         else:
             self.pos_frame.grid_forget()
         if name == "pos_point_frame":
@@ -468,16 +498,19 @@ class GUIConfigInicialV2:
         self.select_frame_by_name('home')
 
     def frame_sucursal_button_event(self):
-        self.esc_presionado = False  # Reiniciar el contador
-        self.select_frame_by_name('sucursal_frame')
+        if self.paginador != 1:
+            self.esc_presionado = False  # Reiniciar el contador
+            self.select_frame_by_name('sucursal_frame')
 
     def pos_frame_event(self):
-        self.esc_presionado = False  # Reiniciar el contador
-        self.select_frame_by_name('pos_frame')
+        if self.paginador != 2:
+            self.esc_presionado = False  # Reiniciar el contador
+            self.select_frame_by_name('pos_frame')
 
     def frame_pos_point_button_event(self):
-        self.esc_presionado = False  # Reiniciar el contador
-        self.select_frame_by_name('pos_point_frame')
+        if self.paginador != 3:
+            self.esc_presionado = False  # Reiniciar el contador
+            self.select_frame_by_name('pos_point_frame')
             
     def on_esc_press(self, e):
         if e.name == 'esc':
@@ -488,9 +521,16 @@ class GUIConfigInicialV2:
             else:
                 self.home_button_event()
                 self.esc_presionado = True
+                
+    def combinar_teclas(self, e):
+        if keyboard.is_pressed('shift + tab + enter'):
+            GUIconexiones(master=self.ventana_config_inicial)
 
     def iniciar_escucha(self):
         keyboard.on_press(self.on_esc_press)
+        keyboard.on_press_key('shift', self.combinar_teclas)
+        keyboard.on_press_key('tab', self.combinar_teclas)
+        keyboard.on_press_key('enter', self.combinar_teclas)
 
     def detener_escucha(self):
         keyboard.unhook_all()
@@ -526,13 +566,34 @@ class GUIConfigInicialV2:
         self.labelInfo.pack()
         self.labelWord_inforhard.pack()
         
+    def precarga_carga(self):
+        self.frame_carga = CTk.CTkFrame(self.ventana_config_inicial, fg_color='transparent')
+        self.frame_carga.grid(row=0, column=1, sticky="nsew")
+        self.carga_icono = CTkLoader(master=self.frame_carga, opacity=0.8, width=40, height=40)
+        self.ventana_config_inicial.after(3000, self.name_precarga)
+        
+        
+    def name_precarga(self):
+        self.carga_icono.stop_loader()
+        self.frame_carga.destroy()
+        if self.name_frame == "home":
+            self.home_frame.grid(row=0, column=1, sticky="nsew")
+        if self.name_frame == "sucursal_frame":
+            self.sucursal_frame.grid(row=0, column=1, sticky="nsew")
+        if self.name_frame == "pos_frame":
+            self.pos_frame.grid(row=0, column=1, sticky="nsew")
+        if self.name_frame == "pos_point_frame":
+            self.point_pos_frame.grid(row=0, column=1, sticky="nsew")
+        
         
         
     def sucursalframe(self):
+        self.paginador = 1
         self.sucursal_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
-        CrearSucursalApp(self.ventana_config_inicial, self.sucursal_frame, self.conexionAPI)
+        CrearSucursalApp(self.ventana_config_inicial, self.sucursal_frame, self.conexionAPI)       
         
     def posframe(self):
+        self.paginador = 2
         self.pos_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
         GUIEliminarSucursal(self.pos_frame, self.conexionDBA, self.conexionDBASERVER, self.conexionAPI)
         

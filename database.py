@@ -1275,6 +1275,31 @@ class ConexionSybase:
             print(f"Error al obtener el valor de 'id': {err}")
             return None
 
+    def modificar_columna_y_dato_variable(self, nuevo_dato, long):
+        print(long)
+        try:
+            columnas = self.obtener_nombres_columnas('SPDIR')
+            print(columnas)
+            self.conectar()     
+            with self.conexion.cursor() as cursor:
+                # Modificar el tamaño de la columna ID a VARCHAR(50)
+                cursor.execute(f"ALTER TABLE SPDIR MODIFY id VARCHAR({long})")
+
+                # Actualizar el dato en la columna ID donde GRID == 'mp_programa'
+                print(f"UPDATE SPDIR SET ID = '{nuevo_dato}' WHERE GRID = 'mp_programa'")
+                
+                cursor.execute(f"UPDATE SPDIR SET ID = '{nuevo_dato}' WHERE GRID = 'mp_programa'")
+                
+                # Confirmar cambios y cerrar la conexión
+                self.conexion.commit()
+                self.conexion.close()
+                print("Columna modificada y dato actualizado exitosamente.")
+        except pypyodbc.Error as e:
+            print("Error:", e)
+            self.conexion.rollback()
+            self.conexion.close()
+
+
         
     def specify_search_all_columns(self, nombre_tabla, condicion, valor_condicion):
         try:

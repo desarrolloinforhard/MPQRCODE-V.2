@@ -37,8 +37,13 @@ class GUIEliminarSucursal():
             self.traer_cajas(lista_sucursales)
             self.frame_1_page_1()
         else:
-            CTkMessagebox(title="Error", message="No se encontra ni una SUCURSAL activa.\n Cree una nueva y reeintente de nuevo.", icon="cancel")
-            self.root_ventena_eliminar_sucursal.destroy()
+            texto1 = 'No se ha encontrado ninguna sucursal en la Base de Datos'
+            texto2 = 'Vuelve a la pestaña SUCURSAL para cargar una Sucursal y vuelva a intentarlo.'
+            self.root_ventena_eliminar_sucursal.configure(fg_color='transparent')
+            self.label_sucursal_vacia1 = CTk.CTkLabel(self.root_ventena_eliminar_sucursal, text=texto1)
+            self.label_sucursal_vacia2 = CTk.CTkLabel(self.root_ventena_eliminar_sucursal, text=texto2)
+            self.label_sucursal_vacia1.pack()
+            self.label_sucursal_vacia2.pack()
         
     def traer_cajas(self, lista_sucursales):
         for cajas in lista_sucursales:
@@ -57,21 +62,22 @@ class GUIEliminarSucursal():
 
             
     def frame_1_page_1(self):
-        lista_sucursales = []
-        for clave, valor in self.dict_datos_suc_cajas.items():
-            lista_sucursales.append(clave) 
-        self.frame_combobox_page1 = CTk.CTkFrame(self.root_ventena_eliminar_sucursal, fg_color='transparent')
-        self.frame_combobox_page1.pack(pady=20)
-        
-        self.combobox_var_eliminar_sucursal = CTk.StringVar(value=None)
-        self.combobox_eliminar_sucursal = CTk.CTkComboBox(self.frame_combobox_page1, values=lista_sucursales,
-                                            command=self.combobox_llamada_eliminar_sucursal, variable=self.combobox_var_eliminar_sucursal, width=210,  state="readonly")
-        self.combobox_var_eliminar_sucursal.set(value="")
-        self.label_seleccionar_sucursal = CTk.CTkLabel(self.frame_combobox_page1, text="Seleccionar sucursal:")
-        self.label_seleccionar_sucursal.pack(side='left', padx=15)
-        self.combobox_eliminar_sucursal.pack(side='right', padx=15)
-        
-        self.frame_2_page_1()
+        if not self.conexion_DBAServer.tabla_vacia('MPQRCODE_SUCURSAL'):
+            lista_sucursales = []
+            for clave, valor in self.dict_datos_suc_cajas.items():
+                lista_sucursales.append(clave) 
+            self.frame_combobox_page1 = CTk.CTkFrame(self.root_ventena_eliminar_sucursal, fg_color='transparent')
+            self.frame_combobox_page1.pack(pady=20)
+            
+            self.combobox_var_eliminar_sucursal = CTk.StringVar(value=None)
+            self.combobox_eliminar_sucursal = CTk.CTkComboBox(self.frame_combobox_page1, values=lista_sucursales,
+                                                command=self.combobox_llamada_eliminar_sucursal, variable=self.combobox_var_eliminar_sucursal, width=210,  state="readonly")
+            self.combobox_var_eliminar_sucursal.set(value="")
+            self.label_seleccionar_sucursal = CTk.CTkLabel(self.frame_combobox_page1, text="Seleccionar sucursal:")
+            self.label_seleccionar_sucursal.pack(side='left', padx=15)
+            self.combobox_eliminar_sucursal.pack(side='right', padx=15)
+            
+            self.frame_2_page_1()
         
     def frame_2_page_1(self):
         self.frame_datos_page1 = CTk.CTkFrame(self.root_ventena_eliminar_sucursal)
@@ -186,24 +192,32 @@ class GUIEliminarSucursal():
             messagebox.showerror('Error', respuesta['message'])
 
     def actualizar_listbox(self):
-        # Limpiar el contenido actual del Listbox
-        self.listbox_datos.delete(0, 'end')
-        # Insertar los nuevos datos en el Listbox
-        for dato in self.datos_listbox:
-            self.listbox_datos.insert('end', dato)
-        external_id_pos_05 = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_CAJA', 'external_id_pos', 'idINCREMENT', 1, False)[0:6]
-        print(f'EXTRENN: {external_id_pos_05}')
-        print(f"LABEL:  {self.label_store_id_variable.cget('text')}")
-        if not self.posicion_activo == None and external_id_pos_05 == self.label_store_id_variable.cget('text'):
-            self.listbox_datos.activate(self.posicion_activo)
-        else:
-            try:
-                if self.posicion_activo == None:
-                    pass
-                else:
-                    self.listbox_datos.deactivate(self.posicion_activo)
-            except IndexError:
-                print('No se encontraron PDV')
+        try:
+            # Limpiar el contenido actual del Listbox
+            self.listbox_datos.delete(0, 'end')
+            # Insertar los nuevos datos en el Listbox
+            for dato in self.datos_listbox:
+                self.listbox_datos.insert('end', dato)
+            external_id_pos_05 = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_CAJA', 'external_id_pos', 'idINCREMENT', 1, False)
+            if not external_id_pos_05 == None:
+                external_id_pos_05 = external_id_pos_05[0:6]
+            else:
+                self.button_agregar_caja.configure(state='normal', fg_color='#02B960', hover_color='#008A47')
+            print(f'EXTRENN: {external_id_pos_05}')
+            print(f"LABEL:  {self.label_store_id_variable.cget('text')}")
+            if not self.posicion_activo == None and external_id_pos_05 == self.label_store_id_variable.cget('text'):
+                self.listbox_datos.activate(self.posicion_activo)
+            else:
+                try:
+                    if self.posicion_activo == None:
+                        pass
+                    else:
+                        self.listbox_datos.deactivate(self.posicion_activo)
+                except IndexError:
+                    print('No se encontraron PDV')
+        except Exception as e:
+            CTkMessagebox(title="Error", message=f"{e}", icon="cancel")
+            
 
                 
     def combobox_llamada_eliminar_sucursal(self, choice):
@@ -213,6 +227,7 @@ class GUIEliminarSucursal():
         
         # Reiniciar self.datos_listbox a una lista vacía antes de agregar nuevos datos
         self.datos_listbox = []
+        self.button_agregar_caja.configure(state='normal', fg_color='#02B960', hover_color='#008A47')
         
         for lista in self.dict_datos_suc_cajas[choice]['PDV']:
             if not lista:
@@ -287,6 +302,7 @@ class GUIEliminarSucursal():
         path_archivos = os.path.dirname(os.path.abspath(__file__))
         ruta_directorio_trabajo = os.path.join(path_archivos, "MPQRCODE")  # Sin comillas dobles aquí
         ruta_archivo_exe = os.path.join(ruta_directorio_trabajo, "MPQRCODE.exe")
+        self.conexion_DBAServer.modificar_columna_y_dato_variable(ruta_archivo_exe, len(ruta_archivo_exe))
 
         # Obtener la ruta al directorio de destino
         ruta_destino = os.path.join(path_archivos, "..")
@@ -300,7 +316,7 @@ class GUIEliminarSucursal():
         shortcut.TargetPath = ruta_archivo_exe
         shortcut.WorkingDirectory = ruta_directorio_trabajo  # Establecer el directorio de trabajo
         shortcut.Save()
-
+        print(ruta_archivo_exe)
         
             
     def toggle_disable(self, boton, evento):

@@ -135,6 +135,7 @@ class CrearOrdenApp:
             elif clickerProgress < 50:
                 if not clickerProgress == 50:
                     while not clickerProgress == 50 and type(self.id_order_var.get()) == str:
+                        print(self.id_order_var.get())
                         self.clicker()
                         clickerProgress = int(self.my_progressbar.get()*100)
                         time.sleep(0.05)
@@ -154,10 +155,12 @@ class CrearOrdenApp:
             elif clickerProgress < 80:
                 print(self.status_cancel)
                 if self.status_cancel == 0: 
+                    print(self.id_order_var.get())
                     self.obtenerPago = self.obtnerPago(self.id_order_var.get(), True, self.datos_para_orden[6])
                 if not clickerProgress == 80:
                     while not clickerProgress == 80:
                         if self.id_order_var.get() == "":
+                            print(self.id_order_var.get())
                             self.clicker()
                             clickerProgress = int(self.my_progressbar.get()*100)
                         else:
@@ -190,6 +193,7 @@ class CrearOrdenApp:
                                         self.clicker()
                                         clickerProgress = int(self.my_progressbar.get()*100)        
                                         if clickerProgress < 80:
+                                            print(self.id_order_var.get())
                                             self.obtenerPago = self.obtnerPago(self.id_order_var.get(), False, self.datos_para_orden[6])
                                             if not clickerProgress == 80:
                                                 while not clickerProgress == 80:
@@ -447,6 +451,7 @@ class CrearOrdenApp:
             self.my_label_time.configure(text=f"")            
         elif self.datos_para_orden[6] == 0 and self.datos_para_orden[1] == 2:
             if obtenido_ID == None:
+                print(f"\nEXTERNAL REFERENCE: {external_reference}\n")
                 obtener_ID = self.conexionDBAServer.specify_search_condicion("MPQRCODE_OBTENERPAGOServer", "data", "external_reference", external_reference, False)
                 print(obtener_ID)
                 self.id_order_var.set(obtener_ID)
