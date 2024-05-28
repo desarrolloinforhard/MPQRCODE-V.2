@@ -13,6 +13,7 @@ from GUICrearCajaV2 import GUIEliminarSucursal
 from GUITopLevelCargaCREARORDEN import TopLevelCargaCREARORDEN
 from GUICrearOrden import CrearOrdenApp
 from GUIDSN import InterfazGrafica
+from GUIVentas_MP import GUIVentas_MP
 from window_position import center_window
 from tkinter import ttk, simpledialog, messagebox
 from PIL import Image
@@ -257,6 +258,7 @@ class ConfigInicialMPQRCODE:
                 else:
                     messagebox.showerror("Error", "Password incorrecto.")
         except Exception as e:
+            print(e)
             messagebox.showerror("Error", f"Error: {str(e)}")
 
     def tabla_clientes_vacia(self):
@@ -420,6 +422,7 @@ class GUIConfigInicialV2:
         self.sucursal_png = CTk.CTkImage(Image.open(RutaImagenes.SUCURSAL()), size=(45, 45))
         self.pdv_png = CTk.CTkImage(Image.open(RutaImagenes.CAJERO1()), size=(45, 45))
         self.point_png = CTk.CTkImage(Image.open(RutaImagenes.POINTPOS()), size=(45, 45))
+        self.stadistica_png = CTk.CTkImage(Image.open(RutaImagenes.ESTADISTICA()), size=(45, 45))
         
         self.navigation_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0)
         self.navigation_frame.grid(row=0, column=0, sticky="nsew")
@@ -441,12 +444,17 @@ class GUIConfigInicialV2:
         self.frame_pos_point_button = CTk.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Points MP", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), image=self.point_png, anchor="w", command=self.frame_pos_point_button_event)
         self.frame_pos_point_button.grid(row=3, column=0, sticky="ew")
         
+        self.frame_ventas_mp_button = CTk.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Ventas", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), image=self.stadistica_png, anchor="w", command=self.frame_ventas_mp_button_event)
+        self.frame_ventas_mp_button.grid(row=4, column=0, sticky="ew")
+        
         self.homeframe()        
         # create second frame
         self.sucursalframe()
 
         # create third frame
         self.posframe()
+        
+        self.ventasmpframe()
         
         self.point_pos_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
 
@@ -492,6 +500,13 @@ class GUIConfigInicialV2:
             self.point_pos_frame.grid(row=0, column=1, sticky="nsew")
         else:
             self.point_pos_frame.grid_forget()
+        if name == 'ventas_frame':
+            self.ventas_mp_frame.destroy()
+            self.ventasmpframe()
+            self.name_frame = name
+            self.precarga_carga()
+        else:
+            self.ventas_mp_frame.grid_forget()
         
         
     def home_button_event(self):
@@ -512,6 +527,10 @@ class GUIConfigInicialV2:
             self.esc_presionado = False  # Reiniciar el contador
             self.select_frame_by_name('pos_point_frame')
             
+    def frame_ventas_mp_button_event(self):
+        if self.paginador != 4:
+            self.esc_presionado = False  # Reiniciar el contador
+            self.select_frame_by_name('ventas_frame')
     def on_esc_press(self, e):
         if e.name == 'esc':
             if self.esc_presionado:
@@ -584,7 +603,8 @@ class GUIConfigInicialV2:
             self.pos_frame.grid(row=0, column=1, sticky="nsew")
         if self.name_frame == "pos_point_frame":
             self.point_pos_frame.grid(row=0, column=1, sticky="nsew")
-        
+        if self.name_frame == "ventas_frame":
+            self.ventas_mp_frame.grid(row=0, column=1, sticky="nsew")
         
         
     def sucursalframe(self):
@@ -596,6 +616,11 @@ class GUIConfigInicialV2:
         self.paginador = 2
         self.pos_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
         GUIEliminarSucursal(self.pos_frame, self.conexionDBA, self.conexionDBASERVER, self.conexionAPI)
+        
+    def ventasmpframe(self):
+        self.paginador = 4
+        self.ventas_mp_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
+        GUIVentas_MP(self.ventas_mp_frame, self.conexionDBASERVER)
         
         
     def logoMPyInfor(self):

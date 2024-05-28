@@ -17,7 +17,7 @@ class CrearOrdenApp:
         self.conexionAPIPOINT = conexionAPIPOINT
         self.conexionDBA = conexionDBA
         self.conexionDBAServer = conexionDBAServer
-        self.datos_para_orden = self.conexionDBA.specify_search_all_columns_nocondicion("MPQRCODE_CONEXIONPROGRAMAS")
+        self.datos_para_orden = self.conexionDBA.specify_search_all_columns_nocondicion("MPQRCODE_CONEXIONPROGRAMAS")[0]
         self.datos_caja = self.conexionDBA.specify_search_all_columns("MPQRCODE_CAJA", "idINCREMENT", 1)
         print(self.datos_para_orden)
         print(self.datos_caja)
@@ -489,7 +489,17 @@ class CrearOrdenApp:
                     'response': 0,
                     'description': 'accredited'
                 }
+                
+                datos_obtener_pago = {
+                    'NomCaja': self.datos_para_orden[7],
+                    'NumCajero': self.datos_para_orden[8],
+                    'NombreCajero': self.datos_para_orden[9]
+                }
                 self.conexionDBA.actualizar_datos_condicion("MPQRCODE_CONEXIONPROGRAMAS", datos, "nro_factura", f"'{self.datos_para_orden[0]}'")
+                if self.datos_para_orden[6] == 0:
+                    self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos_obtener_pago, "external_reference", f"'{self.datos_para_orden[0]}'")
+                elif self.datos_para_orden[7] == 1:
+                    self.conexionDBA.actualizar_datos_condicion("MPQRCODE_CONEXIONPROGRAMASPOINT", datos_obtener_pago, "external_reference", f"'{self.datos_para_orden[0]}'")
         elif self.status_cancel == 400:
             self.ventana_creacion_caja.after(0, self.mostrar_cancelacion_orden)
         else:

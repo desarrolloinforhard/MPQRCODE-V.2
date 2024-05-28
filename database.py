@@ -425,7 +425,10 @@ class ConexionSybase:
                     taxes_amount BIGINT, 
                     transaction_amount FLOAT, 
                     transaction_amount_refunded FLOAT, 
-                    transaction_details_total_paid_amount VARCHAR(255)
+                    transaction_details_total_paid_amount VARCHAR(255),
+                    NomCaja VARCHAR(255),
+                    NumCajero VARCHAR(255),
+                    NombreCajero VARCHAR(255)
                 )
             """
             self.cursor.execute(query)
@@ -476,7 +479,10 @@ class ConexionSybase:
                     taxes_amount BIGINT, 
                     transaction_amount FLOAT, 
                     transaction_amount_refunded FLOAT, 
-                    transaction_details_total_paid_amount VARCHAR(255)
+                    transaction_details_total_paid_amount VARCHAR(255),
+                    NomCaja VARCHAR(255),
+                    NumCajero VARCHAR(255),
+                    NombreCajero VARCHAR(255)
                 )
             """
             self.cursor.execute(query)
@@ -674,7 +680,21 @@ class ConexionSybase:
                 for fila in filas:
                     print(fila)
         except pypyodbc.Error as err:
-            print(f"Error al seleccionar la tabla '{nombre_tabla}': {err}")            
+            print(f"Error al seleccionar la tabla '{nombre_tabla}': {err}")       
+            
+    def agregar_columna(self, tabla, columna, tipo_dato):
+        try:
+            self.conectar()
+            with self.conexion.cursor() as cursor:
+                # Construir la consulta SQL para agregar la nueva columna
+                query = f"ALTER TABLE {tabla} ADD {columna} {tipo_dato}"
+                cursor.execute(query)
+                self.conexion.commit()
+                print(f"Columna '{columna}' agregada exitosamente a la tabla '{tabla}'.")
+        except pypyodbc.Error as e:
+            print(f"Error al agregar la columna: {e}")
+        finally:
+            self.desconectar()
 
     # MANEJO DE DATOS DE UNA TABLA
     
@@ -1331,8 +1351,7 @@ class ConexionSybase:
 
                 if resultado is not None:
                     # Convertir la fila de resultado a una lista
-                    valores = list(resultado)
-                    return valores[0]
+                    return resultado
                 else:
                     return None
         except pypyodbc.Error as err:

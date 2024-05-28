@@ -42,3 +42,9 @@ def CAJERO2():
 
 def POINTPOS():
     return os.path.join(path_script, 'assets', 'point-pos.png')
+
+def ESTADISTICA():
+    return os.path.join(path_script, 'assets', 'estadistica.png')
+
+def LUPA():
+    return os.path.join(path_script, 'assets', 'lupa.png')
