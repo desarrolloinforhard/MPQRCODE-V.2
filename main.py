@@ -1,4 +1,4 @@
-_version_ = "2.6.3"
+_version_ = "4.3.6"
 """
 Esta interfaz es desarrollado por el equipo de desarrollo de INFORHARD S.R.L.
 El objetivo es poder conectar los pagos hechos atravez de MercadoPago, sea por QR o por POINT, al sistema de ventas de INFORHARD S.R.L
@@ -13,4 +13,4 @@ sys.path.append(path_GUI)
 from GUIConfigInicialV2 import ConfigInicialMPQRCODE
     
 if __name__ == "__main__":
-    config = ConfigInicialMPQRCODE()
+    config = ConfigInicialMPQRCODE(_version_)

@@ -273,7 +273,7 @@ class Conexion_Api:
                 "total_amount": monto_pagar
                 },
             ],
-            'notification_url': f'{IPN_URL}api/MPQRCODE',
+            'notification_url': f'{IPN_URL}api/MPQRCODE', #f'{IPN_URL}'api/MPQRCODE NUEVA VERSION CON ENVIO A AWS
             "title": sucNAME,
             "total_amount": monto_pagar          
             }
@@ -281,6 +281,44 @@ class Conexion_Api:
         response = requests.put(url, headers=headers, data=json.dumps(pagodata_json))
         print(response)
         return response.json()
+    
+    
+    def crear_orden_dinamicoV2(self, external_idPOS, nro_factura, sucNAME, monto_pagar, IPN_URL):
+        print(fechamodificada)
+        url = f"https://api.mercadopago.com/instore/orders/qr/seller/collectors/{self.id_user}/pos/{external_idPOS}/qrs"
+
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer {self.access_token}'
+        }
+
+        pagodata_json = {
+            "cash_out": {
+                "amount": 0
+            },
+            "description": "Purchase description.",
+            "expiration_date": f"{fechamodificada}",
+            "external_reference": nro_factura,
+            "items": [
+                {
+                "sku_number": "A123K9191938",
+                "category": "marketplace",
+                "title": sucNAME,
+                "description": "QR_DINAMICO",
+                "unit_price": monto_pagar,
+                "quantity": 1,
+                "unit_measure": "unit",
+                "total_amount": monto_pagar
+                },
+            ],
+            'notification_url': f'{IPN_URL}api/MPQRCODE', #f'{IPN_URL}'api/MPQRCODE NUEVA VERSION CON ENVIO A AWS
+            "title": sucNAME,
+            "total_amount": monto_pagar          
+            }
+        
+        response = requests.put(url, headers=headers, data=json.dumps(pagodata_json))
+        print(response)
+        return response
     
     def obtener_pago(self, nro_operacion):
         url = f"https://api.mercadopago.com/v1/payments/{nro_operacion}"

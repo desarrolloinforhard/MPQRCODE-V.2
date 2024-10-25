@@ -10,10 +10,11 @@ from tkinter import messagebox
 from CTkMessagebox import CTkMessagebox
 
 class GUIEliminarSucursal():
-    def __init__(self, master, conexionDBA, conexion_DBAServer, conexion_api):
+    def __init__(self, master, conexionDBA, conexion_DBAServer, conexion_api, conexion_DBACentral=False):
         self.conexion_api = conexion_api
         self.conexionDBA = conexionDBA
         self.conexion_DBAServer = conexion_DBAServer
+        self.conexion_DBACentral = conexion_DBACentral
         self.datosObtenidosCajasDICT = None
         self.tacho_basura_png = CTk.CTkImage(Image.open(TACHO_BASURA()), size=(25, 25))
         self.reemplazar_png = CTk.CTkImage(Image.open(REEMPLAZAR()), size=(25, 25))
@@ -31,7 +32,10 @@ class GUIEliminarSucursal():
         
         
     def traer_sucursales(self):
-        lista_sucursales = self.conexion_DBAServer.specify_search_columna('MPQRCODE_SUCURSAL', 'external_id')
+        if not self.conexion_DBACentral:
+            lista_sucursales = self.conexion_DBAServer.specify_search_columna('MPQRCODE_SUCURSAL', 'external_id')
+        else:
+            lista_sucursales = self.conexion_DBACentral.specify_search_columna('MPQRCODE_SUCURSAL', 'external_id')
         if lista_sucursales:
             print(lista_sucursales)
             self.traer_cajas(lista_sucursales)
@@ -47,37 +51,65 @@ class GUIEliminarSucursal():
         
     def traer_cajas(self, lista_sucursales):
         for cajas in lista_sucursales:
-            id_sucursal = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_SUCURSAL', 'id', 'external_id', cajas, False)
-            suc_name = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_SUCURSAL', 'name', 'external_id', cajas, False)
+            if not self.conexion_DBACentral:
+                id_sucursal = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_SUCURSAL', 'id', 'external_id', cajas, False)
+                suc_name = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_SUCURSAL', 'name', 'external_id', cajas, False)
+            else:
+                id_sucursal = self.conexion_DBACentral.specify_search_condicion('MPQRCODE_SUCURSAL', 'id', 'external_id', cajas, False)
+                suc_name = self.conexion_DBACentral.specify_search_condicion('MPQRCODE_SUCURSAL', 'name', 'external_id', cajas, False)
             self.dict_datos_suc_cajas[suc_name] = {
                     'external_store_id': cajas,
                     'external_id': id_sucursal,
                     'PDV': []  # Inicializar como una lista vacía en lugar de un diccionario vacío
                 }
-            cajas_obtenidas = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_CAJAS', 'name', 'store_id', id_sucursal, True)
-            for caja in cajas_obtenidas:
-                external_id = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_CAJAS', 'id', 'name', caja[0], False)
-                self.dict_datos_suc_cajas[suc_name]['PDV'].append({caja[0]: external_id})
+            if not self.conexion_DBACentral:
+                cajas_obtenidas = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_CAJAS', 'name', 'store_id', id_sucursal, True)
+                for caja in cajas_obtenidas:
+                    external_id = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_CAJAS', 'id', 'name', caja[0], False)
+                    self.dict_datos_suc_cajas[suc_name]['PDV'].append({caja[0]: external_id})
+            else:
+                cajas_obtenidas = self.conexion_DBACentral.specify_search_condicion('MPQRCODE_CAJAS', 'name', 'store_id', id_sucursal, True)
+                for caja in cajas_obtenidas:
+                    external_id = self.conexion_DBACentral.specify_search_condicion('MPQRCODE_CAJAS', 'id', 'name', caja[0], False)
+                    self.dict_datos_suc_cajas[suc_name]['PDV'].append({caja[0]: external_id})
         print(self.dict_datos_suc_cajas)
 
             
     def frame_1_page_1(self):
-        if not self.conexion_DBAServer.tabla_vacia('MPQRCODE_SUCURSAL'):
-            lista_sucursales = []
-            for clave, valor in self.dict_datos_suc_cajas.items():
-                lista_sucursales.append(clave) 
-            self.frame_combobox_page1 = CTk.CTkFrame(self.root_ventena_eliminar_sucursal, fg_color='transparent')
-            self.frame_combobox_page1.pack(pady=20)
-            
-            self.combobox_var_eliminar_sucursal = CTk.StringVar(value=None)
-            self.combobox_eliminar_sucursal = CTk.CTkComboBox(self.frame_combobox_page1, values=lista_sucursales,
-                                                command=self.combobox_llamada_eliminar_sucursal, variable=self.combobox_var_eliminar_sucursal, width=210,  state="readonly")
-            self.combobox_var_eliminar_sucursal.set(value="")
-            self.label_seleccionar_sucursal = CTk.CTkLabel(self.frame_combobox_page1, text="Seleccionar sucursal:")
-            self.label_seleccionar_sucursal.pack(side='left', padx=15)
-            self.combobox_eliminar_sucursal.pack(side='right', padx=15)
-            
-            self.frame_2_page_1()
+        if not self.conexion_DBACentral:
+            if not self.conexion_DBAServer.tabla_vacia('MPQRCODE_SUCURSAL'):
+                lista_sucursales = []
+                for clave, valor in self.dict_datos_suc_cajas.items():
+                    lista_sucursales.append(clave) 
+                self.frame_combobox_page1 = CTk.CTkFrame(self.root_ventena_eliminar_sucursal, fg_color='transparent')
+                self.frame_combobox_page1.pack(pady=20)
+                
+                self.combobox_var_eliminar_sucursal = CTk.StringVar(value=None)
+                self.combobox_eliminar_sucursal = CTk.CTkComboBox(self.frame_combobox_page1, values=lista_sucursales,
+                                                    command=self.combobox_llamada_eliminar_sucursal, variable=self.combobox_var_eliminar_sucursal, width=210,  state="readonly")
+                self.combobox_var_eliminar_sucursal.set(value="")
+                self.label_seleccionar_sucursal = CTk.CTkLabel(self.frame_combobox_page1, text="Seleccionar sucursal:")
+                self.label_seleccionar_sucursal.pack(side='left', padx=15)
+                self.combobox_eliminar_sucursal.pack(side='right', padx=15)
+                
+                self.frame_2_page_1()
+        else:
+            if not self.conexion_DBACentral.tabla_vacia('MPQRCODE_SUCURSAL'):
+                lista_sucursales = []
+                for clave, valor in self.dict_datos_suc_cajas.items():
+                    lista_sucursales.append(clave) 
+                self.frame_combobox_page1 = CTk.CTkFrame(self.root_ventena_eliminar_sucursal, fg_color='transparent')
+                self.frame_combobox_page1.pack(pady=20)
+                
+                self.combobox_var_eliminar_sucursal = CTk.StringVar(value=None)
+                self.combobox_eliminar_sucursal = CTk.CTkComboBox(self.frame_combobox_page1, values=lista_sucursales,
+                                                    command=self.combobox_llamada_eliminar_sucursal, variable=self.combobox_var_eliminar_sucursal, width=210,  state="readonly")
+                self.combobox_var_eliminar_sucursal.set(value="")
+                self.label_seleccionar_sucursal = CTk.CTkLabel(self.frame_combobox_page1, text="Seleccionar sucursal:")
+                self.label_seleccionar_sucursal.pack(side='left', padx=15)
+                self.combobox_eliminar_sucursal.pack(side='right', padx=15)
+                
+                self.frame_2_page_1()
         
     def frame_2_page_1(self):
         self.frame_datos_page1 = CTk.CTkFrame(self.root_ventena_eliminar_sucursal)
@@ -174,7 +206,11 @@ class GUIEliminarSucursal():
             CTkMessagebox(title="Error", message="No puedes eliminar una caja activa.", icon="cancel")
         
     def eliminar_caja_proceso(self):
-        external_id = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_CAJAS', 'id', 'name', self.valor_seleccionado, False)
+        if not self.conexion_DBACentral:
+            external_id = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_CAJAS', 'id', 'name', self.valor_seleccionado, False)
+        else:
+            external_id = self.conexion_DBACentral.specify_search_condicion('MPQRCODE_CAJAS', 'id', 'name', self.valor_seleccionado, False)
+            external_id = self.conexion_DBAServer.specify_search_condicion('MPQRCODE_CAJAS', 'id', 'name', self.valor_seleccionado, False)
         respuesta = self.conexion_api.eliminarCaja(external_id)
         if respuesta.status_code >= 200 and respuesta.status_code < 300:
             messagebox.showinfo('Exito', 'Caja eliminado con exito')
@@ -262,9 +298,12 @@ class GUIEliminarSucursal():
                 for columna in datosObtnerCajas:
                     datosObtenidosCajas.append(self.conexion_DBAServer.specify_search_condicion("MPQRCODE_CAJAS", columna, "name", self.listbox_datos.get(), False))
                 print(datosObtenidosCajas)
-                print(self.conexion_DBAServer.specify_search_condicion("MPQRCODE_SUCURSAL", 'name', 'external_id', datosObtenidosCajas[0], False))
+                if not self.conexion_DBACentral:
+                    sucName = self.conexion_DBAServer.specify_search_condicion("MPQRCODE_SUCURSAL", 'name', 'external_id', datosObtenidosCajas[0], False)
+                else:
+                    sucName = self.conexion_DBACentral.specify_search_condicion("MPQRCODE_SUCURSAL", 'name', 'external_id', datosObtenidosCajas[0], False),
                 self.datosObtenidosCajasDICT = {
-                    "sucNAME": self.conexion_DBAServer.specify_search_condicion("MPQRCODE_SUCURSAL", 'name', 'external_id', datosObtenidosCajas[0], False),
+                    "sucNAME": sucName,
                     "posNAME": self.listbox_datos.get(),
                     "external_id_pos": datosObtenidosCajas[1],
                     "IPN_url": datosObtenidosCajas[2]
@@ -302,7 +341,7 @@ class GUIEliminarSucursal():
         path_archivos = os.path.dirname(os.path.abspath(__file__))
         ruta_directorio_trabajo = os.path.join(path_archivos, "MPQRCODE")  # Sin comillas dobles aquí
         ruta_archivo_exe = os.path.join(ruta_directorio_trabajo, "MPQRCODE.exe")
-        self.conexion_DBAServer.modificar_columna_y_dato_variable(ruta_archivo_exe, len(ruta_archivo_exe))
+        self.conexionDBA.modificar_columna_y_dato_variable(ruta_archivo_exe, len(ruta_archivo_exe))
 
         # Obtener la ruta al directorio de destino
         ruta_destino = os.path.join(path_archivos, "..")

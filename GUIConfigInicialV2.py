@@ -1,4 +1,5 @@
 import customtkinter as CTk
+import traceback
 import os
 import json
 import socket
@@ -6,7 +7,6 @@ import keyboard
 import requests
 import image_path as RutaImagenes
 from ctk_components.ctk_components import *
-from CTkMessagebox import CTkMessagebox
 from GUIConfigDBA import GUIconexiones
 from GUICrearSucursalV3 import CrearSucursalApp
 from GUICrearCajaV2 import GUIEliminarSucursal
@@ -15,7 +15,9 @@ from GUICrearOrden import CrearOrdenApp
 from GUIDSN import InterfazGrafica
 from GUIVentas_MP import GUIVentas_MP
 from window_position import center_window
-from tkinter import ttk, simpledialog, messagebox
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
+from tkinter import simpledialog, messagebox
 from PIL import Image
 from datetime import datetime
 from database import ConexionSybase
@@ -27,16 +29,16 @@ fecha_actual = datetime.now()
 # Formatear la fecha y hora actual
 fecha_formateada = fecha_actual.strftime("%d-%m-%Y %H:%M:%S")
 
-
 class ConfigInicialMPQRCODE:
-    def __init__(self):
+    def __init__(self, version):
         conexion_internet = self.verificar_conexion_internet()
         if conexion_internet:
             self.user_id = None
             self.access_token = None     
             self.dsn_caja = None
             self.dsn_servidor = None
-            self.dsn_servidor_respaldo = None
+            self.tipo_operador = None
+            self.dsn_servidor_central = None
             self.resultado = None
             self.cargar_configuracion()
             self.rutaicono = os.path.dirname(os.path.abspath(__file__))
@@ -51,34 +53,24 @@ class ConfigInicialMPQRCODE:
                     password="gestion",
                     dsn=self.dsn_servidor
                 )
-                if self.conexionDBASERVER.check_table_existence('MPQRCODE_CONEXIONSERVIDORAPI'):
-                    pass
-                else:
-                    self.conexionDBASERVER.crear_tabla_MPQRCODE_CONEXIONSERVIDORAPI()
-                    self.conexionDBASERVER.insertar_datos_sin_obtener_id('MPQRCODE_CONEXIONSERVIDORAPI', {'id': 1})
-                fecha_api = self.conexionDBASERVER.specify_search_condicion('MPQRCODE_CONEXIONSERVIDORAPI', 'ultima_actualizacion', 'id', 1, False)
-                if self.comparacion_fechas(fecha_formateada, fecha_api):
-                    if self.conexionDBA.conectar() and self.conexionDBASERVER.conectar():
-                        self.validar_password()
-                    else:
-                        if not self.dsn_servidor_respaldo == None:
-                            self.conexionDBASERVER = ConexionSybase(
-                            user="dba",
-                            password="gestion",
-                            dsn=self.dsn_servidor_respaldo
-                            )
-                            if self.conexionDBA.conectar() and self.conexionDBASERVER.conectar():
-                                messagebox.showinfo('¡¡IMPORTANTE!!', 'AVISO IMPORTANTE:\n Estas trabajando sobre una base de respaldo.')
-                                self.validar_password()
-                            else:
-                                messagebox.showerror('Error con el DBA', 'No se puede lograr conexion con ninguna base de datos')
+                if not self.dsn_servidor_central == False:
+                    self.conexionDBACENTRAL = ConexionSybase(
+                        user="dba",
+                        password="gestion",
+                        dsn=self.dsn_servidor_central
+                    )
+                if self.conexionDBA.conectar() and self.conexionDBASERVER.conectar():
+                    if not self.dsn_servidor_central == False:
+                        if self.conexionDBACENTRAL.conectar():
+                            pass
                         else:
-                            messagebox.showerror('Error con el DBA', 'No se puede lograr conexion con ninguna base de datos')
+                            messagebox.showinfo("Sin conexión", "No se pudo conectar a la central. No realize envios de datos a la central.")
+                    if self.pedido_API_online():
+                        self.validar_password(version)
                 else:
-                    messagebox.showerror('Sin conexión', 'No nos pudimos conectar al servidor API de Inforhard')
+                        messagebox.showerror('Error con el DBA', 'No se puede lograr conexion con ninguna base de datos')
             else:
                 messagebox.showerror("Error", "DSN NO CONFIGURADOS. Habra el configurador de DSN e introduzcalos.")
-                directorio_script = os.path.dirname(os.path.abspath(__file__))
                 root = CTk.CTk()
                 rutaicono = RutaImagenes.Icono_MercadoPago_Blue()
                 root.iconbitmap(rutaicono)
@@ -86,10 +78,10 @@ class ConfigInicialMPQRCODE:
                 root.mainloop()  
         else:
             messagebox.showerror('No hay conexión', 'Sin conexión a internet')
-            
+
     def llamar_crear_orden(self):
         self.id_user = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'idUSER', 1)
-        self.token  = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'AUTH_TOKEN', 1)
+        self.token = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'AUTH_TOKEN', 1)
         self.tokenPOINT = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'AUTH_TOKENPOINT', 1)
         self.datos_connect = (self.id_user, self.token)
         self.datos_connectPOINT = (self.id_user, self.tokenPOINT)
@@ -98,7 +90,7 @@ class ConfigInicialMPQRCODE:
         self.conexionAPIPOINT = Conexion_APP(self.datos_connectPOINT, self.conexionDBA, self.conexionDBASERVER)
         TopLevelCargaCREARORDEN()
         CrearOrdenApp(self.conexionAPI, self.conexionAPIPOINT, self.conexionDBA, self.conexionDBASERVER)
-            
+
     def verificar_conexion_internet(self):
         try:
             # Intenta conectarte a un servidor externo (en este caso, google.com) en el puerto 80
@@ -107,7 +99,7 @@ class ConfigInicialMPQRCODE:
         except OSError:
             # Si hay un error al conectar, devuelve False
             return False
-        
+
     def comparacion_fechas(self, fecha_python, fecha_api):
         try:
             lista_fecha_python = self.separar_fechas(fecha_python)
@@ -130,34 +122,28 @@ class ConfigInicialMPQRCODE:
                 else:
                     self.conexionDBASERVER.crear_tabla_MPQRCODE_CLIENTE()
                     self.crear_interfaz()
-            
-            
+
     def separar_fechas(self, fecha):
         caracteres = []  # Lista para almacenar los caracteres de la fecha
         lista_fechas = []  # Lista para almacenar las fechas separadas
-
         for caracter in fecha:
-            if caracter != '-' and caracter != ':' and caracter != ' ':
+            if caracter not in '-: ':
                 caracteres.append(caracter)  # Agregar el caracter a la lista
             else:
                 if caracteres:  # Verificar si hay caracteres en la lista
                     fecha_separada = int(''.join(caracteres))  # Convertir la lista de caracteres a entero
                     lista_fechas.append(fecha_separada)  # Agregar la fecha separada a la lista de fechas
                     caracteres = []  # Reiniciar la lista de caracteres para la próxima fecha
-
-        # Agregar la última fecha si hay caracteres en la lista
-        if caracteres:
+        if caracteres:  # Agregar la última fecha si hay caracteres en la lista
             fecha_separada = int(''.join(caracteres))
             lista_fechas.append(fecha_separada)
-
         return lista_fechas   
-    
+
     def sacar_diferencia_fechas(self, listas_fecha_python, lista_fecha_api):
         # Verificar si las posiciones 0, 1 y 2 de ambas listas coinciden
         if listas_fecha_python[0] == lista_fecha_api[0] and \
-        listas_fecha_python[1] == lista_fecha_api[1] and \
-        listas_fecha_python[2] == lista_fecha_api[2]:
-            
+           listas_fecha_python[1] == lista_fecha_api[1] and \
+           listas_fecha_python[2] == lista_fecha_api[2]:
             # Calcular la diferencia entre las posiciones 3 y 4 de ambas listas
             diferencia_posicion3 = abs(listas_fecha_python[3] - lista_fecha_api[3])
             diferencia_posicion4 = abs(listas_fecha_python[4] - lista_fecha_api[4])
@@ -176,26 +162,42 @@ class ConfigInicialMPQRCODE:
                         return True
         return False
 
-            
-
-    def validar_password(self):
+    def validar_password(self, version):
         try:
             condicion = True
-            while condicion == True:
-                password_ingresado = simpledialog.askstring("Password", "Ingrese el password:", show='*')
+            windows = ttk.Window(themename="darkly")
+            windows.state('zoomed')
+            windows.title('Sistema MercadoPago')
+            windows.iconbitmap(RutaImagenes.Icono_MercadoPago_Blue())
+            
+            while condicion:
+                password_ingresado = simpledialog.askstring("Password", "Ingrese el password:", show='*', parent=windows)
                 if password_ingresado is None:
                     # Usuario canceló la operación, salir del bucle
                     break
+                
                 password_correcto = "*123*"
                 if password_ingresado == password_correcto:
-                    if self.tabla_clientes_vacia():
-                        self.conexionDBASERVER.crear_tabla_MPQRCODE_CLIENTE()
-                        self.crear_interfaz()
-                        messagebox.showinfo("Información", "Cliente cargado.")
-                        GUIConfigInicialV2(self.conexionDBA, self.conexionDBASERVER)
+                    condicion = False  # Salir del bucle
+                    
+                    if not self.dsn_servidor_central == False:
+                        if self.tabla_clientes_vacia():
+                            self.conexionDBASERVER.crear_tabla_MPQRCODE_CLIENTE()
+                            self.crear_interfaz()
+                            messagebox.showinfo("Información", "Cliente cargado.")
+                            GUIConfigInicialV2(windows, self.conexionDBA, self.conexionDBASERVER, self.tipo_operador, self.conexionDBACENTRAL, version=version)
+                        else:
+                            messagebox.showinfo("Información", "Ya hay un cliente cargado.")
+                            GUIConfigInicialV2(windows, self.conexionDBA, self.conexionDBASERVER, self.tipo_operador, self.conexionDBACENTRAL, version=version)
                     else:
-                        messagebox.showinfo("Información", "Ya hay un cliente cargado.")
-                        GUIConfigInicialV2(self.conexionDBA, self.conexionDBASERVER)  
+                        if self.tabla_clientes_vacia():
+                            self.conexionDBASERVER.crear_tabla_MPQRCODE_CLIENTE()
+                            self.crear_interfaz()
+                            messagebox.showinfo("Información", "Cliente cargado.")
+                            GUIConfigInicialV2(windows, self.conexionDBA, self.conexionDBASERVER, self.tipo_operador, version=version)
+                        else:
+                            messagebox.showinfo("Información", "Ya hay un cliente cargado.")
+                            GUIConfigInicialV2(windows, self.conexionDBA, self.conexionDBASERVER, self.tipo_operador, version=version)  
                 elif password_ingresado == "DATABASE":
                     GUIconexiones()
                 elif password_ingresado == "CONNECTDSN":
@@ -218,31 +220,53 @@ class ConfigInicialMPQRCODE:
                     self.conexionDBASERVER.eliminar_tabla("MPQRCODE_OBTENERPAGOServer")
                     self.conexionDBASERVER.crear_tabla_MPQRCODE_RESPUESTAPOST()
                     self.conexionDBASERVER.crear_tabla_MPQRCODE_OBTENERPAGOServer()
+                elif password_ingresado == "DATABASE":
+                    GUIconexiones()
+                elif password_ingresado == "CONNECTDSN":
+                    directorio_script = os.path.dirname(os.path.abspath(__file__))
+                    root = CTk.CTk()
+                    rutaicono = RutaImagenes.Icono_MercadoPago_Blue()
+                    root.iconbitmap(rutaicono)
+                    app = InterfazGrafica(root)
+                    root.mainloop()
+                elif password_ingresado == "DLTTABLEFULLPS":
+                    self.conexionDBA.eliminarTablasPOS()
+                    self.conexionDBASERVER.eliminarTablasSERVER()
+                    messagebox.showinfo("Exito", "Se eliminaron las tablas del Server y el POS")
+                elif password_ingresado == "RSTTABLECAJA":
+                    self.conexionDBA.eliminar_tabla("MPQRCODE_CAJA")
+                    self.conexionDBA.crear_tabla_MPQRCODE_CAJA()
+                    messagebox.showinfo("Exito", "Se eliminaron los datos de la Caja")
+                elif password_ingresado == "RSTOBPAGOServer":
+                    self.conexionDBASERVER.eliminar_tabla("MPQRCODE_RESPUESTAPOST")
+                    self.conexionDBASERVER.eliminar_tabla("MPQRCODE_OBTENERPAGOServer")
+                    self.conexionDBASERVER.crear_tabla_MPQRCODE_RESPUESTAPOST()
+                    self.conexionDBASERVER.crear_tabla_MPQRCODE_OBTENERPAGOServer()
                 elif password_ingresado == "IPN":
                     self.ventana_actualizarIPN()
                 elif password_ingresado == "MKTABLEPOS":
-                    messagebox.showinfo("Exito", "Se han creado las tabla del POS")
+                    messagebox.showinfo("Exito", "Se han creado las tablas del POS")
                     self.conexionDBA.crearTablasPOS()
                 elif password_ingresado == "RSTOBPAGOS":
-                    messagebox.showinfo("Exito", "Se han creado las tabla del POS")
+                    messagebox.showinfo("Exito", "Se han creado las tablas del POS")
                     self.conexionDBASERVER.eliminar_tabla("MPQRCODE_OBTENERPAGOServer")
                     self.conexionDBASERVER.crear_tabla_MPQRCODE_OBTENERPAGOServer()
                 elif password_ingresado == "MKTABLESERVER":
                     self.conexionDBASERVER.crearTablasSERVER()
-                    messagebox.showinfo("Exito", "Se han creado las tabla del Server")
+                    messagebox.showinfo("Exito", "Se han creado las tablas del Server")
                 elif password_ingresado == "DLTTABLESPOS":
                     self.conexionDBA.eliminarTablasPOS()
-                    messagebox.showinfo("Exito", "Se han eliminado las tabla del POS")
+                    messagebox.showinfo("Exito", "Se han eliminado las tablas del POS")
                 elif password_ingresado == "DLTTABLESSERVER":
                     self.conexionDBASERVER.eliminarTablasSERVER()
-                    messagebox.showinfo("Exito", "Se han eliminado las tabla del Server")
+                    messagebox.showinfo("Exito", "Se han eliminado las tablas del Server")
                 elif password_ingresado == "RSTTABLESRESPUESTA":
                     self.conexionDBA.eliminarOrdenesPostDBA()
-                    messagebox.showinfo("Exito", "Se restaurado las Ordenes")
+                    messagebox.showinfo("Exito", "Se restauraron las Ordenes")
                 elif password_ingresado == "RSTCLIENTE":
                     self.conexionDBASERVER.eliminar_tabla("MPQRCODE_CLIENTE")
                     self.conexionDBASERVER.crear_tabla_MPQRCODE_CLIENTE()
-                    messagebox.showinfo("Exito", "Se reiniciado el cliente")
+                    messagebox.showinfo("Exito", "Se reinició el cliente")
                 elif password_ingresado == "TESTBUY":
                     datos = {
                         "nro_factura": "00000-1111571432",
@@ -251,103 +275,61 @@ class ConfigInicialMPQRCODE:
                         "status": 0
                     }
                     self.conexionDBA.insertar_datos_sin_obtener_id("MPQRCODE_CONEXIONPROGRAMAS", datos)
-                    messagebox.showinfo("Exito", "Se reiniciado la tabla CONEXIONPROGRAMAS")
+                    messagebox.showinfo("Exito", "Se reinició la tabla CONEXIONPROGRAMAS")
                 elif password_ingresado == "DLTTESTBUY":
                     self.conexionDBA.eliminar_tabla("MPQRCODE_CONEXIONPROGRAMAS")
                     self.conexionDBA.crear_tabla_MPQRCODE_CONEXIONPROGRAMAS()
                 else:
                     messagebox.showerror("Error", "Password incorrecto.")
         except Exception as e:
-            print(e)
-            messagebox.showerror("Error", f"Error: {str(e)}")
+            # Mostrar el mensaje de error con detalles de la línea
+            traceback_msg = traceback.format_exc()
+            print(traceback_msg)
+            messagebox.showerror('Error validación', f'Error en la validación de password:\n{traceback_msg}')
 
+            
     def tabla_clientes_vacia(self):
-        try:
-            return self.conexionDBASERVER.contar_registros("MPQRCODE_CLIENTE") == 0
-        except Exception as e:
-            messagebox.showerror("Error", f"Error al contar registros: {str(e)}")
-
-    def crear_interfaz(self):
-        self.conexionDBASERVER.insertar_datos_sin_obtener_id('MPQRCODE_CONEXIONSERVIDORAPI', {'id': 1})
-        self.root = CTk.CTk()
-        self.root.title("Configuración inicial MPQRCODE")
-        rutaicono = RutaImagenes.Icono_MercadoPago_Blue()
-        self.root.iconbitmap(rutaicono)
-
-        CTk.CTkLabel(self.root, text="User ID de MercadoPago:").grid(row=0, column=0, padx=10, pady=5, sticky='w')
-        CTk.CTkLabel(self.root, text="Access Token de MercadoPago:").grid(row=1, column=0, padx=10, pady=5, sticky='w')
-        CTk.CTkLabel(self.root, text="Access Token POINT de MercadoPago:").grid(row=2, column=0, padx=10, pady=5, sticky='w')
-
-        self.entry_user_id = CTk.CTkEntry(self.root, font=('Helvetica', 12))
-        self.entry_access_token = CTk.CTkEntry(self.root, show='*', font=('Helvetica', 12))
-        self.entry_access_tokenPOINT = CTk.CTkEntry(self.root, show='*', font=('Helvetica', 12))
-
-        self.entry_user_id.grid(row=0, column=1, padx=10, pady=5, sticky='ew')
-        self.entry_access_token.grid(row=1, column=1, padx=10, pady=5, sticky='ew')
-        self.entry_access_tokenPOINT.grid(row=2, column=1, padx=10, pady=5, sticky='ew')
-
-        CTk.CTkButton(self.root, text="Agregar", command=self.validar_y_agregar).grid(row=3, column=0, columnspan=2, pady=10)
-
-        self.root.columnconfigure(0, weight=1)
-        self.root.columnconfigure(1, weight=1)
-        self.root.protocol("WM_DELETE_WINDOW", self.cerrar_ventana)  # Vincular el cierre de la ventana
-
-        center_window(self.root, 500, 165)
-        self.root.mainloop()
-
-    def validar_y_agregar(self):
-        user_id = self.entry_user_id.get()
-        access_token = self.entry_access_token.get()
-        access_tokenPOINT = self.entry_access_tokenPOINT.get()
-
-        if not user_id or not access_token:
-            messagebox.showerror("Error", "Ambas casillas deben estar completas.")
+        if self.conexionDBASERVER.tabla_vacia('MPQRCODE_CLIENTE'):
+            return True
         else:
-            self.user_id = user_id
-            self.access_token = access_token
-            self.access_tokenPOINT = access_tokenPOINT
-            datos_user = {
-                'idUSER': self.user_id,
-                'AUTH_TOKEN': self.access_token,
-                'AUTH_TOKENPOINT': self.access_tokenPOINT
-                
-            }            
-            try:
-                self.conexionDBASERVER.insertar_datos_sin_obtener_id("MPQRCODE_CLIENTE", datos_user)
-                self.root.destroy()
-                print("DATOS AGREGADOS")
-                self.resultado = True
-            except Exception as e:
-                messagebox.showerror("Error", f"Error al insertar datos en la base de datos: {str(e)}")
-                self.resultado = False
+            return False
 
-    def cerrar_ventana(self):
-        self.root.destroy()
-        
     def pedido_API_online(self):
-        
-        lista_id_increment = self.conexionDBASERVER.specify_search_columna('MPQRCODE_CAJAS', 'idINCREMENT')
-        print(lista_id_increment)
-        if lista_id_increment:
-            url_de_DBA = self.conexionDBASERVER.specify_search_condicion('MPQRCODE_CAJAS', 'IPN_url', 'idINCREMENT', lista_id_increment[0], False)
-            if not url_de_DBA == None:
-                headers = {
-                    "Content-Type": 'application/json'
-                }            
-                response = requests.get(url=url_de_DBA, headers=headers)
-                
-                if response.status_code == 200:
+        try:
+            lista_id_increment = self.conexionDBASERVER.specify_search_columna('MPQRCODE_CAJAS', 'idINCREMENT')
+            print(lista_id_increment)
+            if lista_id_increment:
+                url_de_DBA = self.conexionDBASERVER.specify_search_condicion('MPQRCODE_CAJAS', 'IPN_url', 'idINCREMENT', lista_id_increment[0], False)
+                print(url_de_DBA)
+                if not url_de_DBA == None:
+                    headers = {
+                        "Content-Type": 'application/json'
+                    }            
+                    response = requests.get(url=url_de_DBA, headers=headers)
+                    
+                    if response.status_code == 200:
+                        return True
+                    else:
+                        messagebox.showerror("Error", "El servidor no se encuentra en linea")
+                        return False
+            else:
+                if self.dsn_caja == self.dsn_servidor:
                     return True
                 else:
-                    messagebox.showerror("Error", "El servidor no se encuentra en linea")
+                    messagebox.showerror("Error", "No se encontro caja activa")
                     return False
-        else:
-            messagebox.showerror("Error", "No se encontro caja activa")
+        except Exception as e:
+            if self.conexionDBASERVER.tabla_vacia('MPQRCODE_CLIENTE'):
+                messagebox.showerror('No se pudo conectar', f'No se puede conectar con la API.\n{e}')
+                self.crear_interfaz()
+                if self.resultado:
+                    messagebox.showinfo('OK', 'El cliente se ha agregado, puede levantar el server, local y host.')
+                else:
+                    messagebox.showerror('No agregado', 'No se pudo agregar ni un cliente, no puedes acceder a la Interfaz de Pago')
+            else:
+                messagebox.showinfo('Aviso', 'Los datos del cliente se encuentran cargados pero no se levantó el servidor APIRest de INFORHARD S.R.L')
             return False
-        
-            
-        
-        
+
     def cargar_configuracion(self):
         try:
             directorio_script_json = os.path.dirname(os.path.abspath(__file__))
@@ -359,13 +341,117 @@ class ConfigInicialMPQRCODE:
                 self.dsn_servidor = configuracion.get("dsn_servidor", "")
                 
                 
-                # Verificar si existe la clave "dsn_servidor_respaldo"
-                if "dsn_servidor_respaldo" in configuracion:
-                    self.dsn_servidor_respaldo = configuracion["dsn_servidor_respaldo"]
+                # Verificar si existe la clave "dsn_servidor_central"
+                if "dsn_servidor_central" in configuracion:
+                    self.dsn_servidor_central = configuracion["dsn_servidor_central"]
             print(self.dsn_caja, self.dsn_servidor)
+            self.tipo_operador = self.dsn_caja == self.dsn_servidor
         except FileNotFoundError:
-            # El archivo de configuración no existe, es normal la primera vez
-            pass
+            messagebox.showerror('Error', 'El archivo de configuración no existe.')
+        except json.JSONDecodeError:
+            messagebox.showerror('Error', 'Error al analizar el archivo de configuración JSON.')
+        except Exception as e:
+            messagebox.showerror('Error', f'Ocurrió un error al cargar la configuración: {e}')
+
+    def crear_interfaz(self):
+        # Crear una ventana emergente para el formulario de inicio de sesión
+        dialog = simpledialog.Dialog(None, title="Datos de MercadoPago")
+        dialog.geometry("400x300")
+
+        # Variables para los campos de entrada
+        user_id = ttk.StringVar()
+        access_token = ttk.StringVar()
+        auth_token_point = ttk.StringVar()
+
+        # Función para manejar el envío del formulario
+        def enviar():
+            self.user_id = user_id.get()
+            self.access_token = access_token.get()
+            self.auth_token_point = auth_token_point.get()
+            self.resultado = self.conexionDBASERVER.insertar_cliente_MPQRCODE_CLIENTE(self.user_id, self.access_token, self.auth_token_point)
+            dialog.destroy()  # Cerrar el formulario
+
+        # Crear los widgets del formulario
+        label_user_id = ttk.Label(dialog, text="User ID:")
+        entry_user_id = ttk.Entry(dialog, textvariable=user_id)
+
+        label_access_token = ttk.Label(dialog, text="Access Token:")
+        entry_access_token = ttk.Entry(dialog, textvariable=access_token)
+
+        label_auth_token_point = ttk.Label(dialog, text="Auth Token Point:")
+        entry_auth_token_point = ttk.Entry(dialog, textvariable=auth_token_point)
+
+        button_enviar = ttk.Button(dialog, text="Enviar", command=enviar)
+
+        # Colocar los widgets en la ventana usando un grid
+        label_user_id.grid(row=0, column=0, padx=10, pady=10)
+        entry_user_id.grid(row=0, column=1, padx=10, pady=10)
+
+        label_access_token.grid(row=1, column=0, padx=10, pady=10)
+        entry_access_token.grid(row=1, column=1, padx=10, pady=10)
+
+        label_auth_token_point.grid(row=2, column=0, padx=10, pady=10)
+        entry_auth_token_point.grid(row=2, column=1, padx=10, pady=10)
+
+        button_enviar.grid(row=3, columnspan=2, pady=10)
+
+        dialog.wait_window()  # Esperar a que se cierre el formulario
+        
+    
+
+"""class InterfazGrafica:
+    def __init__(self, master):
+        self.master = master
+        self.master.title("Configuración de DSN")
+        self.master.geometry("400x200")
+
+        # Crear las variables para los campos de entrada
+        self.dsn_caja = tk.StringVar()
+        self.dsn_servidor = tk.StringVar()
+        self.dsn_servidor_central = tk.StringVar()
+        self.tipo_operador = tk.StringVar()
+
+        # Crear los widgets del formulario
+        label_dsn_caja = tk.Label(master, text="DSN Caja:")
+        entry_dsn_caja = tk.Entry(master, textvariable=self.dsn_caja)
+
+        label_dsn_servidor = tk.Label(master, text="DSN Servidor:")
+        entry_dsn_servidor = tk.Entry(master, textvariable=self.dsn_servidor)
+
+        label_dsn_servidor_central = tk.Label(master, text="DSN Servidor Central:")
+        entry_dsn_servidor_central = tk.Entry(master, textvariable=self.dsn_servidor_central)
+
+        label_tipo_operador = tk.Label(master, text="Tipo Operador:")
+        entry_tipo_operador = tk.Entry(master, textvariable=self.tipo_operador)
+
+        button_guardar = tk.Button(master, text="Guardar", command=self.guardar_configuracion)
+
+        # Colocar los widgets en la ventana usando un grid
+        label_dsn_caja.grid(row=0, column=0, padx=10, pady=10)
+        entry_dsn_caja.grid(row=0, column=1, padx=10, pady=10)
+
+        label_dsn_servidor.grid(row=1, column=0, padx=10, pady=10)
+        entry_dsn_servidor.grid(row=1, column=1, padx=10, pady=10)
+
+        label_dsn_servidor_central.grid(row=2, column=0, padx=10, pady=10)
+        entry_dsn_servidor_central.grid(row=2, column=1, padx=10, pady=10)
+
+        label_tipo_operador.grid(row=3, column=0, padx=10, pady=10)
+        entry_tipo_operador.grid(row=3, column=1, padx=10, pady=10)
+
+        button_guardar.grid(row=4, columnspan=2, pady=10)
+
+    def guardar_configuracion(self):
+        configuracion = {
+            "dsn_caja": self.dsn_caja.get(),
+            "dsn_servidor": self.dsn_servidor.get(),
+            "dsn_servidor_central": self.dsn_servidor_central.get(),
+            "tipo_operador": self.tipo_operador.get()
+        }
+        with open("configuracion.json", "w") as archivo:
+            json.dump(configuracion, archivo)
+        messagebox.showinfo("Información", "Configuración guardada exitosamente.")
+        self.master.destroy()  # Cerrar la ventana
 
         
     def ventana_actualizarIPN(self):
@@ -388,16 +474,17 @@ class ConfigInicialMPQRCODE:
             messagebox.showinfo("Exito", "Valores Actualizados")
             self.rootWindowsIPN.destroy()
             valor = False
-        
+        """
 
 
 class GUIConfigInicialV2:
-    def __init__(self, conexionDBA, conexionDBASERVER):
-        CTk.set_appearance_mode("dark")
-        CTk.set_default_color_theme("green")
+    def __init__(self, root, conexionDBA, conexionDBASERVER, tipo_operador, version, conexionDBACentral=False):
         self.conexionDBA = conexionDBA
         self.conexionDBASERVER = conexionDBASERVER
+        self.conexionDBACentral = conexionDBACentral
         self.esc_presionado = False
+        self.tipo_operador = tipo_operador
+        self.activado_envio_automatico = False
         self.iniciar_escucha()
         self.id_user = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'idUSER', 1)
         self.token  = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'AUTH_TOKEN', 1)
@@ -408,72 +495,75 @@ class GUIConfigInicialV2:
         self.paginador = 0
         self.conexionAPI = Conexion_APP(self.datos_connect, self.conexionDBA, self.conexionDBASERVER)
         self.rutadocumento = os.path.dirname(os.path.abspath(__file__))
-        self.ventana_config_inicial = CTk.CTk()
-        self.ventana_config_inicial.title('Configuración MPQRCODE')
-        self.ventana_config_inicial.iconbitmap(RutaImagenes.Icono_MercadoPago_Blue())
+        self.ventana_config_inicial = root
+        # Opcional: configurar manejo de cierre de ventana
+        self.ventana_config_inicial.protocol("WM_DELETE_WINDOW", self.confirmar_salida)
+        print(tipo_operador)
+        if tipo_operador:
+            self.ventana_config_inicial.title(f'Configuración MPQRCODE (Servidor) - version {version}')
+        else:
+            suc_pos = self.conexionDBA.specify_search("MPQRCODE_CAJA", "sucNAME", 1)
+            pos_name = self.conexionDBA.specify_search("MPQRCODE_CAJA", "posNAME", 1)
+            if not suc_pos == None and not pos_name == None:
+                self.ventana_config_inicial.title(f'Configuración MPQRCODE ({suc_pos}, {pos_name}) - version {version}')
+            else:
+                self.ventana_config_inicial.title(f'Configuración MPQRCODE (NEW POS) - version {version}')
         
-        # set grid layout 1x2
         self.ventana_config_inicial.grid_rowconfigure(0, weight=1)
         self.ventana_config_inicial.grid_columnconfigure(1, weight=1)
+
+        self.logo_inforhard = ImageTk.PhotoImage(Image.open(RutaImagenes.LOGO_INFORHARD()).resize((130, 80)))
+        self.logo_inforhard_horizontal = ImageTk.PhotoImage(Image.open(RutaImagenes.LOGO_INFORHARD_horizontal()).resize((200, 50)))
+        self.home_image = ImageTk.PhotoImage(Image.open(RutaImagenes.HOME()).resize((45, 45)))
+        self.sucursal_png = ImageTk.PhotoImage(Image.open(RutaImagenes.SUCURSAL()).resize((45, 45)))
+        self.pdv_png = ImageTk.PhotoImage(Image.open(RutaImagenes.CAJERO1()).resize((45, 45)))
+        self.point_png = ImageTk.PhotoImage(Image.open(RutaImagenes.POINTPOS()).resize((45, 45)))
+        self.stadistica_png = ImageTk.PhotoImage(Image.open(RutaImagenes.ESTADISTICA()).resize((45, 45)))
         
-        self.logo_inforhard = CTk.CTkImage(Image.open(RutaImagenes.LOGO_INFORHARD()), size=(130, 80))
-        self.logo_inforhard_horizontal = CTk.CTkImage(Image.open(RutaImagenes.LOGO_INFORHARD_horizontal()), size=(200, 50))
-        self.home_image = CTk.CTkImage(Image.open(RutaImagenes.HOME()), size=(45, 45))
-        self.sucursal_png = CTk.CTkImage(Image.open(RutaImagenes.SUCURSAL()), size=(45, 45))
-        self.pdv_png = CTk.CTkImage(Image.open(RutaImagenes.CAJERO1()), size=(45, 45))
-        self.point_png = CTk.CTkImage(Image.open(RutaImagenes.POINTPOS()), size=(45, 45))
-        self.stadistica_png = CTk.CTkImage(Image.open(RutaImagenes.ESTADISTICA()), size=(45, 45))
-        
-        self.navigation_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0)
+        self.navigation_frame = ttk.Frame(self.ventana_config_inicial)
         self.navigation_frame.grid(row=0, column=0, sticky="nsew")
         self.navigation_frame.grid_rowconfigure(5, weight=1)
 
-        self.navigation_frame_label = CTk.CTkLabel(self.navigation_frame, text="", image=self.logo_inforhard,
-                                                             compound="left", font=CTk.CTkFont(size=15, weight="bold"))
+        self.navigation_frame_label = ttk.Label(self.navigation_frame, text="", image=self.logo_inforhard, compound="left", font=("Arial", 15, "bold"))
         self.navigation_frame_label.grid(row=0, column=0, padx=20, pady=20)
 
-        """self.home_button = CTk.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Home", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), image=self.home_image, anchor="w", command=self.home_button_event)
-        self.home_button.grid(row=1, column=0, sticky="ew")"""
-
-        self.frame_sucursal_button = CTk.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Sucursal", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), image=self.sucursal_png, anchor="w", command=self.frame_sucursal_button_event)
+        self.frame_sucursal_button = ttk.Button(self.navigation_frame, bootstyle="success", text="Sucursal", image=self.sucursal_png, compound="left", command=self.frame_sucursal_button_event)
         self.frame_sucursal_button.grid(row=1, column=0, sticky="ew")
 
-        self.frame_pos_button = CTk.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="PDV", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), image=self.pdv_png, anchor="w", command=self.pos_frame_event)
+        self.frame_pos_button = ttk.Button(self.navigation_frame, bootstyle="success", text="PDV", image=self.pdv_png, compound="left", command=self.pos_frame_event)
         self.frame_pos_button.grid(row=2, column=0, sticky="ew")
 
-        self.frame_pos_point_button = CTk.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Points MP", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), image=self.point_png, anchor="w", command=self.frame_pos_point_button_event)
+        self.frame_pos_point_button = ttk.Button(self.navigation_frame, bootstyle="success", text="Points MP", image=self.point_png, compound="left", command=self.frame_pos_point_button_event)
         self.frame_pos_point_button.grid(row=3, column=0, sticky="ew")
         
-        self.frame_ventas_mp_button = CTk.CTkButton(self.navigation_frame, corner_radius=0, height=40, border_spacing=10, text="Ventas", fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"), image=self.stadistica_png, anchor="w", command=self.frame_ventas_mp_button_event)
+        self.frame_ventas_mp_button = ttk.Button(self.navigation_frame, bootstyle="success", text="Ventas", image=self.stadistica_png, compound="left", command=self.frame_ventas_mp_button_event)
         self.frame_ventas_mp_button.grid(row=4, column=0, sticky="ew")
-        
+
         self.homeframe()        
-        # create second frame
         self.sucursalframe()
-
-        # create third frame
         self.posframe()
-        
         self.ventasmpframe()
-        
-        self.point_pos_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
 
-        # select default frame
+        self.point_pos_frame = ttk.Frame(self.ventana_config_inicial)
+
         self.select_frame_by_name("home")
         
-        # Obtiene la resolución de la pantalla
         ancho_pantalla = self.ventana_config_inicial.winfo_screenwidth()
         alto_pantalla = self.ventana_config_inicial.winfo_screenheight()
-        #self.ventana_config_inicial.geometry(f"{ancho_pantalla}x{alto_pantalla}")
-        center_window(self.ventana_config_inicial, ancho_pantalla, alto_pantalla)    
-        self.ventana_config_inicial.mainloop()
+        self.ventana_config_inicial.geometry(f"{ancho_pantalla}x{alto_pantalla}")
+        center_window(self.ventana_config_inicial, ancho_pantalla, alto_pantalla)
         
-        
+        root.mainloop()
+
+
+    def confirmar_salida(self):
+        if not self.activado_envio_automatico:
+            if messagebox.askquestion("Confirmar salida", "¿Estás seguro que deseas salir?") == "yes":
+                self.ventana_config_inicial.destroy()
+        else:
+            messagebox.showerror("Error", "No puedes salir mientras el envío automático está activado")
+
     def select_frame_by_name(self, name):
-        # set button color for selected button
-        self.frame_sucursal_button.configure(fg_color=("gray75", "gray25") if name == "sucursal_frame" else "transparent")
-        self.frame_pos_button.configure(fg_color=("gray75", "gray25") if name == "pos_frame" else "transparent")
-        self.frame_pos_point_button.configure(fg_color=("gray75", "gray25") if name == "pos_point_frame" else "transparent")
 
         # show selected frame
         if name == "home":
@@ -482,16 +572,11 @@ class GUIConfigInicialV2:
         else:
             self.home_frame.grid_forget()
         if name == "sucursal_frame":
-            self.sucursal_frame.destroy()
-            self.sucursalframe()
             self.name_frame = name
             self.precarga_carga()
-            # create second frame
         else:
             self.sucursal_frame.grid_forget()
         if name == "pos_frame":
-            self.pos_frame.destroy()
-            self.posframe()
             self.name_frame = name
             self.precarga_carga()           
         else:
@@ -501,14 +586,11 @@ class GUIConfigInicialV2:
         else:
             self.point_pos_frame.grid_forget()
         if name == 'ventas_frame':
-            self.ventas_mp_frame.destroy()
-            self.ventasmpframe()
             self.name_frame = name
             self.precarga_carga()
         else:
             self.ventas_mp_frame.grid_forget()
-        
-        
+
     def home_button_event(self):
         self.select_frame_by_name('home')
 
@@ -531,6 +613,7 @@ class GUIConfigInicialV2:
         if self.paginador != 4:
             self.esc_presionado = False  # Reiniciar el contador
             self.select_frame_by_name('ventas_frame')
+
     def on_esc_press(self, e):
         if e.name == 'esc':
             if self.esc_presionado:
@@ -540,7 +623,7 @@ class GUIConfigInicialV2:
             else:
                 self.home_button_event()
                 self.esc_presionado = True
-                
+
     def combinar_teclas(self, e):
         if keyboard.is_pressed('shift + tab + enter'):
             GUIconexiones(master=self.ventana_config_inicial)
@@ -553,47 +636,45 @@ class GUIConfigInicialV2:
 
     def detener_escucha(self):
         keyboard.unhook_all()
-        
+
     def evento_salir_de_mpqrcode(self):
-        msg = CTkMessagebox(title='Cerrar MPQRCODE', message=f'¿Desea salir del MPQRCODE?',
-                icon="question", option_1="Si", option_2="No")
-        print(msg)
-        if msg.get() ==  "Si":
+        if messagebox.askquestion("Cerrar MPQRCODE", "¿Desea salir del MPQRCODE?") == "yes":
             self.ventana_config_inicial.destroy()
-        else:
-            pass
-        
-    def homeframe(self):
-        self.home_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
-        self.home_frame.grid_columnconfigure(0, weight=1)
-        
-        self.inner_frame = CTk.CTkFrame(self.home_frame, fg_color='transparent')        
-        self.inner_frame.place(relx=0.5, rely=0.5, anchor=CTk.CENTER)
 
         
+    def homeframe(self):
+        self.home_frame = ttk.Frame(self.ventana_config_inicial)
+        self.home_frame.grid_columnconfigure(0, weight=1)
+        
+        self.inner_frame = ttk.Frame(self.home_frame,)        
+        self.inner_frame.place(relx=0.5, rely=0.5, anchor=ttk.CENTER)
+
         self.logoMPyInfor()
         # Elementos de la página 1
-        self.framaPresentacionWord = CTk.CTkFrame(self.inner_frame, fg_color='transparent')
-        self.labelInfo = CTk.CTkLabel(self.framaPresentacionWord, text="Bienvenido al menú de configuración de MercadoPago\n a travez del Sistema de:", font=("Arial", 16), text_color="#8E8484")
-        self.labelWord_inforhard = CTk.CTkLabel(self.framaPresentacionWord, text='Inforhard Servicos SRL', font=("Arial", 16), text_color='#008a46')
+        self.framaPresentacionWord = ttk.Frame(self.inner_frame,)
+        self.labelInfo = ttk.Label(self.framaPresentacionWord, text="Bienvenido al menú de configuración de MercadoPago\n a través del Sistema de:", font=("Arial", 16), foreground="#8E8484",)
+        self.labelWord_inforhard = ttk.Label(self.framaPresentacionWord, text='Inforhard Servicios SRL', font=("Arial", 16), foreground='#008a46',)
         # Mostrar elementos de la página 1
         self.frameLOGOSCompany.pack()
-        self.logo_mp_img_label.grid(row=1, column=0, padx=20, sticky="e")
-        self.labelSignoMas.grid(row=1, column=1, padx=20, sticky="e")
-        self.logo_inforhard_img_label.grid(row=1, column=2, padx=20, sticky="e")
+
+        # Aquí usas solo pack dentro de frameLOGOSCompany
+        self.logo_mp_img_label.pack(side=ttk.LEFT, padx=20)
+        self.labelSignoMas.pack(side=ttk.LEFT, padx=20)
+        self.logo_inforhard_img_label.pack(side=ttk.LEFT, padx=20)
+
         self.framaPresentacionWord.pack(pady=50)
         self.labelInfo.pack()
         self.labelWord_inforhard.pack()
-        
+
     def precarga_carga(self):
-        self.frame_carga = CTk.CTkFrame(self.ventana_config_inicial, fg_color='transparent')
+        self.frame_carga = ttk.Frame(self.ventana_config_inicial,)
         self.frame_carga.grid(row=0, column=1, sticky="nsew")
-        self.carga_icono = CTkLoader(master=self.frame_carga, opacity=0.8, width=40, height=40)
+        self.carga_icono = ttk.Label(self.frame_carga, text="Cargando...",)  # Reemplaza CTkLoader con un Label
+        self.carga_icono.pack()
         self.ventana_config_inicial.after(3000, self.name_precarga)
-        
-        
+
     def name_precarga(self):
-        self.carga_icono.stop_loader()
+        self.carga_icono.destroy()
         self.frame_carga.destroy()
         if self.name_frame == "home":
             self.home_frame.grid(row=0, column=1, sticky="nsew")
@@ -605,36 +686,61 @@ class GUIConfigInicialV2:
             self.point_pos_frame.grid(row=0, column=1, sticky="nsew")
         if self.name_frame == "ventas_frame":
             self.ventas_mp_frame.grid(row=0, column=1, sticky="nsew")
-        
-        
+
     def sucursalframe(self):
         self.paginador = 1
-        self.sucursal_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
-        CrearSucursalApp(self.ventana_config_inicial, self.sucursal_frame, self.conexionAPI)       
-        
+        self.sucursal_frame = ttk.Frame(self.ventana_config_inicial,)
+        if self.tipo_operador:
+            CrearSucursalApp(self.ventana_config_inicial, self.sucursal_frame, self.conexionAPI)
+        else:
+            self.label_aviso_no_servidor = ttk.Label(self.sucursal_frame, text="Este es un PDV, no puedes crear Sucursales desde aquí. Créalo desde el Servidor.", wraplength=500,)       
+            self.label_aviso_no_servidor.place(relx=0.5, rely=0.5, anchor=ttk.CENTER)
+
     def posframe(self):
         self.paginador = 2
-        self.pos_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
+        self.pos_frame = ttk.Frame(self.ventana_config_inicial,)
         GUIEliminarSucursal(self.pos_frame, self.conexionDBA, self.conexionDBASERVER, self.conexionAPI)
-        
+
     def ventasmpframe(self):
         self.paginador = 4
-        self.ventas_mp_frame = CTk.CTkFrame(self.ventana_config_inicial, corner_radius=0, fg_color="transparent")
-        GUIVentas_MP(self.ventas_mp_frame, self.conexionDBASERVER)
+        self.ventas_mp_frame = ttk.Frame(self.ventana_config_inicial,)
+        if self.tipo_operador:
+            if self.conexionDBACentral:
+                GUIVentas_MP(self.ventana_config_inicial, self.ventas_mp_frame, self.conexionDBASERVER, self.conexionDBACentral)
+            else:
+                GUIVentas_MP(self.ventana_config_inicial, self.ventas_mp_frame, self.conexionDBASERVER)
+        else:
+            self.label_aviso_no_servidor = ttk.Label(self.ventas_mp_frame, text="Este es un PDV, no puedes ver las Ventas desde aquí. Velo desde el Servidor.", wraplength=500,)       
+            self.label_aviso_no_servidor.place(relx=0.5, rely=0.5, anchor=ttk.CENTER)
+
         
         
+        
+    
     def logoMPyInfor(self):
         path_img_inforhard = RutaImagenes.LOGO_INFORHARD()
         
-        self.frameLOGOSCompany = CTk.CTkFrame(self.inner_frame, fg_color='transparent')
+        self.frameLOGOSCompany = ttk.Frame(self.inner_frame,)
         
-        self.logo_inforhard_img_horizontal = CTk.CTkImage(Image.open(RutaImagenes.LOGO_INFORHARD_horizontal()),
-                                            size=(200, 50))
-        self.logo_inforhard_img_horizontal_label = CTk.CTkLabel(self.frameLOGOSCompany, image=self.logo_inforhard_img_horizontal, text="")      
-        self.logo_mp_img = CTk.CTkImage(Image.open(RutaImagenes.LOGO_MP()),
-                                            size=(200, 170))
-        self.logo_mp_img_label = CTk.CTkLabel(self.frameLOGOSCompany, image=self.logo_mp_img, text="")        
-        self.labelSignoMas = CTk.CTkLabel(self.frameLOGOSCompany, text="+", text_color="#8E8484", font=('Arial', 100))        
-        self.logo_inforhard_img = CTk.CTkImage(Image.open(path_img_inforhard),
-                                            size=(200, 150))
-        self.logo_inforhard_img_label = CTk.CTkLabel(self.frameLOGOSCompany, image=self.logo_inforhard_img, text="")
+        # Keep references to the images in the class instance
+        self.logo_inforhard_horizontal_img = Image.open(RutaImagenes.LOGO_INFORHARD_horizontal())
+        self.logo_inforhard_img_horizontal = ImageTk.PhotoImage(self.logo_inforhard_horizontal_img.resize((200, 50), Image.LANCZOS))
+        self.logo_inforhard_img_horizontal_label = ttk.Label(self.frameLOGOSCompany, image=self.logo_inforhard_img_horizontal,)
+        
+        self.logo_mp_img = Image.open(RutaImagenes.LOGO_MP())
+        self.logo_mp_img = ImageTk.PhotoImage(self.logo_mp_img.resize((200, 170), Image.LANCZOS))
+        self.logo_mp_img_label = ttk.Label(self.frameLOGOSCompany, image=self.logo_mp_img,)
+        
+        self.labelSignoMas = ttk.Label(self.frameLOGOSCompany, text="+", foreground="#8E8484", font=('Arial', 100),)
+        
+        self.logo_inforhard_img = Image.open(path_img_inforhard)
+        self.logo_inforhard_img = ImageTk.PhotoImage(self.logo_inforhard_img.resize((200, 150), Image.LANCZOS))
+        self.logo_inforhard_img_label = ttk.Label(self.frameLOGOSCompany, image=self.logo_inforhard_img,)
+
+        # Packing the labels
+        self.logo_inforhard_img_horizontal_label.pack(side="left")
+        self.logo_mp_img_label.pack(side="left")
+        self.labelSignoMas.pack(side="left")
+        self.logo_inforhard_img_label.pack(side="left")
+
+        self.frameLOGOSCompany.pack()  # Pack the frame to make it visible

@@ -244,8 +244,10 @@ class Conexion_APP():
         }
         if insertar and tipo_pago == 0:
             self.conexionDBA.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGO", datos)
+            self.conexionDBAServer.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGO", datos)
         elif insertar and tipo_pago == 1:
             self.conexionDBA.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGOPOINT", datos)
+            self.conexionDBAServer.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGOPOINT", datos)
         else:
             pass
 
@@ -301,6 +303,7 @@ class Conexion_APP():
                         pass
         if tipo_pago == 0:
             self.conexionDBA.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos, 'external_reference', f"'{external_reference}'")
+            self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos, 'external_reference', f"'{external_reference}'")
             status = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGO", 'status', 'external_reference', external_reference, False)
             status_detail = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGO", 'status_detail', 'external_reference', external_reference, False)
             if status == 'approved' and status_detail == 'accredited':
@@ -311,6 +314,7 @@ class Conexion_APP():
                 return False
         elif tipo_pago == 1:
                 self.conexionDBA.actualizar_datos_condicion("MPQRCODE_OBTENERPAGOPOINT", datos, 'external_reference', f"'{external_reference}'")
+                self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGOPOINT", datos, 'external_reference', f"'{external_reference}'")
                 status = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGOPOINT", 'status', 'external_reference', external_reference, False)
                 status_detail = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGOPOINT", 'status_detail', 'external_reference', external_reference, False)
                 if status == 'approved' and status_detail == 'accredited':
@@ -319,6 +323,115 @@ class Conexion_APP():
                 else:
                     print("NO SE PUDO OBTENER EL PAGO")
                     return False
+                
+    def obtenerPago_manual(self, id_pago, external_reference, external_idPOS):
+        print("BUSCANDO STATUS DEL PAGO: ")
+        datos = {
+            'external_reference': external_reference,
+            'external_idPOS': external_idPOS
+        }
+        self.conexionDBA.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGO", datos)
+        self.conexionDBAServer.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGO", datos)
+        
+        """if insertar and tipo_pago == 0:
+            self.conexionDBA.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGO", datos)
+            self.conexionDBAServer.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGO", datos)
+        elif insertar and tipo_pago == 1:
+            self.conexionDBA.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGOPOINT", datos)
+            self.conexionDBAServer.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGOPOINT", datos)
+        else:
+            pass"""
+
+        # Asegúrate de que obtienes la respuesta correctamente
+        respuesta = self.conexionAPI.obtener_pago(id_pago)
+        
+        if respuesta.status_code > 300 and respuesta.status_code < 500:
+            return f"Error {respuesta.status_code}"
+        else:
+            pass
+
+        try:
+            # Verifica si la respuesta es un objeto JSON válido
+            json_response = respuesta.json()
+            print(json_response)
+        except ValueError as e:
+            print(f"Error al parsear la respuesta JSON: {str(e)}")
+            return
+
+        datos = {}
+
+        for clave_json, valor_json in json_response.items():
+            if clave_json == 'order' and isinstance(valor_json, dict):
+                for recorre_dict, valordict in valor_json.items():
+                    if recorre_dict == 'id':
+                        datos['order_id'] = valordict
+                    else:
+                        datos['order_type'] = valordict
+            elif clave_json == 'payer' and isinstance(valor_json, dict):
+                for recorre_dict, valordict in valor_json.items():
+                    if recorre_dict == 'id':
+                        datos['payer_id'] = valordict
+                    else:
+                        print("Se encontró una respuesta no esperada.")
+            elif clave_json == 'payment_method' and isinstance(valor_json, dict):
+                for recorre_dict, valordict in valor_json.items():  # Corregir aquí a valordict
+                    if recorre_dict == 'id':
+                        datos['payment_metodo_id'] = valordict
+                    elif recorre_dict == 'issuer_id':
+                        datos['payment_metodo_issuer_id'] = valordict
+                    else:
+                        datos['payment_metodo_type'] = valordict
+            elif clave_json == 'transaction_details' and isinstance(valor_json, dict):
+                for recorre_dict, valordict in valor_json.items():  # Corregir aquí a valordict
+                    if recorre_dict == 'total_paid_amount':
+                        datos['transaction_details_total_paid_amount'] = valordict
+                    else:
+                        pass
+            else:
+                columnas = self.conexionDBA.obtener_nombres_columnas("MPQRCODE_OBTENERPAGO")
+                """if tipo_pago == 0:
+                    columnas = self.conexionDBA.obtener_nombres_columnas("MPQRCODE_OBTENERPAGO")
+                elif tipo_pago == 1:
+                    columnas = self.conexionDBA.obtener_nombres_columnas("MPQRCODE_OBTENERPAGOPOINT")"""
+                for colum_name in columnas:
+                    if clave_json == colum_name and not clave_json == 'external_reference':
+                        datos[clave_json] = valor_json
+                    else:
+                        pass
+        self.conexionDBA.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos, 'external_reference', f"'{external_reference}'")
+        self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos, 'external_reference', f"'{external_reference}'")
+        self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGOServer", datos, 'external_reference', f"'{external_reference}'")
+        status = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGO", 'status', 'external_reference', external_reference, False)
+        status_detail = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGO", 'status_detail', 'external_reference', external_reference, False)
+        if status == 'approved' and status_detail == 'accredited':
+            print("PAGO REALIZADO")
+            return True
+        else:
+            print("NO SE PUDO OBTENER EL PAGO")
+            return False
+        #self.conexionDBA.actualizar_datos_condicion("MPQRCODE_OBTENERPAGOServer", datos, 'external_reference', f"'{external_reference}'")
+        """if tipo_pago == 0:
+            self.conexionDBA.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos, 'external_reference', f"'{external_reference}'")
+            self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos, 'external_reference', f"'{external_reference}'")
+            status = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGO", 'status', 'external_reference', external_reference, False)
+            status_detail = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGO", 'status_detail', 'external_reference', external_reference, False)
+            if status == 'approved' and status_detail == 'accredited':
+                print("PAGO REALIZADO")
+                return True
+            else:
+                print("NO SE PUDO OBTENER EL PAGO")
+                return False
+        elif tipo_pago == 1:
+                self.conexionDBA.actualizar_datos_condicion("MPQRCODE_OBTENERPAGOPOINT", datos, 'external_reference', f"'{external_reference}'")
+                self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGOPOINT", datos, 'external_reference', f"'{external_reference}'")
+                status = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGOPOINT", 'status', 'external_reference', external_reference, False)
+                status_detail = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGOPOINT", 'status_detail', 'external_reference', external_reference, False)
+                if status == 'approved' and status_detail == 'accredited':
+                    print("PAGO REALIZADO")
+                    return True
+                else:
+                    print("NO SE PUDO OBTENER EL PAGO")
+                    return False"""
             
             
     def crearOrdenFULL(self, external_id_pos, nroFactura, sucNAME, montoPagar, pictureURL):

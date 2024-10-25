@@ -1,4 +1,5 @@
 import tkinter as tk
+import json
 from image_path import *
 from tkinter import ttk, messagebox
 
@@ -117,6 +118,7 @@ class CrearCajaApp:
 
             if respuesta.status_code >= 200 and respuesta.status_code < 300:
                 try:
+                    self.cargar_direccion_NGROK_JSON(IPN_url)
                     messagebox.showinfo("Éxito", "Caja creada con éxito.")
                     self.ventana_creacion_caja.destroy()
                 #DEFINIR BIEN LA LOGICA DE ERRORES CON conexiones.py
@@ -149,3 +151,30 @@ class CrearCajaApp:
             self.ventana_creacion_caja.geometry("+{}+{}".format(spawn_x, spawn_y))
         else:
             print("La ventana es None, no se puede centrar.")
+            
+    def cargar_direccion_NGROK_JSON(self, direccion):
+        try:
+            # Leer el archivo JSON
+            with open('configuracion.json', 'r') as file:
+                config_data = json.load(file)
+        except FileNotFoundError:
+            config_data = {}  # Si el archivo no existe, inicializar con un diccionario vacío
+        except json.JSONDecodeError:
+            config_data = {}  # Si hay un error de decodificación, inicializar con un diccionario vacío
+
+        # Nuevos datos a agregar
+        nuevos_datos = {
+            "NGROK_DIRECCION": direccion
+        }
+
+        # Agregar solo los datos que no existen
+        for key, value in nuevos_datos.items():
+            if key not in config_data:
+                config_data[key] = value
+
+        try:
+            # Guardar los datos actualizados en el archivo JSON
+            with open('configuracion.json', 'w') as file:
+                json.dump(config_data, file, indent=4)
+        except IOError as e:
+            print(f"Error al escribir en el archivo: {e}")

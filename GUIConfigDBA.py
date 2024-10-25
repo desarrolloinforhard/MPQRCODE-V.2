@@ -25,23 +25,11 @@ class GUIconexiones:
                 dsn=self.dsn_servidor
             )
             if self.conexionDBA.conectar() and self.conexionDBASERVER.conectar():
-                messagebox.showinfo('Conectado', 'Conexion exitosa con el DBA')
-                self.crear_ventana_principal(master)
+                self.crear_ventana_principal()
             else:
-                if not self.dsn_servidor_respaldo == None:
-                    self.conexionDBASERVER = ConexionSybase(
-                    user="dba",
-                    password="gestion",
-                    dsn=self.dsn_servidor_respaldo
-                    )
-                    if self.conexionDBA.conectar() and self.conexionDBASERVER.conectar():
-                        messagebox.showinfo('¡¡IMPORTANTE!!', 'AVISO IMPORTANTE:\n Estas trabajando sobre una base de respaldo.')
-                        messagebox.showinfo('Conectado', 'Conexion exitosa con el DBA')
-                        self.crear_ventana_principal(master)
-                    else:
-                        messagebox.showerror('Error con el DBA', 'No se puede lograr conexion con ninguna base de datos')
-                else:
                     messagebox.showerror('Error con el DBA', 'No se puede lograr conexion con ninguna base de datos')
+        else:
+            messagebox.showerror('Sin conexión', 'No nos pudimos conectar al servidor API de Inforhard')
         self.id_user = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'idUSER', 1)
         self.token  = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'AUTH_TOKEN', 1)
         self.tokenPOINT = self.conexionDBASERVER.specify_search("MPQRCODE_CLIENTE", 'AUTH_TOKENPOINT', 1)
@@ -71,7 +59,7 @@ class GUIconexiones:
             # El archivo de configuración no existe, es normal la primera vez
             pass
 
-    def crear_ventana_principal(self, master):
+    def crear_ventana_principal(self, master=None):
         customtkinter.set_appearance_mode("dark")
         customtkinter.set_default_color_theme("green")
         rutaicono = Icono_MercadoPago_Blue()

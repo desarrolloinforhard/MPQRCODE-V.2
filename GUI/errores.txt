@@ -1,0 +1,1546 @@
+2024-10-23 09:47:32,339 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 09:47:32,339 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 09:47:32,339 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 09:49:12,828 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 09:49:12,828 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 09:49:12,828 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 09:49:25,273 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 09:49:25,273 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 09:49:25,275 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 09:53:10,392 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 09:53:10,392 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 09:53:10,392 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 10:24:42,377 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 10:24:42,378 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 10:24:42,378 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 10:26:03,781 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 10:26:03,781 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 10:26:03,781 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 10:28:39,287 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 10:28:39,287 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 10:28:39,287 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:05:13,876 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:05:13,876 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:05:13,876 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:05:20,058 - ERROR - print_valor_progreso: main thread is not in main loop
+2024-10-23 11:07:46,767 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:07:46,767 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:07:46,767 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:08:00,464 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:08:00,464 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:08:00,464 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:10:52,729 - ERROR - BarraProgreso__init__: 'Frame' object has no attribute 'protocol'
+2024-10-23 11:10:52,741 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:10:52,741 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:10:52,741 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:10:57,924 - ERROR - print_valor_progreso: main thread is not in main loop
+2024-10-23 11:12:10,205 - ERROR - BarraProgreso__init__: 'Frame' object has no attribute 'protocol'
+2024-10-23 11:12:10,218 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:12:10,218 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:12:10,218 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:20:17,181 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:20:17,181 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:20:17,181 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:20:46,249 - ERROR - print_valor_progreso: main thread is not in main loop
+2024-10-23 11:21:30,320 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:21:30,321 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:21:30,321 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:22:24,227 - ERROR - print_valor_progreso: main thread is not in main loop
+2024-10-23 11:22:52,368 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:22:52,368 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:22:52,368 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:23:51,109 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:23:51,109 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:23:51,109 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:24:45,134 - ERROR - print_valor_progreso: main thread is not in main loop
+2024-10-23 11:25:51,713 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:25:51,713 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:25:51,713 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:27:10,900 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:27:10,900 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:27:10,900 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:29:08,676 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:29:08,677 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:29:08,677 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:29:09,409 - ERROR - print_valor_progreso: 'BarraProgreso' object has no attribute 'kwargs'
+2024-10-23 11:29:45,994 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:29:45,994 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:29:45,994 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:29:51,204 - ERROR - print_valor_progreso: 'BarraProgreso' object has no attribute 'kwargs'
+2024-10-23 11:30:13,940 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:30:13,940 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:30:13,940 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:30:19,139 - ERROR - print_valor_progreso: 'BarraProgreso' object has no attribute 'kwargs'
+2024-10-23 11:31:00,825 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:31:00,825 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:31:00,826 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:31:06,013 - ERROR - print_valor_progreso: 'BarraProgreso' object has no attribute 'kwargs'
+2024-10-23 11:31:23,615 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:31:23,615 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:31:23,615 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:31:28,793 - ERROR - print_valor_progreso: 'BarraProgreso' object has no attribute 'kwargs'
+2024-10-23 11:32:31,831 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:32:31,831 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:32:31,831 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:32:36,976 - ERROR - print_valor_progreso: 'BarraProgreso' object has no attribute 'kwargs'
+2024-10-23 11:33:02,886 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:33:02,886 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:33:02,886 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:33:02,975 - ERROR - print_valor_progreso: 'BarraProgreso' object has no attribute 'kwargs'
+2024-10-23 11:33:34,644 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:33:34,644 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:33:34,644 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:33:39,770 - ERROR - print_valor_progreso: 'BarraProgreso' object has no attribute 'kwargs'
+2024-10-23 11:34:05,956 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:34:05,956 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:34:05,956 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:34:29,832 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:34:29,832 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:34:29,832 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:48:37,360 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:48:37,360 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:48:37,360 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 11:53:06,203 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 11:53:06,203 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 11:53:06,203 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 12:11:31,547 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 12:11:31,547 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 12:11:31,549 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 12:11:46,115 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 12:11:46,115 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 12:11:46,115 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 12:16:50,641 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 12:16:50,642 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 12:16:50,642 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 12:17:03,339 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 12:17:03,339 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 12:17:03,339 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-23 12:17:14,743 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-23 12:17:14,743 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-23 12:17:14,743 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:17:55,202 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:17:55,203 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:17:55,203 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:18:17,245 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:18:17,245 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:18:17,245 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:18:51,407 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:18:51,407 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:18:51,407 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:45:53,575 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:45:53,576 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:45:53,576 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:45:59,366 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:45:59,366 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:45:59,366 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:46:07,333 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:46:07,333 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:46:07,333 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:46:13,410 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:46:13,411 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:46:13,411 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:46:18,355 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:46:18,356 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:46:18,356 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:51:46,355 - ERROR - func_rogreso: main thread is not in main loop
+2024-10-24 08:52:25,633 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:52:25,634 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:52:25,634 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:52:52,792 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:52:52,792 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:52:52,792 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:52:58,340 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:52:58,340 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:52:58,340 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:53:01,651 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:53:01,651 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:53:01,651 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 08:53:38,620 - ERROR - func_rogreso: main thread is not in main loop
+2024-10-24 08:56:14,118 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 08:56:14,118 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 08:56:14,118 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:04:46,737 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:04:46,737 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:04:46,737 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:15:31,226 - ERROR - func_rogreso: main thread is not in main loop
+2024-10-24 09:15:40,189 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:15:40,189 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:15:40,189 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:15:58,527 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:15:58,527 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:15:58,528 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:16:13,740 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:16:13,740 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:16:13,740 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:17:52,649 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:17:52,649 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:17:52,650 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:18:15,530 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:18:15,530 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:18:15,530 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:18:26,550 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:18:26,550 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:18:26,550 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:18:31,992 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:18:31,992 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:18:31,992 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:18:44,846 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:18:44,846 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:18:44,846 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:18:59,965 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:18:59,965 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:18:59,965 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:19:06,441 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:19:06,441 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:19:06,441 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:22:27,448 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:22:27,448 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:22:27,449 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:27:37,667 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:27:37,667 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:27:37,667 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 09:29:02,395 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 09:29:02,395 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 09:29:02,395 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 10:47:47,481 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 10:47:47,482 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 10:47:47,482 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 10:50:35,081 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 10:50:35,081 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 10:50:35,081 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 10:56:57,833 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 10:56:57,833 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 10:56:57,833 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 11:56:51,196 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 11:56:51,301 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 11:56:51,642 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 11:56:51,643 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 11:56:52,883 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 11:56:52,919 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 11:56:53,032 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 11:56:53,032 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 11:56:53,032 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 11:56:53,085 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 11:56:53,085 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 11:56:53,085 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 11:56:57,303 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 11:56:57,303 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 11:56:57,303 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 11:56:57,422 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,422 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,423 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,424 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,424 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,425 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,426 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,427 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,427 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,428 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,429 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,429 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,430 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,430 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,432 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,432 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,433 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,434 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,435 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,435 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,435 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,436 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,436 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,438 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,438 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,439 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,440 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,440 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,441 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,442 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,442 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,442 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,443 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,443 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,444 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,444 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,445 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,445 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,446 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,446 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,447 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,447 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,448 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,448 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,448 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,449 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,449 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,450 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,450 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,450 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,451 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,451 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,452 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,452 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,453 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,453 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,454 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,454 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,455 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,455 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,456 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,456 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,457 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,457 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,458 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,458 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,458 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,459 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,460 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,460 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,461 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,461 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,462 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,462 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,463 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,463 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,464 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,464 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,465 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,465 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,466 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,466 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,467 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,468 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,468 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,468 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,469 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,469 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,470 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,470 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,471 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,471 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,472 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,472 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,473 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,473 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,474 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,474 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,475 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,475 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,475 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,476 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,477 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,477 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,478 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,478 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,479 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,480 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,480 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,481 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,481 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,482 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,482 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,483 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,483 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,483 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,485 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,485 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,486 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,486 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,487 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,487 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,487 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,488 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,488 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,489 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,489 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,490 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,490 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,491 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,492 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,492 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,493 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,494 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,494 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,495 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,495 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,497 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,497 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,497 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,497 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,499 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,499 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,500 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,500 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,501 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,501 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,502 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,502 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,502 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,503 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,503 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,504 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,504 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,505 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,505 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,506 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,506 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,506 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,507 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,507 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,508 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,509 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,509 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,510 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,510 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,511 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,511 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,513 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,513 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,514 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,514 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,515 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,515 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,516 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,516 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,517 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,517 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,518 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,518 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,518 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,520 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,520 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,521 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,521 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,521 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,522 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,523 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,523 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,524 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,524 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,525 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,525 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,526 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,527 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,527 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,528 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,529 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,529 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,530 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,530 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,532 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,532 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,533 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,533 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,534 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,534 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,535 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,535 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,536 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,536 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,537 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,537 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,538 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,538 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,539 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,539 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,540 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,541 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,541 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,542 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,542 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,543 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,543 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,544 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,544 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,545 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,545 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,546 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,546 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,547 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,547 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,548 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,549 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,549 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,550 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,550 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,551 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,551 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,551 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,552 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,552 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,553 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,553 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,554 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,554 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,555 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,556 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,556 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,556 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,558 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,558 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,559 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,560 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,561 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,561 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,562 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,563 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,563 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,563 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,564 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,564 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,565 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,566 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,566 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,567 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,567 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,568 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,568 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,569 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,569 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,569 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,571 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,571 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,572 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,572 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,573 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,573 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,574 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,574 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,575 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,575 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,576 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,577 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,577 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,578 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,579 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,579 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,580 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,581 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,581 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,582 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,582 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,582 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,584 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,584 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,585 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,585 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,586 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,586 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,587 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,587 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,588 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,588 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,589 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,589 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,590 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,590 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,591 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,591 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,592 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,592 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,593 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,593 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,594 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,594 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,595 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,596 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,596 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,598 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,598 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,599 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,599 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,600 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,600 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,601 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,601 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,602 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,602 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,602 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,603 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,603 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,604 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,605 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,605 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,606 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,606 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,607 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,607 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,608 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,608 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,610 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,610 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,611 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,611 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,612 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,613 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,613 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,614 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,615 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,615 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,615 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,616 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,616 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,617 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,618 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,618 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,619 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,619 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,620 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,620 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,621 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,621 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,622 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,622 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,623 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,624 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,624 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,625 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,626 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,626 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,627 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,628 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,628 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,629 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,630 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,630 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,631 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,631 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,632 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,632 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,633 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,634 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,634 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,635 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,635 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,636 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,636 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,637 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,637 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,638 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,638 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,639 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,639 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,640 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,640 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,641 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,641 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,641 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,643 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,644 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,645 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,645 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,646 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,646 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,647 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,647 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,648 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,649 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,649 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,650 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,651 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,652 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,652 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,653 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,654 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,654 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,654 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,655 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,655 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,656 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,656 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,657 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,657 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,658 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,659 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,659 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,660 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,660 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,662 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,662 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,663 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,664 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,664 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,665 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,665 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,665 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,666 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,667 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,667 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,668 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,668 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,669 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,669 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,670 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,671 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,672 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,672 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,673 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,673 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,673 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,674 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,674 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,675 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,675 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,676 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,677 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,678 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,678 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,678 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,680 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,681 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,681 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,682 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,682 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,683 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,683 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,684 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,685 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,685 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,685 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,686 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,687 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,687 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:56:57,688 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 11:57:01,655 - ERROR - func_rogreso: 'label_estado'
+2024-10-24 12:00:13,262 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 12:00:13,333 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 12:00:13,727 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 12:00:13,729 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 12:00:14,223 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 12:00:14,261 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 12:00:14,363 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:00:14,364 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:00:14,364 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:00:14,405 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:00:14,406 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:00:14,406 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:00:18,606 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:00:18,607 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:00:18,607 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:00:18,713 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 12:00:44,421 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-24 12:01:21,211 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 12:01:21,272 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 12:01:21,599 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 12:01:21,600 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 12:01:22,159 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 12:01:22,192 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 12:01:22,294 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:01:22,295 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:01:22,295 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:01:22,340 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:01:22,340 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:01:22,340 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:01:26,551 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:01:26,551 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:01:26,551 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:01:26,672 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 12:01:40,044 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-24 12:03:14,422 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 12:03:14,487 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 12:03:14,853 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 12:03:14,854 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 12:03:15,227 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 12:03:15,274 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 12:03:15,376 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:03:15,377 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:03:15,377 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:03:15,426 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:03:15,427 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:03:15,427 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:03:19,635 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:03:19,635 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:03:19,635 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:03:19,754 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 12:03:24,655 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-24 12:04:31,071 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 12:04:31,145 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 12:04:31,460 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 12:04:31,461 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 12:04:31,876 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 12:04:31,913 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 12:04:32,015 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:04:32,015 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:04:32,015 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:04:32,059 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:04:32,059 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:04:32,059 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:04:36,259 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:04:36,259 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:04:36,259 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:04:40,909 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-24 12:05:24,528 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 12:05:24,591 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 12:05:24,828 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 12:05:24,829 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 12:05:25,007 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 12:05:25,039 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 12:05:25,141 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:05:25,141 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:05:25,141 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:05:25,185 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:05:25,185 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:05:25,185 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:05:29,389 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:05:29,389 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:05:29,389 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:05:29,505 - ERROR - crear_orden: 'CrearOrdenPago' object has no attribute 'conexionAPI'
+2024-10-24 12:05:34,196 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-24 12:07:19,881 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 12:07:20,115 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 12:07:20,473 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 12:07:20,474 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 12:07:20,791 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 12:07:20,835 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 12:07:20,933 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:07:20,933 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:07:20,933 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:07:20,975 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:07:20,975 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:07:20,975 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:07:25,193 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:07:25,194 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:07:25,194 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:07:29,166 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-24 12:08:31,681 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 12:08:31,752 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 12:08:32,087 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 12:08:32,088 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 12:08:32,480 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 12:08:32,518 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 12:08:32,622 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:08:32,622 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:08:32,622 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:08:32,668 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:08:32,669 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:08:32,669 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:08:36,880 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:08:36,880 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:08:36,880 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:08:36,995 - ERROR - crear_orden: 'conexion_api'
+2024-10-24 12:08:49,607 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-24 12:11:21,191 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 12:11:21,252 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 12:11:21,585 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 12:11:21,586 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 12:11:22,028 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 12:11:22,063 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 12:11:22,170 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:11:22,170 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:11:22,170 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:11:22,212 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:11:22,212 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:11:22,212 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:11:26,419 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:11:26,419 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:11:26,419 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:11:26,543 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-24 12:11:27,662 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-24 12:11:33,958 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-24 12:13:32,287 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 12:13:32,346 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 12:13:32,661 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 12:13:32,662 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 12:13:33,109 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 12:13:33,150 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 12:13:33,247 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:13:33,247 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:13:33,247 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:13:33,294 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:13:33,294 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:13:33,294 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:13:37,492 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:13:37,492 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:13:37,492 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:13:47,485 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-24 12:14:27,682 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-24 12:14:27,751 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-24 12:14:27,978 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-24 12:14:27,979 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-24 12:14:28,151 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-24 12:14:28,181 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-24 12:14:28,284 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:14:28,284 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:14:28,284 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:14:28,329 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:14:28,329 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:14:28,329 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:14:32,533 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-24 12:14:32,533 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-24 12:14:32,533 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-24 12:14:32,643 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-24 12:14:33,737 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-24 12:14:47,774 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 08:07:33,246 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 08:07:33,310 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 08:07:33,684 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 08:07:33,685 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 08:07:34,769 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 08:07:34,947 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 08:07:35,363 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:07:35,363 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:07:35,363 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:07:35,438 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:07:35,438 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:07:35,438 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:07:39,654 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:07:39,654 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:07:39,654 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:07:39,763 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 08:07:40,924 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 08:07:49,841 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 08:08:59,570 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 08:08:59,629 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 08:08:59,987 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 08:08:59,988 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 08:09:00,547 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 08:09:00,582 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 08:09:00,684 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:09:00,684 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:09:00,684 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:09:00,735 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:09:00,735 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:09:00,735 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:09:05,048 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:09:05,048 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:09:05,048 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:09:06,460 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 08:09:07,569 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 08:09:12,952 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 08:19:10,321 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 08:19:10,382 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 08:19:10,712 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 08:19:10,713 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 08:19:11,924 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 08:19:11,957 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 08:19:12,056 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:19:12,056 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:19:12,056 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:19:12,100 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:19:12,100 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:19:12,100 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:19:16,299 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:19:16,299 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:19:16,299 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:19:21,998 - ERROR - crear_orden: 'NoneType' object has no attribute 'status_code'
+2024-10-25 08:19:25,338 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 08:22:04,250 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 08:22:04,326 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 08:22:04,637 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 08:22:04,639 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 08:22:04,965 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 08:22:05,007 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 08:22:05,113 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:22:05,113 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:22:05,113 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:22:05,158 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:22:05,158 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:22:05,158 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:22:09,359 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 08:22:09,359 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 08:22:09,359 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 08:22:10,766 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 08:22:11,904 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 08:22:24,154 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 09:32:05,486 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:32:05,540 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:32:05,882 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:32:05,883 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:32:06,264 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:32:06,422 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:32:06,523 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:32:06,524 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:32:06,524 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:32:06,572 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:32:06,572 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:32:06,572 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:32:10,775 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:32:10,775 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:32:10,775 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:32:12,183 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 09:32:26,491 - ERROR - crear_orden: 'NoneType' object has no attribute 'status_code'
+2024-10-25 09:32:44,190 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 09:33:23,752 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:33:23,817 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:33:24,108 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:33:24,109 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:33:24,494 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:33:24,526 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:33:24,630 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:33:24,630 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:33:24,630 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:33:24,675 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:33:24,675 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:33:24,675 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:33:28,890 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:33:28,890 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:33:28,890 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:33:30,297 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 09:33:45,264 - ERROR - crear_orden: 'NoneType' object has no attribute 'status_code'
+2024-10-25 09:34:04,552 - ERROR - func_rogreso: main thread is not in main loop
+2024-10-25 09:34:12,183 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:34:12,247 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:34:12,399 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 404 2560
+2024-10-25 09:34:12,400 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:34:12,596 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:34:12,597 - ERROR - No nos pudimos conectar al servidor API local
+2024-10-25 09:34:13,841 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 09:34:20,428 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:34:20,505 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:34:20,729 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:34:20,730 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:34:20,922 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:34:20,957 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:34:21,059 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:34:21,059 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:34:21,059 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:34:21,106 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:34:21,106 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:34:21,106 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:34:25,317 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:34:25,317 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:34:25,318 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:34:26,733 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 09:34:38,785 - ERROR - crear_orden: 'NoneType' object has no attribute 'status_code'
+2024-10-25 09:34:44,392 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 09:34:52,544 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 09:34:52,584 - ERROR - func_rogreso: 'label_estado'
+2024-10-25 09:34:54,840 - ERROR - func_rogreso: 'CrearOrdenPago' object has no attribute 'dict'
+2024-10-25 09:34:57,959 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 09:36:03,743 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:36:03,805 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:36:04,207 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:36:04,208 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:36:04,587 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:36:04,628 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:36:04,733 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:36:04,733 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:36:04,733 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:36:04,776 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:36:04,777 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:36:04,777 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:36:08,985 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:36:08,985 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:36:08,985 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:36:10,388 - ERROR - func_rogreso: 'text_label_aviso'
+2024-10-25 09:37:01,942 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 09:37:11,846 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:37:11,907 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:37:12,217 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:37:12,218 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:37:12,611 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:37:12,650 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:37:12,753 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:37:12,753 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:37:12,753 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:37:12,802 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:37:12,802 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:37:12,802 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:37:17,008 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:37:17,008 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:37:17,008 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:37:18,410 - ERROR - func_rogreso: 'text_label_aviso'
+2024-10-25 09:38:14,704 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:38:14,766 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:38:15,158 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:38:15,159 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:38:15,495 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:38:15,533 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:38:15,640 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:38:15,640 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:38:15,640 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:38:15,686 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:38:15,686 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:38:15,687 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:38:19,893 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:38:19,893 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:38:19,893 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:38:21,291 - ERROR - func_rogreso: 'text_label_aviso'
+2024-10-25 09:38:33,946 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 09:39:44,631 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:39:44,693 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:39:45,011 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:39:45,012 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:39:45,351 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:39:45,390 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:39:45,492 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:39:45,492 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:39:45,492 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:39:45,541 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:39:45,541 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:39:45,541 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:39:49,757 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:39:49,757 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:39:49,758 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:39:51,169 - ERROR - func_rogreso: 'text_label_aviso'
+2024-10-25 09:40:36,429 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:40:36,491 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:40:36,736 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:40:36,738 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:40:36,934 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:40:36,971 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:40:37,073 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:40:37,073 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:40:37,073 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:40:37,118 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:40:37,118 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:40:37,118 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:40:41,330 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:40:41,331 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:40:41,331 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:40:42,752 - ERROR - func_rogreso: 'text_label_aviso'
+2024-10-25 09:40:48,428 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 09:41:40,333 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:41:40,401 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:41:40,804 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:41:40,805 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:41:41,170 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:41:41,219 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:41:41,332 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:41:41,332 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:41:41,332 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:41:41,380 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:41:41,381 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:41:41,381 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:41:45,594 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:41:45,594 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:41:45,594 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:41:47,010 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 09:41:48,168 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 09:41:48,985 - ERROR - func_rogreso: 'CrearOrdenPago' object has no attribute 'dict'
+2024-10-25 09:42:37,569 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:42:37,634 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:42:37,852 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:42:37,853 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:42:38,026 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:42:38,065 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:42:38,167 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:42:38,168 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:42:38,168 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:42:38,215 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:42:38,215 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:42:38,215 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:42:42,422 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:42:42,422 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:42:42,422 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:42:43,846 - ERROR - func_rogreso: 'text_label_aviso'
+2024-10-25 09:43:25,366 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:43:25,429 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:43:25,759 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:43:25,760 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:43:26,145 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:43:26,178 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:43:26,280 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:43:26,280 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:43:26,280 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:43:26,327 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:43:26,327 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:43:26,328 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:43:30,530 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:43:30,530 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:43:30,530 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:43:31,932 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 09:43:33,056 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 09:43:33,866 - ERROR - func_rogreso: 'CrearOrdenPago' object has no attribute 'dict'
+2024-10-25 09:43:52,320 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 09:44:13,051 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:44:13,116 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:44:13,351 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:44:13,352 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:44:13,512 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:44:13,548 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:44:13,649 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:44:13,649 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:44:13,649 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:44:13,692 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:44:13,692 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:44:13,692 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:44:17,909 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:44:17,910 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:44:17,910 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:44:19,329 - ERROR - func_rogreso: 'text_label_aviso'
+2024-10-25 09:44:27,293 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 09:44:49,728 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:44:49,793 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:44:50,113 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:44:50,114 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:44:50,405 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:44:50,444 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:44:50,543 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:44:50,544 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:44:50,544 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:44:50,588 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:44:50,588 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:44:50,588 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:44:54,792 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:44:54,792 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:44:54,792 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:44:56,198 - ERROR - func_rogreso: 'text_label_aviso'
+2024-10-25 09:45:09,262 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 09:50:43,171 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 09:50:43,248 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 09:50:43,597 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 09:50:43,598 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 09:50:44,576 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 09:50:44,623 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 09:50:44,728 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:50:44,728 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:50:44,728 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:50:44,775 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:50:44,775 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:50:44,775 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:50:48,984 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 09:50:48,984 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 09:50:48,984 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 09:50:50,396 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 09:50:51,759 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 09:50:52,576 - ERROR - func_rogreso: 'CrearOrdenPago' object has no attribute 'dict'
+2024-10-25 10:03:54,119 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:04:12,423 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:04:12,485 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:04:12,826 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:04:12,826 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:04:13,784 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:04:13,820 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:04:13,952 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:04:13,952 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:04:13,952 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:04:14,000 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:04:14,000 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:04:14,000 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:04:18,204 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:04:18,204 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:04:18,204 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:04:19,626 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:04:22,119 - ERROR - crear_orden: 'NoneType' object has no attribute 'status_code'
+2024-10-25 10:04:27,179 - ERROR - func_rogreso: 'label_estado'
+2024-10-25 10:04:36,985 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:06:58,320 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:06:58,396 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:06:58,724 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:06:58,724 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:06:59,121 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:06:59,166 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:06:59,269 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:06:59,269 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:06:59,269 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:06:59,320 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:06:59,320 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:06:59,320 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:07:03,526 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:07:03,526 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:07:03,526 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:07:04,943 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:07:21,392 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 10:07:22,228 - ERROR - func_rogreso: 'CrearOrdenPago' object has no attribute 'dict'
+2024-10-25 10:07:37,017 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:07:42,177 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:07:42,246 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:07:42,484 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:07:42,485 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:07:42,684 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:07:42,724 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:07:42,828 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:07:42,828 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:07:42,828 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:07:42,873 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:07:42,873 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:07:42,873 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:07:47,087 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:07:47,087 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:07:47,088 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:07:48,507 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:07:51,333 - ERROR - crear_orden: 'NoneType' object has no attribute 'status_code'
+2024-10-25 10:07:56,193 - ERROR - func_rogreso: 'label_estado'
+2024-10-25 10:08:14,915 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:09:04,323 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:09:04,531 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:09:04,846 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:09:04,847 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:09:05,293 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:09:05,325 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:09:05,734 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:09:05,734 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:09:05,734 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:09:05,807 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:09:05,807 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:09:05,807 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:09:10,009 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:09:10,010 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:09:10,010 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:09:11,421 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:09:13,447 - ERROR - crear_orden: 'NoneType' object has no attribute 'status_code'
+2024-10-25 10:09:18,784 - ERROR - func_rogreso: 'label_estado'
+2024-10-25 10:09:28,801 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:13:54,544 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:13:54,608 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:13:54,915 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:13:54,916 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:13:55,326 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:13:55,364 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:13:55,468 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:13:55,468 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:13:55,468 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:13:55,512 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:13:55,513 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:13:55,513 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:13:59,724 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:13:59,724 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:13:59,724 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:14:01,126 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:14:02,368 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 10:14:03,180 - ERROR - func_rogreso: 'CrearOrdenPago' object has no attribute 'dict'
+2024-10-25 10:14:10,757 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:15:45,833 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:15:45,890 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:15:46,233 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:15:46,234 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:15:46,629 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:15:46,664 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:15:46,769 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:15:46,769 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:15:46,769 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:15:46,813 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:15:46,814 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:15:46,814 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:15:51,026 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:15:51,026 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:15:51,026 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:15:52,414 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:16:18,472 - ERROR - crear_orden: 'NoneType' object has no attribute 'status_code'
+2024-10-25 10:16:25,986 - ERROR - func_rogreso: 'label_estado'
+2024-10-25 10:16:54,099 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:21:34,443 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:21:34,511 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:21:34,904 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:21:34,904 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:21:35,878 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:21:35,916 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:21:36,027 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:21:36,027 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:21:36,027 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:21:36,074 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:21:36,074 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:21:36,074 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:21:40,287 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:21:40,287 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:21:40,287 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:21:41,688 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:21:46,634 - ERROR - crear_orden: 'NoneType' object has no attribute 'status_code'
+2024-10-25 10:22:02,084 - ERROR - func_rogreso: 'label_estado'
+2024-10-25 10:22:05,494 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:23:20,238 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:23:20,300 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:23:20,617 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:23:20,618 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:23:21,642 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:23:21,678 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:23:21,780 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:23:21,780 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:23:21,780 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:23:21,829 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:23:21,829 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:23:21,829 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:23:26,032 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:23:26,032 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:23:26,032 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:23:26,138 - ERROR - progreso: 'CrearOrdenPago' object has no attribute 'func_rogreso'
+2024-10-25 10:23:42,016 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:25:30,537 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:25:30,599 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:25:30,988 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:25:30,989 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:25:31,342 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:25:31,381 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:25:31,489 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:25:31,489 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:25:31,489 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:25:31,538 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:25:31,538 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:25:31,538 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:25:35,854 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:25:35,854 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:25:35,854 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:25:37,250 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:25:38,897 - ERROR - crear_orden: 'NoneType' object has no attribute 'status_code'
+2024-10-25 10:25:44,135 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:31:06,898 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:31:06,954 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:31:07,287 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:31:07,288 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:31:08,322 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:31:08,353 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:31:08,481 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:31:08,481 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:31:08,481 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:31:08,529 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:31:08,529 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:31:08,529 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:31:12,736 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:31:12,736 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:31:12,737 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:31:14,138 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:31:15,642 - ERROR - crear_orden: 'NoneType' object has no attribute 'json'
+2024-10-25 10:31:17,833 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:33:10,774 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:33:10,837 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:33:11,144 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:33:11,144 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:33:11,479 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:33:11,521 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:33:11,642 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:33:11,642 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:33:11,642 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:33:11,693 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:33:11,693 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:33:11,693 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:33:15,914 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:33:15,914 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:33:15,914 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:33:17,319 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:33:18,467 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 10:33:19,276 - ERROR - func_rogreso: 'CrearOrdenPago' object has no attribute 'dict'
+2024-10-25 10:33:21,967 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:33:25,746 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:33:25,806 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:33:26,044 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:33:26,045 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:33:26,219 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:33:26,258 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:33:26,360 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:33:26,360 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:33:26,360 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:33:26,407 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:33:26,407 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:33:26,407 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:33:30,630 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:33:30,631 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:33:30,631 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:33:32,040 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:33:35,650 - ERROR - No conexión: ERROR 500
+2024-10-25 10:33:37,990 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:48:08,704 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:48:08,771 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:48:09,064 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:48:09,064 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:48:10,119 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:48:10,156 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:48:10,258 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:48:10,258 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:48:10,258 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:48:10,306 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:48:10,306 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:48:10,306 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:48:14,516 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:48:14,516 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:48:14,516 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:48:15,917 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:48:19,917 - ERROR - No conexión: ERROR 500
+2024-10-25 10:48:21,698 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 10:51:03,838 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 10:51:03,903 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 10:51:04,301 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 10:51:04,302 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 10:51:05,404 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 10:51:05,439 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 10:51:05,540 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:51:05,540 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:51:05,540 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:51:05,585 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:51:05,587 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:51:05,587 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:51:09,786 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 10:51:09,786 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 10:51:09,786 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 10:51:11,193 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 10:51:12,898 - ERROR - No conexión: ERROR 500
+2024-10-25 10:51:15,055 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+
+2024-10-25 11:01:37,168 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 11:01:37,235 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 11:01:37,583 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 11:01:37,584 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 11:09:26,917 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 11:09:26,979 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 11:09:27,301 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 11:09:27,303 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 11:09:28,317 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 11:09:28,351 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 11:09:28,456 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 11:09:28,456 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 11:09:28,456 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 11:09:28,505 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 11:09:28,505 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 11:09:28,505 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 11:09:33,812 - ERROR - BarraProgreso__init__: main thread is not in main loop
+2024-10-25 11:09:33,812 - ERROR - func_rogreso: 'CrearOrdenPago' object has no attribute 'runnig'
+2024-10-25 11:11:30,918 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 11:11:30,985 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 11:11:31,301 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 11:11:31,302 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 11:11:31,680 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 11:11:31,716 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 11:11:31,822 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 11:11:31,822 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 11:11:31,822 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 11:11:31,869 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 11:11:31,869 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 11:11:31,869 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 11:11:37,155 - ERROR - BarraProgreso__init__: main thread is not in main loop
+2024-10-25 11:11:37,156 - ERROR - func_rogreso: 'CrearOrdenPago' object has no attribute 'runnig'
+2024-10-25 11:12:40,525 - ERROR - __init__: INICIO ENLACE: ----------------------------------------------------------------------------------------
+2024-10-25 11:12:40,585 - DEBUG - Starting new HTTPS connection (1): stable-heartily-squirrel.ngrok-free.app:443
+2024-10-25 11:12:40,912 - DEBUG - https://stable-heartily-squirrel.ngrok-free.app:443 "GET / HTTP/11" 200 91
+2024-10-25 11:12:40,913 - DEBUG - Starting new HTTPS connection (1): 6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443
+2024-10-25 11:12:41,259 - DEBUG - https://6fgxlbohtweszdmefzgbepfkha0vxunh.lambda-url.sa-east-1.on.aws:443 "GET / HTTP/11" 200 27
+2024-10-25 11:12:41,298 - ERROR - __init__: PASE A SISTEMA: ----------------------------------------------------------------------------------------
+2024-10-25 11:12:41,402 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 11:12:41,403 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 11:12:41,403 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 11:12:41,450 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 11:12:41,450 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 11:12:41,450 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 11:12:45,654 - DEBUG - STREAM b'IHDR' 16 13
+2024-10-25 11:12:45,654 - DEBUG - STREAM b'sRGB' 41 1
+2024-10-25 11:12:45,654 - DEBUG - STREAM b'IDAT' 54 8192
+2024-10-25 11:12:47,046 - DEBUG - Starting new HTTPS connection (1): api.mercadopago.com:443
+2024-10-25 11:12:48,176 - DEBUG - https://api.mercadopago.com:443 "PUT /instore/orders/qr/seller/collectors/1662461858/pos/SUC001POS111/qrs HTTP/11" 200 219
+2024-10-25 11:12:52,963 - ERROR - __init__: FIN ENLACE: ----------------------------------------------------------------------------------------
+

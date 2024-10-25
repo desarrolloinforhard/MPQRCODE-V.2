@@ -58,7 +58,7 @@ class InterfazGrafica:
         self.label_DSNdelSERVER.pack(side="left", padx=10, pady=5)
         self.comboboxdelSERVER.pack(side="right", padx=10, pady=5)
         
-        self.label_DSNdelServer = customtkinter.CTkLabel(self.frameSERVERrespaldo, text="DSN del Servidor de Respaldo", fg_color="transparent")
+        self.label_DSNdelServer = customtkinter.CTkLabel(self.frameSERVERrespaldo, text="DSN del Servidor Central", fg_color="transparent")
         self.combobox_var_delSERVERrespaldo = customtkinter.StringVar(value=None) 
         self.combobox_delSERVERrespaldo = customtkinter.CTkComboBox(self.frameSERVERrespaldo, values=self.dsnLIST,
                                                     command=self.combobox_callback, variable=self.combobox_var_delSERVERrespaldo, state="readonly") 
@@ -66,7 +66,7 @@ class InterfazGrafica:
         
         
         self.check_var_referencia = customtkinter.StringVar(value="off")        
-        self.checkbox_referencia = customtkinter.CTkCheckBox(self.root, text="Agregar servidor de respaldo", command=self.servidor_de_respaldo,
+        self.checkbox_referencia = customtkinter.CTkCheckBox(self.root, text="Agregar Servidor Central", command=self.servidor_de_respaldo,
                                     variable=self.check_var_referencia, onvalue="on", offvalue="off")
         self.checkbox_referencia.pack()
                 
@@ -127,11 +127,11 @@ class InterfazGrafica:
         if self.combobox_var_delSERVERrespaldo.get() == 'None':            
             return conexion_sybase, conexion_sybaseSERVER
         else:
-            dsn_servidor_respaldo = self.combobox_var_delSERVERrespaldo.get()
+            dsn_servidor_central = self.combobox_var_delSERVERrespaldo.get()
             configuracion_sybaseServerRespaldo = {
             "user": "dba",
             "password": "gestion",
-            "dsn": dsn_servidor_respaldo
+            "dsn": dsn_servidor_central
             # Agrega otros parámetros según sea necesario
             }
             conexion_sybase_ServerRespaldo = ConexionSybase(**configuracion_sybaseServerRespaldo)
@@ -146,7 +146,7 @@ class InterfazGrafica:
             conexion_sybase = DBAdatos[0]        
             conexion_sybaseSERVER = DBAdatos[1]   
             conexion_sybaseSERVERrespaldo = DBAdatos[2]   
-            messagebox.showinfo("Test", f"POS = {conexion_sybase.conectar()}\n SERVER = {conexion_sybaseSERVER.conectar()}\n SERVER Respaldo = {conexion_sybaseSERVERrespaldo.conectar()}")  
+            messagebox.showinfo("Test", f"POS = {conexion_sybase.conectar()}\n SERVER = {conexion_sybaseSERVER.conectar()}\n SERVER Central = {conexion_sybaseSERVERrespaldo.conectar()}")  
                 
 
 
@@ -160,10 +160,10 @@ class InterfazGrafica:
         rutaWEB_SERVER = os.path.join(directorio_script, "paquete-webserver")
         rutaIPN = os.path.join(rutaWEB_SERVER, "configuracion.json")
         if self.combobox_var_delSERVERrespaldo.get() == 'None':
-            configuracion = {"dsn_caja": dsn_caja, "dsn_servidor": dsn_servidor}
+            configuracion = {"dsn_caja": dsn_caja, "dsn_servidor": dsn_servidor, "dsn_servidor_central": False}
         else: 
-            dsn_servidor_respaldo = self.combobox_var_delSERVERrespaldo.get()
-            configuracion = {"dsn_caja": dsn_caja, "dsn_servidor": dsn_servidor, "dsn_servidor_respaldo": dsn_servidor_respaldo}
+            dsn_servidor_central = self.combobox_var_delSERVERrespaldo.get()
+            configuracion = {"dsn_caja": dsn_caja, "dsn_servidor": dsn_servidor, "dsn_servidor_central": dsn_servidor_central}
         with open(rutaGUI, "w") as file:
             json.dump(configuracion, file)
         with open(rutaIPN, "w") as file:

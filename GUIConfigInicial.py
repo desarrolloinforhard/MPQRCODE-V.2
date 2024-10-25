@@ -45,34 +45,23 @@ class ConfigInicialMPQRCODE:
                     password="gestion",
                     dsn=self.dsn_servidor
                 )
-                if self.conexionDBASERVER.check_table_existence('MPQRCODE_CONEXIONSERVIDORAPI'):
-                    pass
+                self.conexionDBACENTRAL = ConexionSybase(
+                    user="dba",
+                    password="gestion",
+                    dsn=self.dsn_servidor_central
+                )
+                if self.conexionDBA.conectar() and self.conexionDBASERVER.conectar():
+                    if self.conexionDBACENTRAL.conectar():
+                        if self.pedido_API_online():
+                            self.llamar_crear_orden()
+                    elif self.conexionDBA.conectar() and self.conexionDBACENTRAL.conectar():
+                        messagebox.showinfo('¡¡IMPORTANTE!!', 'AVISO IMPORTANTE:\n Estas trabajando sobre la base local. No hay Conexión con la Central')
+                        if self.pedido_API_online():
+                            self.llamar_crear_orden()
                 else:
-                    self.conexionDBASERVER.crear_tabla_MPQRCODE_CONEXIONSERVIDORAPI()
-                    self.conexionDBASERVER.insertar_datos_sin_obtener_id('MPQRCODE_CONEXIONSERVIDORAPI', {'id': 1})
-                fecha_api = self.conexionDBASERVER.specify_search_condicion('MPQRCODE_CONEXIONSERVIDORAPI', 'ultima_actualizacion', 'id', 1, False)
-                print(self.comparacion_fechas(fecha_formateada, fecha_api))
-                if self.comparacion_fechas(fecha_formateada, fecha_api):
-                    if self.conexionDBA.conectar() and self.conexionDBASERVER.conectar():
-                        self.validar_password()
-                    else:
-                        if not self.dsn_servidor_respaldo == None:
-                            self.conexionDBASERVER = ConexionSybase(
-                            user="dba",
-                            password="gestion",
-                            dsn=self.dsn_servidor_respaldo
-                            )
-                            if self.conexionDBA.conectar() and self.conexionDBASERVER.conectar():
-                                messagebox.showinfo('¡¡IMPORTANTE!!', 'AVISO IMPORTANTE:\n Estas trabajando sobre una base de respaldo.')
-                                self.validar_password()
-                            else:
-                                messagebox.showerror('Error con el DBA', 'No se puede lograr conexion con ninguna base de datos')
-                        else:
-                            messagebox.showerror('Error con el DBA', 'No se puede lograr conexion con ninguna base de datos')
-                else:
-                    messagebox.showerror('Sin conexión', 'No nos pudimos conectar al servidor API de Inforhard')
+                        messagebox.showerror('Error con el DBA', 'No se puede lograr conexion con ninguna base de datos')
             else:
-                messagebox.showerror("Error", "DSN NO CONFIGURADOS. Habra el configurador de DSN e introduzcalos.")
+                messagebox.showerror('Sin conexión', 'No nos pudimos conectar al servidor API de Inforhard')
                 directorio_script = os.path.dirname(os.path.abspath(__file__))
                 root = customtkinter.CTk()
                 rutaicono = Icono_MercadoPago_Blue()

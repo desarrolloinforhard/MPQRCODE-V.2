@@ -1,0 +1,12 @@
+# Ignorar archivos de registro y caché
+*.log
+__pycache__/
+
+# Ignorar carpetas específicas del proyecto
+MPQRCODE(tk)/AWS/
+MPQRCODE(tk)/venv-MPQRCODE(tk)/
+MPQRCODE(tk)/__pycache__/
+MPQRCODE(tk)/MPQRCODE/
+MPQRCODE(tk)/output/
+MPQRCODE(tk)/paquete-webserver/
+MPQRCODE(tk)/GUI/__pycache__/
