@@ -1,0 +1,6 @@
+__pycache__/
+AWS/
+output/
+tickets/
+configuracion.json/
+errores.txt/

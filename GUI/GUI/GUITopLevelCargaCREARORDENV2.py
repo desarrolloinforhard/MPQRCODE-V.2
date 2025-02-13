@@ -3,7 +3,7 @@ import customtkinter as CTk
 import time
 from PIL import ImageTk, Image
 
-import image_path as RutaDeImagenes
+import assets.image_pathV2 as RutaDeImagenes
 
 class TopLevelCargaCREARORDEN():
     def __init__(self):

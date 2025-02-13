@@ -1,7 +1,11 @@
-from Conexion_APIs_MP import Conexion_Api
+from Conf.Conexion_APIs_MPV2 import Conexion_Api
 from datetime import datetime, timedelta
 from tkinter import messagebox
-import time
+from pprint import pprint
+import json
+import traceback
+import random
+import string
 
 # Obtener la fecha y hora actual
 now = datetime.now()
@@ -215,7 +219,7 @@ class Conexion_APP():
         try:
             crear_ORDEN = self.conexionAPI.crear_orden_dinamico(external_idPOS, nro_factura, sucNAME, monto_pagar, IPN_URL)
             print(crear_ORDEN)
-            return crear_ORDEN['qr_data']
+            return crear_ORDEN
         except Exception as e:
             messagebox.showerror("Error al crear la orden", f"{e}")
             print(f"Error: {e}")
@@ -337,29 +341,14 @@ class Conexion_APP():
                     print("NO SE PUDO OBTENER EL PAGO")
                     return False
                 
-    def obtenerPago_manual(self, id_pago, external_reference, external_idPOS):
-        print("BUSCANDO STATUS DEL PAGO: ")
-        datos = {
-            'external_reference': external_reference,
-            'external_idPOS': external_idPOS
-        }
-        self.conexionDBA.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGO", datos)
-        self.conexionDBAServer.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGO", datos)
+    def obtenerPAGO(self, id_pago):
+        return self.conexionAPI.obtener_pago(id_pago)
+                
+    def obtenerPago_manual(self, external_reference, external_idPOS, respuesta):
         
-        """if insertar and tipo_pago == 0:
-            self.conexionDBA.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGO", datos)
-            self.conexionDBAServer.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGO", datos)
-        elif insertar and tipo_pago == 1:
-            self.conexionDBA.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGOPOINT", datos)
-            self.conexionDBAServer.insertar_datos_sin_obtener_id("MPQRCODE_OBTENERPAGOPOINT", datos)
-        else:
-            pass"""
-
-        # Asegúrate de que obtienes la respuesta correctamente
-        respuesta = self.conexionAPI.obtener_pago(id_pago)
         
         if respuesta.status_code > 300 and respuesta.status_code < 500:
-            return f"Error {respuesta.status_code}"
+            return f"Error {respuesta.status_code, respuesta.json["message"]}"
         else:
             pass
 
@@ -369,82 +358,114 @@ class Conexion_APP():
             print(json_response)
         except ValueError as e:
             print(f"Error al parsear la respuesta JSON: {str(e)}")
-            return
+            return  f"Error al parsear la respuesta JSON: {str(e)}"
 
-        datos = {}
+        
+        datos = {
+            'external_reference': external_reference,
+            'external_idPOS': external_idPOS,
+            "collector_id": json_response["collector_id"],
+            "coupon_amount": json_response["coupon_amount"],
+            "currency_id": json_response["currency_id"],
+            "date_approved": json_response["date_approved"],
+            "date_created": json_response["date_created"],
+            "date_last_updated": json_response["date_last_updated"],
+            "date_of_expiration": json_response["date_of_expiration"],
+            "deduction_schema": json_response["deduction_schema"],
+            "description": json_response["description"],
+            "id": json_response["id"],
+            "installments": json_response["installments"],
+            "integrator_id": json_response["integrator_id"],
+            "issuer_id": json_response["issuer_id"],
+            "live_mode": json_response["live_mode"],
+            "marketplace_owner": json_response["marketplace_owner"],
+            "merchant_account_id": json_response["merchant_account_id"],
+            "merchant_number": json_response["merchant_number"],
+            "order_id": json_response["order"]["id"],
+            "order_type": json_response["order"]["type"],
+            "payer_id": json_response["payer"]["id"],
+            "payment_metodo_id": json_response["payment_method"]["id"],
+            "payment_metodo_issuer_id": json_response["payment_method"]["issuer_id"],
+            "payment_metodo_type": json_response["payment_method"]["type"],
+            "pos_id": json_response["pos_id"],
+            "processing_mode": json_response["processing_mode"],
+            "shipping_amount": json_response["shipping_amount"],
+            "sponsor_id": json_response["sponsor_id"],
+            "status": json_response["status"],
+            "status_detail": json_response["status_detail"],
+            "store_id": json_response["store_id"],
+            "taxes_amount": json_response["taxes_amount"],
+            "transaction_amount": json_response["transaction_amount"],
+            "transaction_amount_refunded": json_response["transaction_amount_refunded"],
+            "net_received_amount": json_response["transaction_details"]["net_received_amount"],
+            "transaction_details_total_paid_amount": json_response["transaction_details"]["total_paid_amount"],
+        }
+        datos_server = {
+            'external_reference': external_reference,
+            'data': json_response["id"],
+            "collector_id": json_response["collector_id"],
+            "coupon_amount": json_response["coupon_amount"],
+            "currency_id": json_response["currency_id"],
+            "date_approved": json_response["date_approved"],
+            "date_created": json_response["date_created"],
+            "date_last_updated": json_response["date_last_updated"],
+            "date_of_expiration": json_response["date_of_expiration"],
+            "deduction_schema": json_response["deduction_schema"],
+            "description": json_response["description"],
+            "id": json_response["id"],
+            "installments": json_response["installments"],
+            "integrator_id": json_response["integrator_id"],
+            "issuer_id": json_response["issuer_id"],
+            "live_mode": json_response["live_mode"],
+            "marketplace_owner": json_response["marketplace_owner"],
+            "merchant_account_id": json_response["merchant_account_id"],
+            "merchant_number": json_response["merchant_number"],
+            "order_id": json_response["order"]["id"],
+            "order_type": json_response["order"]["type"],
+            "payer_id": json_response["payer"]["id"],
+            "payment_metodo_id": json_response["payment_method"]["id"],
+            "payment_metodo_issuer_id": json_response["payment_method"]["issuer_id"],
+            "payment_metodo_type": json_response["payment_method"]["type"],
+            "pos_id": json_response["pos_id"],
+            "processing_mode": json_response["processing_mode"],
+            "shipping_amount": json_response["shipping_amount"],
+            "sponsor_id": json_response["sponsor_id"],
+            "status": json_response["status"],
+            "status_detail": json_response["status_detail"],
+            "store_id": json_response["store_id"],
+            "taxes_amount": json_response["taxes_amount"],
+            "transaction_amount": json_response["transaction_amount"],
+            "transaction_amount_refunded": json_response["transaction_amount_refunded"],
+            "net_received_amount": json_response["transaction_details"]["net_received_amount"],
+            "transaction_details_total_paid_amount": json_response["transaction_details"]["total_paid_amount"],
+        }
+        self.conexionDBA.insertar_datos_o_actualizar("MPQRCODE_OBTENERPAGO", datos)
+        self.conexionDBAServer.insertar_datos_o_actualizar("MPQRCODE_OBTENERPAGOServer", datos_server)
+        return respuesta
+    
+    def obtenerPagoV2_POINT(self, idpago):
+        return self.conexionAPI.obtener_pago(idpago)
+    
 
-        for clave_json, valor_json in json_response.items():
-            if clave_json == 'order' and isinstance(valor_json, dict):
-                for recorre_dict, valordict in valor_json.items():
-                    if recorre_dict == 'id':
-                        datos['order_id'] = valordict
-                    else:
-                        datos['order_type'] = valordict
-            elif clave_json == 'payer' and isinstance(valor_json, dict):
-                for recorre_dict, valordict in valor_json.items():
-                    if recorre_dict == 'id':
-                        datos['payer_id'] = valordict
-                    else:
-                        print("Se encontró una respuesta no esperada.")
-            elif clave_json == 'payment_method' and isinstance(valor_json, dict):
-                for recorre_dict, valordict in valor_json.items():  # Corregir aquí a valordict
-                    if recorre_dict == 'id':
-                        datos['payment_metodo_id'] = valordict
-                    elif recorre_dict == 'issuer_id':
-                        datos['payment_metodo_issuer_id'] = valordict
-                    else:
-                        datos['payment_metodo_type'] = valordict
-            elif clave_json == 'transaction_details' and isinstance(valor_json, dict):
-                for recorre_dict, valordict in valor_json.items():  # Corregir aquí a valordict
-                    if recorre_dict == 'total_paid_amount':
-                        datos['transaction_details_total_paid_amount'] = valordict
-                    else:
-                        pass
-            else:
-                columnas = self.conexionDBA.obtener_nombres_columnas("MPQRCODE_OBTENERPAGO")
-                """if tipo_pago == 0:
-                    columnas = self.conexionDBA.obtener_nombres_columnas("MPQRCODE_OBTENERPAGO")
-                elif tipo_pago == 1:
-                    columnas = self.conexionDBA.obtener_nombres_columnas("MPQRCODE_OBTENERPAGOPOINT")"""
-                for colum_name in columnas:
-                    if clave_json == colum_name and not clave_json == 'external_reference':
-                        datos[clave_json] = valor_json
-                    else:
-                        pass
-        self.conexionDBA.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos, 'external_reference', f"'{external_reference}'")
-        self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos, 'external_reference', f"'{external_reference}'")
-        self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGOServer", datos, 'external_reference', f"'{external_reference}'")
-        status = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGO", 'status', 'external_reference', external_reference, False)
-        status_detail = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGO", 'status_detail', 'external_reference', external_reference, False)
-        if status == 'approved' and status_detail == 'accredited':
-            print("PAGO REALIZADO")
-            return True
+    def obtenerPago_manualPOINT(self, respuesta):
+        
+        if respuesta.status_code < 300:
+            try:            
+                # Guardar o actualizar los datos con el JSON string
+                self.conexionDBA.insertar_datos_o_actualizarPOINT("MPQRCODE_OBTENERPAGOPOINT", respuesta)
+                self.conexionDBAServer.insertar_datos_o_actualizarPOINT("MPQRCODE_OBTENERPAGOPOINTServer", respuesta)
+                return respuesta
+            except Exception as e:
+                # Puedes registrar el error en tu archivo de errores si tienes un sistema de logging
+                print(f"Error al insertar datos: {e}")
+                error_traceback = traceback.format_exc()
+                print(f"Error al obtenerPago_manualPOINTs: {e}\nTraceback:\n{error_traceback}")
+                return "Error al momento de insertar los datos en el DBA"
+        elif respuesta.status_code == 404:
+            return "No se ha encontrado el número de operación"
         else:
-            print("NO SE PUDO OBTENER EL PAGO")
-            return False
-        #self.conexionDBA.actualizar_datos_condicion("MPQRCODE_OBTENERPAGOServer", datos, 'external_reference', f"'{external_reference}'")
-        """if tipo_pago == 0:
-            self.conexionDBA.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos, 'external_reference', f"'{external_reference}'")
-            self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGO", datos, 'external_reference', f"'{external_reference}'")
-            status = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGO", 'status', 'external_reference', external_reference, False)
-            status_detail = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGO", 'status_detail', 'external_reference', external_reference, False)
-            if status == 'approved' and status_detail == 'accredited':
-                print("PAGO REALIZADO")
-                return True
-            else:
-                print("NO SE PUDO OBTENER EL PAGO")
-                return False
-        elif tipo_pago == 1:
-                self.conexionDBA.actualizar_datos_condicion("MPQRCODE_OBTENERPAGOPOINT", datos, 'external_reference', f"'{external_reference}'")
-                self.conexionDBAServer.actualizar_datos_condicion("MPQRCODE_OBTENERPAGOPOINT", datos, 'external_reference', f"'{external_reference}'")
-                status = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGOPOINT", 'status', 'external_reference', external_reference, False)
-                status_detail = self.conexionDBA.specify_search_condicion("MPQRCODE_OBTENERPAGOPOINT", 'status_detail', 'external_reference', external_reference, False)
-                if status == 'approved' and status_detail == 'accredited':
-                    print("PAGO REALIZADO")
-                    return True
-                else:
-                    print("NO SE PUDO OBTENER EL PAGO")
-                    return False"""
+            return f"Error {respuesta.status_code, respuesta.json()}"
+            
             
             
     def crearOrdenFULL(self, external_id_pos, nroFactura, sucNAME, montoPagar, pictureURL):
@@ -501,10 +522,25 @@ class Conexion_APP():
             messagebox.showerror("Error al obtener POINT", f"{e}")
             return "No se encontro el dispositivo"
         
+    def cambiarModoOperacion(self, ID_DEVICE, tipo_operacion):
+        respuesta = self.conexionAPI.cambiar_modo_operacion(ID_DEVICE, tipo_operacion)
+        return respuesta        
     
-    def crearIntencionPAGOPoint(self, deviceid, nro_factura, precio, TicketNUM):
-        respuesta = self.conexionAPI.crear_intencion_pago_POINT(deviceid, nro_factura, precio, TicketNUM)
+    def crearIntencionPAGOPoint(self, deviceid, nro_factura, precio, imprime_ticket):
+        TicketNUM = self.generar_ticket_number()
+        respuesta = self.conexionAPI.crear_intencion_pago_POINT(deviceid, nro_factura, precio, imprime_ticket, TicketNUM)
         return respuesta
+    
+    def generar_ticket_number(self):
+        prefijo = self.conexionDBA.specify_search_condicion("SPDIR", "ID", "GRID", "pref_tkt_MP", False) #"TKT"  # Opcional, puedes modificarlo
+        if not prefijo == None:
+            pass
+        else:
+            prefijo = "TKT"
+        timestamp = datetime.now().strftime("%H%M")  # Hora, minutos y segundos
+        random_part = ''.join(random.choices(string.ascii_uppercase + string.digits, k=3))
+        ticket_number = f"{prefijo}{timestamp}{random_part}"
+        return ticket_number[:20]  # Garantiza que no supere los 20 caracteres
     
     def cancelarIntencionPAGOPoint(self, deviceid, paymentintentid):
         respuesta = self.conexionAPI.cancelar_intencion_pago_POINT(deviceid, paymentintentid)
@@ -512,7 +548,11 @@ class Conexion_APP():
     
     def buscarIntencionPAGOPoint(self, paymentintentid):
         respuesta = self.conexionAPI.buscar_intencion_pago_POINT(paymentintentid)
+        print(respuesta)
         return respuesta
     
     def prueba(self):
         return True
+    
+    def obtenerTodosMediosPagos(self):
+        return self.conexionAPI.obtener_todos_medios_pagos()
