@@ -27,7 +27,7 @@ class Conexion_Api:
 
         SUCload = datosSUC
 
-        response = requests.post(url, headers=headers, data=json.dumps(SUCload))
+        response = self._retry_request(lambda: requests.post(url, headers=headers, data=json.dumps(SUCload)))
         
         #GUARDAR EL JSON COMO ARCHIVO DE FORMAR LOCAL
         """
@@ -53,7 +53,7 @@ class Conexion_Api:
             }
 
             # Realizar la solicitud para eliminar la sucursal
-            response = requests.delete(url, headers=headers)
+            response = self._retry_request(lambda: requests.delete(url, headers=headers))
             return response.status_code
         except:
             print(response)
@@ -78,7 +78,7 @@ class Conexion_Api:
         }
 
         """
-        response = requests.post(url, headers=hedears, data=json.dumps(POSload))
+        response = self._retry_request(lambda: requests.post(url, headers=hedears, data=json.dumps(POSload)))
         print(response)
         
         #CREAR ARCHIVO .JSON CON LA RESPUESTA Y GUARDARLO DE FORMA LOCAL (nombre_SUC)
@@ -105,7 +105,7 @@ class Conexion_Api:
             'Authorization': f'Bearer {self.access_token}'
         }
         
-        response = requests.delete(url, headers=headers)
+        response = self._retry_request(lambda: requests.delete(url, headers=headers))
         
         return response
             
@@ -134,7 +134,7 @@ class Conexion_Api:
             ]
             }
         
-        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        response = self._retry_request(lambda: requests.post(url, headers=headers, data=json.dumps(payload)))
         """
         # Crear la carpeta si no existe
         folder_path = "CREAR_PAGOS"
@@ -181,7 +181,7 @@ class Conexion_Api:
             "total_amount": precio          
             }
         
-        response = requests.put(url, headers=headers, data=json.dumps(payload))
+        response = self._retry_request(lambda: requests.put(url, headers=headers, data=json.dumps(payload)))
         return response.status_code
     
         
@@ -193,7 +193,7 @@ class Conexion_Api:
             "Authorization": f"Bearer {self.access_token}"
             }
         
-        response = requests.get(url= url, headers=headers)
+        response = self._retry_request(lambda: requests.get(url= url, headers=headers))
         return response.status_code
     
     def reembolso_orden(self, precio, external_store_id, external_pos_id):
@@ -228,7 +228,7 @@ class Conexion_Api:
             "total_amount": precio          
             }
         
-        response = requests.put(url, headers=headers, data=json.dumps(payload))
+        response = self._retry_request(lambda: requests.put(url, headers=headers, data=json.dumps(payload)))
         return response.status_code
     
     def eliminar_ordenV2(self, external_id_pos):
@@ -240,7 +240,7 @@ class Conexion_Api:
             'Authorization': f'Bearer {self.access_token}'
         }
         
-        response = requests.delete(url, headers=headers)
+        response = self._retry_request(lambda: requests.delete(url, headers=headers))
         
         return response.status_code
     
@@ -279,7 +279,9 @@ class Conexion_Api:
             "total_amount": monto_pagar          
             }
         
-        response = requests.put(url, headers=headers, data=json.dumps(pagodata_json))
+        print(pagodata_json)
+        
+        response = self._retry_request(lambda: requests.put(url, headers=headers, data=json.dumps(pagodata_json)))
         print(response)
         return response
     
@@ -316,8 +318,8 @@ class Conexion_Api:
             "title": sucNAME,
             "total_amount": monto_pagar          
             }
-        
-        response = requests.put(url, headers=headers, data=json.dumps(pagodata_json))
+        print(pagodata_json)
+        response = self._retry_request(lambda: requests.put(url, headers=headers, data=json.dumps(pagodata_json)))
         print(response)
         return response
     
@@ -329,7 +331,7 @@ class Conexion_Api:
             'Authorization': f'Bearer {self.access_token}'
             }
         
-        response = requests.get(url=url, headers=headers)
+        response = self._retry_request(lambda: requests.get(url=url, headers=headers))
         """
         print(response.status_code)
         # Crear la carpeta si no existe
@@ -341,8 +343,17 @@ class Conexion_Api:
             json.dump(response.json(), json_file, indent=2)
         print(response.status_code)
         """
-        pprint(response.json())
         return response
+    
+    def actualizar_pago(self, id_compra, dict_datos_actualizar):
+        url = f"https://api.mercadopago.com/v1/payments/{id_compra}"
+        
+        headers = {
+            "Content-Type": 'application/json',
+            'Authorization': f'Bearer {self.access_token}'
+            }
+        print(url, headers, dict_datos_actualizar)
+        return self._retry_request(lambda: requests.put(url=url, headers=headers, data=json.dumps(dict_datos_actualizar)))
     
 #/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*REEMBOLSOS/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*
     def crear_reembolso(self, id_compra, pago_devolver):
@@ -358,7 +369,7 @@ class Conexion_Api:
             'amount': pago_devolver
         }
         
-        response = requests.post(url, headers=headers, data=json.dumps(returnload))
+        response = self._retry_request(lambda: requests.post(url, headers=headers, data=json.dumps(returnload)))
         
         return response
     
@@ -370,7 +381,7 @@ class Conexion_Api:
             'Authorization': f'Bearer {self.access_token}'
         }
         
-        response = requests.get(url, headers=headers)
+        response = self._retry_request(lambda: requests.get(url, headers=headers))
         
         return response.json()
         
@@ -382,7 +393,7 @@ class Conexion_Api:
             'Authorization': f'Bearer {self.access_token}'
         }
         
-        response = requests.get(url=url, headers=headers)
+        response = self._retry_request(lambda: requests.get(url=url, headers=headers))
         return response.json()
     
     def crear_cancelacion_compra(self, user_id, external_pos_id):
@@ -397,7 +408,7 @@ class Conexion_Api:
             'status': "cancelled"
         }
         
-        response = requests.put(url, headers=headers, data=json.dumps(returnload))
+        response = self._retry_request(lambda: requests.put(url, headers=headers, data=json.dumps(returnload)))
         return response.json()
     
     def buscar_pagos(self, id_store, id_pos):
@@ -408,7 +419,7 @@ class Conexion_Api:
             'Authorization': f'Bearer {self.access_token}'
         }
         
-        response = requests.get(url, headers=headers)
+        response = self._retry_request(lambda: requests.get(url, headers=headers))
         
         return response
     
@@ -423,7 +434,7 @@ class Conexion_Api:
             "Authorization": f"Bearer {self.access_token}"
             }
         
-        response = requests.get(url, headers=headers)
+        response = self._retry_request(lambda: requests.get(url, headers=headers))
         return response
     
     def obtener_dispositivo_POINTALL(self,):
@@ -435,7 +446,7 @@ class Conexion_Api:
             "Authorization": f"Bearer {self.access_token}"
             }
         
-        response = requests.get(url, headers=headers)
+        response = self._retry_request(lambda: requests.get(url, headers=headers))
         return response
     
     def crear_intencion_pago_POINT(self, deviceid, nro_factura, precio, imprime_ticket, TicketNUM):
@@ -456,7 +467,7 @@ class Conexion_Api:
             "amount": precio
         }
         
-        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        response = self._retry_request(lambda: requests.post(url, headers=headers, data=json.dumps(payload)))
         return response
     
     
@@ -472,7 +483,7 @@ class Conexion_Api:
             "Authorization": f"Bearer {self.access_token}"
             }
         
-        response = requests.delete(url, headers=headers)
+        response = self._retry_request(lambda: requests.delete(url, headers=headers))
         return response
     
     def buscar_intencion_pago_POINT(self, paymentintentid):
@@ -484,7 +495,7 @@ class Conexion_Api:
         }
         
         try:
-            response = requests.get(url, headers=headers, timeout=10)  # Agregamos un timeout de 10 segundos
+            response = self._retry_request(lambda: requests.get(url, headers=headers, timeout=10))  # Agregamos un timeout de 10 segundos
             response.raise_for_status()  # Lanza un error si el código de estado es 4xx o 5xx
             
             # Intentamos convertir la respuesta a JSON
@@ -522,4 +533,22 @@ class Conexion_Api:
             "Authorization": f"Bearer {self.access_token}"
             }
         
-        return requests.get(url, headers=headers)
+        return self._retry_request(lambda: requests.get(url, headers=headers))
+    
+    
+    def _retry_request(self, func):
+        import time
+        import requests
+        for intento in range(3):
+            try:
+                response = func()
+                if isinstance(response, requests.Response) and response.status_code < 500:
+                    return response
+            except Exception as e:
+                print(f"⚠ Intento {intento + 1} fallido: {e}")
+            time.sleep(1)
+        try:
+            return func()  # Último intento fuera del bucle
+        except Exception as e:
+            print(f"❌ Error definitivo al llamar a la API: {e}")
+            return None
