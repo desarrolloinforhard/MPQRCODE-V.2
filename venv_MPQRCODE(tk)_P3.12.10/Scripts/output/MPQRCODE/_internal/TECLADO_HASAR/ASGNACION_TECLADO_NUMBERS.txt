@@ -1,0 +1,16 @@
+86 = "BORRAR COMO EN EL TECLADO"
+6a = "ENTER EN EL TECLADO"
+44 = "TAB EN EL TECLADO"
+64 = "BORRADO COMPLETADO"
+46 = 0
+47 = 00 
+48 = . 
+56 = 1 
+57 = 2 
+58 = 3 
+66 = 4 
+67 = 5 
+68 = 6 
+76 = 7 
+77 = 8 
+78 = 9 
