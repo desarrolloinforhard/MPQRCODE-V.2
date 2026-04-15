@@ -1,6 +1,7 @@
 # Entorno virtual
 venv/
 .venv/
+venv_MPQRCODE(tk)_P3.12.10/
 
 # Python
 __pycache__/
