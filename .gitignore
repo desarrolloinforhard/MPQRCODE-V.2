@@ -1,12 +1,30 @@
-# Ignorar archivos de registro y caché
-*.log
-__pycache__/
+# Entorno virtual
+venv/
+.venv/
 
-# Ignorar carpetas específicas del proyecto
-MPQRCODE(tk)/AWS/
-MPQRCODE(tk)/venv-MPQRCODE(tk)/
-MPQRCODE(tk)/__pycache__/
-MPQRCODE(tk)/MPQRCODE/
-MPQRCODE(tk)/output/
-MPQRCODE(tk)/paquete-webserver/
-MPQRCODE(tk)/GUI/__pycache__/
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+logs/
+*.log
+
+# VS Code
+.vscode/
+
+# Archivos del sistema
+Thumbs.db
+desktop.ini
+
+# Variables locales
+.env
+
+# Build
+build/
+dist/
+
+# PyInstaller
+*.spec

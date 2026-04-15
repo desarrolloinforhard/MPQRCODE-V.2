@@ -15,7 +15,7 @@
   },
   {
    "optionDest": "console",
-   "value": true
+   "value": false
   },
   {
    "optionDest": "icon_file",
@@ -26,8 +26,16 @@
    "value": "MPQRCODE"
   },
   {
+   "optionDest": "upx_dir",
+   "value": "J:/Tool Python/upx-4.2.4-win64"
+  },
+  {
    "optionDest": "clean_build",
    "value": false
+  },
+  {
+   "optionDest": "optimize",
+   "value": "2"
   },
   {
    "optionDest": "strip",
@@ -36,6 +44,10 @@
   {
    "optionDest": "noupx",
    "value": false
+  },
+  {
+   "optionDest": "hide_console",
+   "value": "minimize-early"
   },
   {
    "optionDest": "disable_windowed_traceback",
@@ -56,34 +68,6 @@
   {
    "optionDest": "bootloader_ignore_signals",
    "value": false
-  },
-  {
-   "optionDest": "hiddenimports",
-   "value": "dbfread"
-  },
-  {
-   "optionDest": "hiddenimports",
-   "value": "keyboard"
-  },
-  {
-   "optionDest": "hiddenimports",
-   "value": "pypyodbc"
-  },
-  {
-   "optionDest": "hiddenimports",
-   "value": "pytz"
-  },
-  {
-   "optionDest": "hiddenimports",
-   "value": "qrcode"
-  },
-  {
-   "optionDest": "hiddenimports",
-   "value": "requests"
-  },
-  {
-   "optionDest": "hiddenimports",
-   "value": "ttkbootstrap"
   },
   {
    "optionDest": "datas",
@@ -112,10 +96,6 @@
   {
    "optionDest": "datas",
    "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE(tk)/GUI/QRIMGDATA;QRIMGDATA/"
-  },
-  {
-   "optionDest": "datas",
-   "value": "C:/Users/Op_1111/Desktop/Proyectos/MPQRCODE/GUIServer/MPQRCODE(tk)/GUI/TECLADO_HASAR;TECLADO_HASAR/"
   }
  ],
  "nonPyinstallerOptions": {

@@ -8,7 +8,7 @@ import ttkbootstrap as ttk
 import Func.window_position
 import threading
 from decimal import Decimal
-from GUI.CrearOrdenPago import CrearOrdenPago
+from GUI.CrearOrdenPagoV4 import CrearOrdenPago
 from GUI.CrearOrdenPagoPOINT import CrearOrdenPagoPOINT
 from GUI.CrerarOrdenReembolso import CrearOrdenReembolso
 from GUI.BuscarOrdenPago import BuscarOrdenPago
@@ -28,6 +28,7 @@ class GUIMAIN:
         self.conexionAPIPOINT = DICT_CONEXION["conexionAPIPOINT"]
         self.conexionDBA = DICT_CONEXION["conexionDBA"]
         self.conexionDBAServer = DICT_CONEXION["conexionDBAServer"]
+        self.teclado = DICT_CONEXION.get("teclado")
         
         try:
             self.datos_para_orden = self.conexionDBA.specify_search_all_columns_nocondicion("MPQRCODE_CONEXIONPROGRAMAS")[0]
@@ -53,14 +54,21 @@ class GUIMAIN:
         except Exception as e:
             log_error(f"Error al obtener datos para la orden: {e}", function_name='__init__')
             messagebox.showerror("Error", "No se pudo obtener los datos necesarios para la orden.")
-        print(self.datos_para_orden[6] == 2)
-        if self.datos_para_orden[6] == 2:
-            threading.Thread(target=GUI_MAIN).start()
+        mod = self.datos_para_orden[6]
+        if mod in {2, 3, 4}:
+            threading.Thread(target=GUI_MAIN, args=(self.teclado,)).start()
             print("Modulo de CLOVER")
+            """if self.datos_para_orden[6] == 2 or self.datos_para_orden[6] == 3:
+            threading.Thread(target=GUI_MAIN, args=(self.teclado,)).start()
+            print("Modulo de CLOVER")"""
         else:
+            self.modo_supervisor_forzado = True
             self.ventana_creacion_caja = ttk.Window(themename="lumen", iconphoto=LOGO_MP())
             self.ventana_creacion_caja.title(f"Creación de OrdenV2, V.{version}")
             self.ventana_creacion_caja.resizable(False, False)
+            self.teclado.activar_escucha_funciones_global(self.ventana_creacion_caja)
+            print("SE ACTIVO 'activar_escucha_funciones_global' ")
+
             #self.ventana_creacion_caja.iconbitmap(Icono_MercadoPago_Blue())
             
             
@@ -97,8 +105,7 @@ class GUIMAIN:
             
             Func.window_position.center_window(self.ventana_creacion_caja, 400, 550)
             self.ventana_creacion_caja.protocol("WM_DELETE_WINDOW", self.mostrar_error)
-            self.ventana_creacion_caja.mainloop()
-        
+            self.ventana_creacion_caja.mainloop()        
     def mostrar_error(self):
         # Mostrar un mensaje de error
         messagebox.showerror("Error", "No se puede cerrar la ventana porque una orden está en proceso.")
@@ -150,6 +157,9 @@ class GUIMAIN:
         #self.my_label_aviso_cancelar_point.pack(pady=10)
         #self.my_label_aviso_cancelar_point.pack_propagate(False)
         
+        self.DICT_CLAVES_SUPERVISORES = {}
+        self.traer_supervisores()
+        
         self.DIC_WIDGET = {
             "root": self.ventana_creacion_caja,
             "label_estado": self.my_label_estado,
@@ -167,7 +177,12 @@ class GUIMAIN:
                 "cerrar_ventana_buscar_pago_manual": self.cerrar_ventana_buscar_pago_manual
                 },
             "cerrar_ventana": self.after_cerrar_ventana,
-            "cerrar_con_taskill": self.cerrado_inmediato_taskkill
+            "cerrar_con_taskill": self.cerrado_inmediato_taskkill,
+            "variable_contendora_MensajeERROR": None,
+            "DICT_CLAVES_SUPERVISORES" : self.DICT_CLAVES_SUPERVISORES,
+            "modo_supervisor_forzado": self.modo_supervisor_forzado,
+            "forzar_comparacion_factura": False
+
         }
         
         
@@ -197,9 +212,11 @@ class GUIMAIN:
                     'NombreCajero': self.datos_para_orden[10]
                 }
             if self.datos_para_orden[6] == 0:
+                print(0)
                 log_error("Se detectó tipo de orden: Estándar", "func_barra_progreso")
                 threading.Thread(target=CrearOrdenPago, args=(self.frame_progress_bar, self.DIC_WIDGET, DICT_DATOS_ORDEN, DICT_CONEXION)).start()
             else:
+                print(1)
                 try:
                     if self.conexionDBA.specify_search_condicion("SPDIR", "ID", "GRID", "MP_POINT", False).lower() == "true":
                         self.my_buttonDLT.pack_forget()
@@ -344,6 +361,7 @@ class GUIMAIN:
 
             self.label_info_buscar_pago = ttk.Label(self.frame_buscar_pago_manual, text="Ingrese el ID de Operación a verificar:")
             self.entry_info_buscar_pago = ttk.Entry(self.frame_buscar_pago_manual, width=30, validate="key")
+            self.teclado.asignar_entry(self.entry_info_buscar_pago)
             self.button_info_buscar_pago = ttk.Button(self.frame_buscar_pago_manual, text="Buscar")
 
             self.label_info_buscar_pago.pack(pady=5)
@@ -376,11 +394,14 @@ class GUIMAIN:
             
             
     def after_cerrar_ventana(self):
-        self.ventana_creacion_caja.after(25, self.cerrar_ventana)
+        self.cerrar_ventana()  # Ejecutar directamente, sin esperar 25ms
+
             
     def cerrar_ventana(self):
+        print("[DEBUG] ventana_creacion_caja destruida")
         self.ventana_creacion_caja.quit()
         self.ventana_creacion_caja.destroy()
+
         
     def cerrado_inmediato_taskkill(self, nro_factura=None):
         try:
@@ -404,7 +425,8 @@ class GUIMAIN:
                 self.ventana_creacion_caja,
                 "Error",
                 "El proceso se ha finalizado inesperadamente.\nPor favor, intente realizar el cierre de venta nuevamente.",
-                "error"
+                "error",
+                teclado_hasar=self.teclado
             )
 
             if platform.system() == "Windows":
@@ -416,4 +438,11 @@ class GUIMAIN:
 
         except Exception as e:
             log_error(str(e), "cerrado_inmediato_taskkill")
+            
+    def traer_supervisores(self):
+        query = 'SELECT Descripcion, clave FROM "DBA"."Supervisor" where permiso >= 100'
+        listasupervisores = self.conexionDBA.ejecutar_consulta(query)
+        for supervisores, clave in listasupervisores:
+            print(supervisores, clave)
+            self.DICT_CLAVES_SUPERVISORES[clave] = supervisores
 
